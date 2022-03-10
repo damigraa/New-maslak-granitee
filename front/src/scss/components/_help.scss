@@ -1,0 +1,55 @@
+.help {
+    margin:  70px;
+ .help-img {
+    max-height: 320px;
+    max-width: 320px;
+    min-height: 300px;
+    min-width: 300px;
+    border: 10px solid #e5c8b5;
+    margin: auto ;
+   }
+.head-under {
+    margin: auto ;
+   
+    h3{
+        font-weight: 500;
+    position: relative;
+    width: 100%;
+    padding-bottom: 15px;
+    }
+    h3::before {
+        content: '';
+        width: 100px;
+        height: 1px;
+        background: #e5c8b5;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+    .is-empty{
+        padding-bottom: 0;
+        margin-top: 10px;
+    }
+    .is-empty::before {
+        position: absolute;
+    right: 20px;
+    margin-top: 45%;
+    top: 50%;
+    height: 24px;
+    width: 24px;
+    background: url('../../assets/phone.svg');
+    background-size: 24px 24px;
+    }
+    // .is-empty::before {
+    //     content: '';
+    // position: absolute;
+    // right: 20px;
+    // top: 15%;
+    // height: 24px;
+    // width: 24px;
+    // background: url("../../assets/img/name.svg");
+    // background-size: 24px 24px;
+    // }
+   
+}
+}

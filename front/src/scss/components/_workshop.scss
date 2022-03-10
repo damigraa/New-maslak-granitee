@@ -1,0 +1,44 @@
+.work-shop {
+    margin: 30px auto;
+    .h2 {
+        margin-bottom: 15px;
+        // font-family: "Roboto","Helvetica","Arial",sans-serif;
+        font-weight: 300;
+        line-height: 1.5em;
+    
+    }
+    h3 {
+        font-size: 30px;
+        line-height: 4rem;
+        margin: 20px 0 10px;
+    }
+    p{
+        margin: 0 0 10px;
+    }
+    ol{
+        li{
+            list-style-type: none;
+    counter-increment: list;
+    padding: 12px 0 12px 40px;
+    font-size: 20px;
+    position: relative;
+        }
+        li::before {
+            content: counter(list) " ";
+            width: 25px;
+            height: 25px;
+            line-height: 25px;
+            display: block;
+            text-align: center;
+            border-radius: 50%;
+            background: #f5e9e1;
+            float: left;
+            margin-right: 15px;
+            font-size: 13px;
+            font-weight: 400;
+            position: absolute;
+            left: 0;
+            top: 12px;
+        }
+    }
+}

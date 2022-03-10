@@ -1,0 +1,179 @@
+
+.choiceOfMonument{
+.Mi{
+  vertical-align: middle
+}
+  .middle {
+    vertical-align: middle;
+   
+  }
+  .btn-large {
+    font-size: 16px;
+    line-height: 36px;
+    border-radius: 30px;
+    padding: 8px 20px;
+    background: #e5c8b5;
+    text-transform: none;
+    color: #333;
+  }
+  hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 4px solid #eee;
+  }
+ 
+  .ul-style {
+    li{
+      list-style-type: none;
+   
+    counter-increment: list;
+    padding: 5px 0 5px 40px;
+    font-size: 15px;
+    position: relative;
+    }
+    li::before {
+      content: counter(list) " ";
+    
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    background: #f5e9e1;
+    float: left;
+    margin-right: 15px;
+    font-size: 13px;
+    font-weight: 400;
+    position: absolute;
+    left: 0;
+    top: 16px;
+    }
+  }
+
+}
+
+.block{
+  .card-product {
+    margin: 20px;
+  }
+.blockChoice-title{
+  color: #c9ab98;
+}
+
+  
+ 
+  font-size: 16px;
+  line-height: 36px;
+  border-radius: 30px;
+  padding: 12px 37px;
+}
+
+.one {
+  h2 {
+    margin: 30px 0;
+  }
+}
+.contents {
+  margin: 40px 0;
+  .answer{
+    width: 300px;
+  }
+  .ul-style {
+    li{
+      list-style-type: none;
+    counter-increment: list;
+    padding: 12px 0 12px 20px;
+    font-size: 17px;
+    position: relative;
+    }
+    li::before {
+      content: counter(list) " ";
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    background: #f5e9e1;
+    float: left;
+    margin-right: 15px;
+    font-size: 13px;
+    font-weight: 400;
+    position: absolute;
+    left: 0px;
+    top: 12px;
+    }
+  }
+  
+  
+  
+  li{
+    padding: 5px 0;
+    a{
+      color: black;
+    }
+    h3{
+margin: 30px 0;
+    }
+  }
+  h4 {
+    font-weight: 500;
+    position: relative;
+    width: 100%;
+    padding: 30px 0;
+    font-size: 30px;
+  }
+  .lead{
+    font-size: 16px;
+  }
+  .big::before {
+    content: '';
+    width: 100px;
+    height: 1px;
+    background: #e5c8b5;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+.choiceOfMonument-photo {
+  font-family: sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  align-items: center;
+  background: url('../../assets/8.png') 0 0/100% auto no-repeat;
+  background-size: cover;
+  color: rgb(238, 238, 238);
+  padding: 50px 0;
+  height: 100%;
+  width: 100%;
+  .btn-large {
+    font-size: 16px;
+    line-height: 36px;
+    border-radius: 30px;
+    padding: 5px 10px;
+    background: #e5c8b5;
+    text-transform: none;
+    color: rgb(12, 12, 12);
+  }
+hr{
+  margin-top: 60px;
+}
+.image {
+  border-radius: 10px;
+}
+  h1 {
+    font-size: 30px;
+    color: burlywood;
+  }
+  h2 {
+    margin: 15px 0;
+  }
+
+  span {
+    color: rgb(206, 182, 129);
+  }
+}

@@ -1,0 +1,267 @@
+.Sort {
+  // padding: 10px;
+  width: 100%;
+  height: 30px;
+
+  &__list,
+  &__plate {
+    height: 20px;
+    width: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background: no-repeat center center;
+    background-size: contain;
+    margin: 0 10px;
+
+  }
+
+  &__list {
+    position: absolute;
+    right: 0;
+
+    background-image: url("../../../assets/list.svg");
+  }
+
+  &__plate {
+    position: absolute;
+    right: 35px;
+
+    background-image: url("../../../assets/plate.svg");
+  }
+
+  &__select {
+    position: absolute;
+    right: 100px;
+  }
+}
+
+
+.caRow {
+  padding: 15px;
+  margin: 0 auto;
+
+  .caContainer {
+    width: 250px;
+    max-height: 330px;
+    margin: 10px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+
+    &:hover {
+      box-shadow: 0px 0px 8px rgba(135, 135, 135, 0.41);
+    }
+
+    &:hover .caDescContainer {
+      transform: translateY(-60px);
+      transition-duration: 1s;
+      background: #f1f1f1;
+    }
+
+    .caImgContainer {
+      width: 200px;
+      height: 300px;
+      overflow: hidden;
+      margin: 0 auto;
+      position: relative;
+
+      img {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        max-width: 100%;
+        height: 250px;
+      }
+    }
+
+    .caDescContainer {
+      padding: 10px;
+      transform: translateY(0);
+      transition-duration: 1s;
+      box-sizing: border-box;
+
+      .caProductName {
+        font-size: 12px;
+        padding: 10px 0;
+      }
+
+      .caProductPrice {
+        font-size: 12px;
+        font-weight: 600;
+      }
+    }
+  }
+
+}
+
+
+
+.disk {
+  background: #fff;
+  padding-left: 20px;
+  height: 100%;
+  min-height: 50px;
+
+  &__title {
+    font-weight: 500;
+    font-size: 22px;
+    // margin-top: 8px;
+    display: inline-block;
+  }
+
+  &__number {
+    display: inline-block;
+    margin-top: 5px;
+    margin-left: 10px;
+    color: #878787;
+  }
+
+  margin-top: 20px;
+
+  &__btns {
+    display: flex;
+  }
+
+  &__create {
+    margin-left: 10px;
+  }
+
+  &__upload-input {
+    display: none;
+  }
+
+  &__upload-label {
+    border: 2px dashed #566885;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  &__select {
+    margin-left: auto;
+  }
+
+}
+
+.drop-area {
+  width: 100%;
+  height: calc(100vh - 50px - 40px);
+  margin: 20px;
+  border: dashed #566885 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
+.popup {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    width: 400px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__create {
+    align-self: flex-end;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input {
+    margin: 20px 0px;
+  }
+
+}
+
+
+.product-list {
+  line-height: 1;
+  padding: 24px 0 30px 24px;
+  display: block;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+  text-decoration: none;
+
+  &:hover {
+    // box-shadow: inset 0 0 2px gray;
+    transform: scale(1.015);
+  }
+
+  &__container-img {
+    height: 300px;
+    width: 200px;
+
+
+  }
+
+  &__img {
+    margin: 0 auto;
+    max-width: 100%;
+    height: 300px;
+  }
+
+  &__D-description {
+    margin-top: 30px;
+    font-size: 20px;
+    text-decoration: none;
+
+  }
+  &__D-block{
+    margin-top: 20px;
+  }
+
+}
+
+.menu {
+
+  &__front {
+    background-image: url(https://v-granit.ru/wp-content/uploads/2020/11/sales_mini_neyyear_2-300x225.jpg);
+    position: relative;
+    color: #f1f1f1;
+    height: 210px;
+    max-width: 200px;
+    padding: 44px 10% 10%;
+    border-radius: 10px;
+    margin: 25px 5px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    margin: 10px;
+    color: #566885;
+    font-size: 16px;
+  }
+
+  &__text {
+    line-height: 1.4;
+    padding: 0 !important;
+    text-align: center;
+    margin-top: 40px;
+
+    h4 {
+      font-size: 30px;
+    }
+  }
+}

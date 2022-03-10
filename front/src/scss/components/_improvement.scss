@@ -1,0 +1,28 @@
+.block {
+    margin: 15px;
+    padding-top: 20px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.5s;
+    // border-radius: 5px;
+    // border: 1px solid rgb(255, 255, 255);
+    &:hover{
+// border: 1px solid #424141;
+    }
+}
+.imageMemorial {
+  max-width: 300px;
+}
+.imageImprov {
+//   max-width: 280px;
+}
+.Image {
+max-width: 400px;
+}
+.H3 {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.h1-title{
+    padding-top: 20px;
+}

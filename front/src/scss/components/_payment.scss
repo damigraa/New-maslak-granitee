@@ -1,0 +1,28 @@
+.box-icon {
+    display: flex;
+    width: 130px;
+    height: 130px;
+    position: relative;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 2px 35px rgba(0,0,0,0.1);
+    margin: 0 auto 15px;
+
+
+    svg{
+        
+padding: 10px;
+        border: 1px solid #e5c8b5;
+    }
+}
+
+h2 {
+    font-size: 32px;
+    padding-top: 10px;
+    // margin: 20px auto;
+    // border-bottom: 0;
+    text-align: center;
+    display: block;
+}

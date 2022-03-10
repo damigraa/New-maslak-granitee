@@ -1,0 +1,47 @@
+.sort {
+  position: relative;
+  &__label {
+    svg {
+      margin-right: 8px;
+
+      &.rotated{
+     transform: rotate(180deg);
+      }
+    }
+
+    b {
+      margin-right: 10px;
+    }
+
+    span {
+      color: rgb(0, 0, 0);
+      border-bottom: 2px dashed rgb(95, 95, 95);
+      cursor: pointer;
+    }
+  }
+
+  &__popup {
+    z-index: 1;
+    position: absolute;
+    right: 0;
+    margin-top: 10px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    padding: 15px 10px;
+
+    ul {
+      overflow: hidden;
+
+      li {
+        list-style: none;
+        padding: 12px 10px;
+        cursor: pointer;
+
+        &.active {
+          font-weight: 700;
+          color: rgb(0, 0, 0);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,221 @@
+.prod .checkbox-item:hover {
+  font-weight: 600;
+}
+.prod input[type=radio]:checked {
+  margin-left: 15px;
+}
+.prod .checkbox-item:checked {
+  font-weight: 600;
+  background-color: red;
+}
+.prod table td {
+  padding: 5px;
+  text-align: center;
+}
+.prod .section {
+  padding-left: 50px;
+}
+.prod .section p {
+  margin-top: 15px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+.prod .section .section-title {
+  vertical-align: baseline;
+  font-size: 16px;
+  line-height: 133.5%;
+  color: #2E2E2E;
+  position: relative;
+  white-space: nowrap;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+}
+.prod .section .parameters-list .parameter-item {
+  position: relative;
+  margin-top: 6px;
+}
+.prod .section .parameters-list .parameter-item :after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 5px;
+  border-bottom: 1px dotted #2E2E2E;
+  height: 3px;
+}
+.prod .section .parameters-list .parameter-item .val {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  padding-right: 6px;
+  background: #fff;
+  opacity: 0.8;
+}
+.prod .section .parameters-list .parameter-item .lev {
+  position: relative;
+  z-index: 2;
+  left: 0;
+  text-align: right;
+  opacity: 0.8;
+}
+.prod .main-image {
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.23);
+}
+.prod .order-info {
+  color: #2E2E2E;
+  font-family: Tahoma;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: #e7e7e7;
+  padding: 10px 15px 13px 17px;
+  margin-top: 20px;
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.13);
+  border: 1px solid #8e8e8e;
+}
+.prod .order-info .val {
+  padding-left: 15px;
+  padding-right: 100px;
+}
+.prod .order-info .lev {
+  padding-left: 50px;
+}
+.prod .order-info .checkbox-item {
+  font-size: 16px;
+  line-height: 150%;
+  margin-top: 10px;
+}
+.prod .order-info .checkbox-item .val {
+  font-family: Tahoma;
+  font-size: 28px;
+  cursor: pointer;
+  box-sizing: border-box;
+  margin-left: 10px;
+  font-size: 100%;
+  vertical-align: baseline;
+  margin-right: auto;
+  opacity: 0.8;
+}
+.prod .order-info .checkbox-item .lev {
+  color: #2E2E2E;
+  font-family: Tahoma;
+  line-height: 150%;
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  padding-right: 30px;
+  opacity: 0.8;
+}
+.prod .order-info .price {
+  margin-top: 13px;
+  padding-top: 11px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  line-height: 150%;
+  font-weight: 700;
+  font-size: 20px;
+}
+.prod .order-info .price .old {
+  position: absolute;
+  right: 150px;
+  opacity: 0.5;
+  text-decoration: line-through;
+  font-weight: 400;
+  margin-left: 40px;
+  font-size: 18px;
+}
+.prod .order-info .price .new {
+  position: absolute;
+  right: 20px;
+}
+.prod .to-cart {
+  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.13);
+  width: 36.5%;
+  height: 40px;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+.prod .to-cart span {
+  font-family: Tahoma;
+  font-size: 14px;
+  font-weight: 700;
+  color: black;
+}
+.prod .to-cart .bi {
+  margin-right: 2px;
+  margin-bottom: 3px;
+}
+.prod .section {
+  color: #2E2E2E;
+  font-family: Tahoma;
+  outline: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+.prod .section .section-title {
+  margin-top: 20px;
+}
+.prod .section .section-title :after {
+  display: block;
+  height: 1px;
+  background: #2E2E2E;
+  opacity: 0.1;
+  margin: 4px 0 0 8px;
+}
+.prod .section .table-size {
+  color: #2E2E2E;
+  font-family: Tahoma;
+  outline: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-size: 14px;
+  line-height: 130%;
+  padding-top: 11px;
+}
+.prod .section .table-size .head {
+  font-family: Tahoma;
+  line-height: 130%;
+  box-sizing: border-box;
+  font-size: 16px;
+  text-transform: uppercase;
+  display: flex;
+  color: #939393;
+  opacity: 0.6;
+}
+.prod .section .table-size .head .cell {
+  color: #2E2E2E;
+  font-family: Tahoma;
+  margin: 0 20px;
+  font-size: 16px;
+  width: 100px;
+  text-align: center;
+}
+.prod .section .table-size .input-block:hover {
+  background-color: #d0d0d0;
+}
+.prod .section .table-size .input-block:active {
+  background-color: #b3b3b3;
+}
+.prod .section .table-size .input-block {
+  display: flex;
+  margin: 10px;
+  overflow: hidden;
+  padding: 10px 0 10px 0;
+}
+.prod .section .table-size .input-block .cell {
+  position: relative;
+  color: #2E2E2E;
+  font-family: Tahoma;
+  padding: 0 30px;
+  font-size: 16px;
+  display: flex;
+}

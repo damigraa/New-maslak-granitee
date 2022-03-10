@@ -1,0 +1,36 @@
+.CC{
+        // background-color: rgba(249, 250, 255, 0.83);
+    .containerLeft{
+        background-color: #ffffff;
+        margin: 5px -10px;
+    border: 1px solid rgb(231, 230, 230);
+    border-radius: 2px;
+    height: 300px;
+    .C-container{
+        align-items: center;
+        padding: 10px;
+        .C-Filter{
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: capitalize;
+        }
+            .C-Clear{
+                cursor: pointer;
+            color: #2874f0;
+            font-size: 12px;
+            // text-transform: uppercase;
+            font-weight: 500;
+            }
+    }
+
+    }
+    .containerRi{
+        width: 100%;
+        background-color: #ffffff;
+        margin: 10px 0 ;
+        padding: 5px;
+
+    border: 1px solid rgb(231, 230, 230);
+    border-radius: 2px;
+    }
+}

@@ -1,0 +1,100 @@
+.block-memorial {
+margin: 30px 5px 30px 5px;
+border-radius: 10px;
+box-shadow: 0 0 5px rgba(0,0,0,0.5);
+&:hover {
+  box-shadow: 0 0 15px rgba(0,0,0,0.5);
+  transition:  0.2s ease-in-out;
+}
+img{
+margin-top: 10px;
+padding: 0 5px ;
+  border-radius:16px;
+}
+.pizza-block {
+    &__title {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 1%;
+      margin-bottom: 20px;
+    }
+  
+    &__selector {
+      display: flex;
+      background-color: #f3f3f3;
+      border-radius: 10px;
+      flex-direction: column;
+      padding: 2px;
+      h3{
+        margin: 15px 0;
+      }
+  .button-check {
+    border-radius: 15px;
+    margin: 10px auto;
+    width: 200px;
+svg {
+  margin-right: 10px;
+  margin-bottom: 3px;
+}
+    span{
+      color: rgb(0, 0, 0);
+      font-weight: 500;
+    }
+
+    i{
+      margin-bottom: 3px;
+      margin-left: 10px;
+      font-weight: 700;
+      border: 1px solid #eeeeee;
+      padding: 0 5px;
+    }
+  }
+      ul {
+        display: flex;
+        flex: 1;
+        padding: 0;
+  
+        &:first-of-type {
+          margin-bottom: 6px;
+        }
+  
+        li {
+          list-style: none;
+          padding: 8px 3px;
+          flex: 1;
+          text-align: center;
+          cursor: pointer;
+          font-weight: 600;
+          font-size: 13px;
+          letter-spacing: 1px;
+          // @include noselect();
+          &.active {
+            background: #ffffff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            transition:  0.3s ease-in-out;
+            cursor: auto;
+          }
+          &.disabled {
+           opacity: 0.4;
+           pointer-events: none;
+          }
+        }
+      }
+    }
+  
+    &__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      // margin-top: 20px;
+    }
+  
+    &__price {
+      font-weight: bold;
+      font-size: 22px;
+      line-height: 27px;
+      letter-spacing: 0.015em;
+    }
+  }
+}

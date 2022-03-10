@@ -1,0 +1,13 @@
+  
+# dependencies
+admin/node_modules
+# dependencies
+backend/node_modules
+backend/src/uploads
+.idea
+# dependencies
+/node_modules
+front/node_modules
+work
+package-lock.json
+.vscode

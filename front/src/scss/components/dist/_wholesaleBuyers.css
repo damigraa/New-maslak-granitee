@@ -1,0 +1,32 @@
+.WholesaleBuyers {
+  background: url("../../assets/opt-bg.jpg") 0 0/100% auto no-repeat;
+  height: 800px;
+  width: 100%;
+  color: aliceblue;
+  margin: 0 auto;
+}
+.WholesaleBuyers__container {
+  width: 706px;
+  margin: 30px auto 120px;
+}
+.WholesaleBuyers h1 {
+  text-align: center;
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0 0 56px;
+  background: #fff;
+  position: relative;
+  font-size: 42px;
+  line-height: 44px;
+  font-weight: bold;
+  padding: 5px 16px 6px 14px;
+  color: #333;
+}
+.WholesaleBuyers__description {
+  background: rgba(65, 68, 71, 0.8);
+  color: #fff;
+  font-size: 15px;
+  line-height: 24px;
+  margin: 0 0 0 56px;
+  padding: 15px;
+}

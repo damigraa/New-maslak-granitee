@@ -1,0 +1,46 @@
+.manufacturers {
+    margin: 0 auto;
+    background: url('../assets/vigodi.png') 0 0/100% auto no-repeat;
+    background-size: cover;
+    color: white;
+    display: block;
+    // margin: 25px auto 20px;
+    padding:50px 0;
+
+h2{
+    text-transform: none;
+    // display: table;
+    font-weight: 500;
+    margin: 10px auto ;
+    
+}
+p{
+    text-align: center;
+}
+.active-text {
+    color: #e5c8b5;
+    text-align: center;
+}
+.box-icon {
+    display: flex;
+    width: 130px;
+    height: 130px;
+    position: relative;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 2px 35px rgba(0,0,0,0.1);
+    margin: 0 auto 15px;
+    text-align: center;
+}
+.box-icon::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    bottom: 15px;
+    right: 15px;
+    border: 1px solid #e5c8b5;
+}
+}
