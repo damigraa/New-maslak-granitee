@@ -16,6 +16,7 @@ import weWorkOnline from './components/weWorkOnline'
 import payment from './components/payment'
 import contact from './components/contact'
 import graniteMaterial from './components/graniteMaterial'
+import catalogTitle from './components/catalogTitle'
 
 import { combineReducers } from 'redux';
 
@@ -38,7 +39,8 @@ const rootReducer = combineReducers({
     weWorkOnline,
     payment,
     contact,
-    graniteMaterial
+    graniteMaterial,
+    catalogTitle
 
 });
 

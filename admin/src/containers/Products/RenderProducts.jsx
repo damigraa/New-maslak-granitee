@@ -60,7 +60,7 @@ export const RenderProducts = ({ setShow, showProductDetailsModal, setCurrentId,
                                 >
                                     {item.name}
                                 </div>
-                                <div className="file__category">{item.category.name}</div>
+                                {/* <div className="file__category">{item.category.name}</div> */}
                             </div>
                             {/* <div className="file__date">{item.category.name}</div> */}
                             <div className="file__size"

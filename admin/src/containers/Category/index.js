@@ -55,7 +55,7 @@ const Category = (props) => {
         const form = new FormData();
 
         if (categoryName === "") {
-            alert('Category name is required');
+            alert('Имя обазятельно');
             setShow(false);
             return;
         }
@@ -186,31 +186,34 @@ const Category = (props) => {
     const renderDeleteCategoryModal = () => {
         return (
             <Modal
-                modalTitle="Confirm"
+                modalTitle="Форма Для удаления"
                 show={deleteCategoryModal}
                 handleClose={() => setDeleteCategoryModal(false)}
                 buttons={[
                     {
-                        label: 'No',
+                        label: 'Закрыть',
                         color: 'primary',
                         onClick: () => {
-                            alert('no');
+                            setDeleteCategoryModal(false)
                         }
                     },
                     {
-                        label: 'Yes',
+                        label: 'Удалить',
                         color: 'danger',
                         onClick: deleteCategories
                     }
                 ]}
             >
 
-
-                <h5>Expanded</h5>
+                <div style={{marginBottom:"10px"}}>
+                <h5 style={{color: "Silver"}}>Основные Категории</h5>
                 { expandedArray.map((item, index) => <span key={index}>{item.name}</span>)}
-                <h5>Checked</h5>
+                
+                </div>
+                                         <div>
+                <h5 style={{color: "Silver"}}>Подкатегории</h5>
                 { checkedArray.map((item, index) => <span key={index}>{item.name}</span>)}
-
+                </div>
             </Modal>
         );
     }
@@ -258,7 +261,7 @@ const Category = (props) => {
                 show={show}
                 handleClose={() => setShow(false)}
                 onSubmit={handleClose}
-                modalTitle={'Add New Category'}
+                modalTitle={'Добавить новую категорию'}
                 categoryName={categoryName}
                 setCategoryName={setCategoryName}
                 parentCategoryId={parentCategoryId}
@@ -270,7 +273,7 @@ const Category = (props) => {
                 show={updateCategoryModal}
                 handleClose={() => setUpdateCategoryModal(false)}
                 onSubmit={updateCategoriesForm}
-                modalTitle={'Update Categories'}
+                modalTitle={'Обновить Выбранные категории'}
                 size="lg"
                 expandedArray={expandedArray}
                 checkedArray={checkedArray}

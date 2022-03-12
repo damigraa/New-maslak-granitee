@@ -57,11 +57,11 @@ exports.signin = (req, res) => {
           });
         } else {
           return res.status(400).json({
-            message: "Invalid Password",
+            message: "Неправильный пароль или логин",
           });
         }
       } else {
-        return res.status(400).json({ message: "Something went wrong" });
+        return res.status(400).json({ message: "Что-то пошло не так, проблемы не в пароле и логине" });
       }
     });
   } catch (e) {

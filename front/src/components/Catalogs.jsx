@@ -5,6 +5,7 @@ import { getAllCategory } from './../actions/category.action';
 import { useEffect } from 'react';
 import catalogPhoto from '../assets/catalog.jpg'
 import { generatePublicUrl } from '../urlConfig';
+import CatalogTitle from './CatalogTitle';
 const Catalogs = () => {
 
     const category = useSelector(state => state.category);
@@ -57,17 +58,18 @@ const Catalogs = () => {
     return (
         <div className="catalog">
             <div className="container">
-                <div className="catalog__title">
-                    <h2>Каталог памятников</h2>
-                </div>
-                <p>Памятники на могилу – особые изделия, последняя дань умершему, проявление любви и уважения. Поэтому подойдите к выбору монумента ответственно.
-                    Чтобы облегчить для вас эту задачу, мы собрали все виды продукции в один каталог.</p>
-                <div className="catalog__flex-block">
-                    {category.categories.length > 0 ? renderFilter(category.categories) : null}
+                <div>
+                    <div className="catalog__title">
+                        <CatalogTitle />
+                    </div>
 
+                    <div className="catalog__flex-block">
+                        {category.categories.length > 0 ? renderFilter(category.categories) : null}
+
+                    </div>
                 </div>
+
             </div>
-
         </div>
     );
 };

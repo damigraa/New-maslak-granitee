@@ -3,6 +3,8 @@ import { getCatalogTitle } from '../../actions'
 import ContainerSiteSetting from '../ContainerSiteSetting';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader from '../../components/Loader';
+import CreateCatalogTitle from '../create/CreateCatalogTitle';
+import RenderCatalogTitle from './../render/RenderCatalogTitle';
 
 
 const CatalogTitle = () => {
@@ -30,33 +32,20 @@ const CatalogTitle = () => {
             noLimit
             title={"Заголовок для Каталога"}
         >
-            <div className="row">
-                {!catalogTitle ? <Loader /> :
-                    catalogTitle.map((item) =>
-                        <div className="col-sm-3" key={item._id} style={{ textAlign: "center", height: "220px", paddingTop: "20px", margin: "auto" }}>
-                            <div style={{ margin: "20px" }}>
-                                <div>{item.title}</div>
-                                <div>{item.description}</div>
-                            </div>
 
-
-                        </div>
-
-                    )}
-            </div >
-            {/* <AddCatalogItem
+            <CreateCatalogTitle
                 show={show}
                 handleClose={handleClose}
                 currentId={currentId}
                 setCurrentId={setCurrentId}
 
             />
-            <RenderCatalogItem
+            <RenderCatalogTitle
                 setShow={setShow}
                 catalogTitle={catalogTitle}
                 setCurrentId={setCurrentId}
 
-            /> */}
+            />
         </ContainerSiteSetting>
     )
 }

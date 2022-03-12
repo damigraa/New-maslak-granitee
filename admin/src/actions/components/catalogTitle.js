@@ -36,7 +36,7 @@ export const addCatalogTitle = (form) => {
                 dispatch({ type: catalogTitleConstants.ADD_CATALOG_TITLE_FAILURE })
             }
         } catch (e) {
-            console.log(e)
+            console.log(e) 
         }
     }
 }

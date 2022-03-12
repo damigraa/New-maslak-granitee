@@ -2,7 +2,6 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteWeWorkOnline } from '../../actions'
 import Loader from "../../components/Loader"
-import Container from '@material-ui/core/Container'
 
 
 

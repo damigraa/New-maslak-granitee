@@ -8,7 +8,6 @@ const AddPaymentList = ({ currentId, setCurrentId, show, handleClose }) => {
     const dispatch = useDispatch()
 
     const paymentLI = useSelector((state) => currentId ? state.paymentLI.paymentLI.find((p) => p._id === currentId) : null)
-    console.log(paymentLI)
     const [formPaymentList, setFormPaymentList] = useState({
         text: ""
 

@@ -5,7 +5,7 @@ const { createCatalogTitle, deleteCatalogTitleById, getCatalogTitle, updateCatal
 const router = express.Router();
 
 router.post("/catalogTitle/create", requireSignin, adminMiddleware, createCatalogTitle,);
-router.get("/catalogTitle/get", requireSignin, adminMiddleware, getCatalogTitle);
+router.get("/catalogTitle/get", getCatalogTitle);
 router.delete("/catalogTitle/delete/:id", requireSignin, adminMiddleware, deleteCatalogTitleById);
 router.patch("/catalogTitle/update/:id", requireSignin, adminMiddleware, updateCatalogTitle)
 
