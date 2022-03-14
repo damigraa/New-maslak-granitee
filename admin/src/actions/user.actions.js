@@ -1,31 +1,38 @@
 import { userConstants } from "./constants";
 import axios from "../helpers/axios";
 import { setUser } from "../reducers/user.reducer";
+import swal from 'sweetalert';
+
 
 export const signup = (user) => {
 
     return async (dispatch) => {
-
-        dispatch({ type: userConstants.USER_REGISTER_REQUEST });
-        const res = await axios.post(`/admin/signup`, {
-            ...user
-        });
-
-        if (res.status === 201) {
-            const { message } = res.data;
-            dispatch({
-                type: userConstants.USER_REGISTER_SUCCESS,
-                payload: { message }
+        try {
+            dispatch({ type: userConstants.USER_REGISTER_REQUEST });
+            const res = await axios.post("/admin/signup", {
+                ...user
             });
-            return
-        }
-        if (res.status === 400) {
-            dispatch({
-                type: userConstants.USER_REGISTER_FAILURE,
-                payload: { error: res.data.error }
-            });
-        }
+            if (res.status === 201) {
+                swal({
+                    title: "Успешно отправено",
+                    text: "Оператор свяжится с вами в ближайшее время",
+                    icon: "success",
+                });
+                const { message } = res.data;
+                dispatch({
+                    type: userConstants.USER_REGISTER_SUCCESS,
+                    payload: { message }
+                });
 
+            } else {
+                dispatch({
+                    type: userConstants.USER_REGISTER_FAILURE,
+                    payload: { error: res.data.error }
+                });
+            }
+        } catch (e) {
+            console.log(e);
+        }
     }
 }
 
@@ -49,7 +56,7 @@ export const getUsers = (sort) => {
             }
         } catch (error) {
             console.log(error)
-        } 
+        }
 
     }
 }

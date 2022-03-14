@@ -43,13 +43,13 @@ const userSchema = new mongoose.Schema(
     },
     contactNumber: { type: String },
     pofilePicture: { type: String },
-    nameOrganization: {
-      type: String,
-      required: true,
-      trim: true,
-      min: 3,
-      max: 30,
-    },
+    // nameOrganization: {
+    //   type: String,
+    //   required: true,
+    //   trim: true,
+    //   min: 3,
+    //   max: 30,
+    // },
   },
 
   { timestamps: true }

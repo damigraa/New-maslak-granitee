@@ -1,5 +1,6 @@
 import { authConstants, cartConstants } from "./constants";
 import axios from "../helpers/axios";
+import swal from 'sweetalert';
 
 // new update signup action
 export const signup = (user) => {
@@ -45,6 +46,11 @@ export const login = (user) => {
           token,
           user,
         },
+      });
+      swal({
+        title: `Приветстуем на нашем сайте ${user.firstName} ${user.lastName}`,
+        text: "Что вас интересует???",
+        icon: "success",
       });
     } else {
       if (res.status === 400) {

@@ -11,7 +11,6 @@ export const RenderApplicationModal = ({ handleClose, show }) => {
     const [contactNumber, setContactNumber] = useState("")
     const [email, setEmail] = useState("")
     const [samplePhoto, setSamplePhoto] = useState("")
-    const [showA, setShowA] = useState(true)
 
     const hhh = () => handleClose()
 

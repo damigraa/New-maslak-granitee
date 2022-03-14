@@ -1,5 +1,7 @@
 import { authConstants } from "./constants";
 import axios from "../helpers/axios";
+import swal from 'sweetalert';
+
 
 export const login = (user) => {
 
@@ -22,14 +24,17 @@ export const login = (user) => {
                     token, user
                 }
             });
+            swal({
+                title: `Приветствуем вас ${user.firstName}`,
+                text: "Добавить новый товар или может категорию?",
+                icon: "success",
+            });
         } else {
             if (res.status === 400) {
-
                 dispatch({
                     type: authConstants.LOGIN_FAILURE,
                     payload: { error: res.data.error }
                 });
-                alert(res.date.message)
 
             }
         }

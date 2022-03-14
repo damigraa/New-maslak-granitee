@@ -27,7 +27,7 @@ exports.signup = (req, res) => {
           message: "Something went wrong",
         });
       }
-
+ 
       if (data) {
         return res.status(201).json({
           message: "Admin created Successfully..!",

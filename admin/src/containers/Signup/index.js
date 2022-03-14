@@ -7,11 +7,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { signup } from "../../actions";
 import { useEffect } from "react";
 
-/**
- * @author
- * @function Signup
- **/
-
 const Signup = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -20,6 +15,7 @@ const Signup = (props) => {
   const [error, setError] = useState("");
   const auth = useSelector((state) => state.auth);
   const user = useSelector((state) => state.user);
+  console.log(user  )
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -48,9 +44,9 @@ const Signup = (props) => {
     return <Redirect to={`/`} />;
   }
 
-  if (user.loading) {
-    return <p>Loading...!</p>;
-  }
+  // if (user.loading) {
+  //   return <p>Loading...!</p>;
+  // }
 
   return (
     <Layout>
@@ -96,7 +92,7 @@ const Signup = (props) => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <Button variant="primary" type="submit">
-                Submit
+                Регестрация
               </Button>
             </Form>
           </Col>

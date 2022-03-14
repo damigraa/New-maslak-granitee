@@ -28,7 +28,8 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-form": "^8.3.7",
     "redux-thunk": "^2.3.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
     "start": "set PORT=3000 && react-scripts start",
