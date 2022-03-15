@@ -26,7 +26,7 @@ const Applications = (props) => {
     const deleteCloseModal = () => {
         dispatch(deleteApplicationById(applicationDetails._id))
         setApplicationDetailModal(false)
-    }
+    } 
     const renderApplicationDetailsModal = () => {
         if (!applicationDetails) {
             return null;

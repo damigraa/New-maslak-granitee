@@ -88,6 +88,13 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
 
     };
 
+
+
+    function fileUploadHandler(event) {
+        const files = [...event.target.files]
+        // files.forEach(file => dispatch(uploadFile(file, currentDir)))
+    }
+
     const handleProductPictures = (e) => {
         setProductPictures([...productPictures, e.target.files[0]]);
     };
@@ -189,7 +196,10 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
                 name="productPicture"
                 onChange={handleProductPictures}
                 required
+                multiple
             />
+            <input multiple={true} onChange={(event) => fileUploadHandler(event)} type="file" id="disk__upload-input" className="disk__upload-input" />
+
             <button onClick={(e) => clearAddedPhotos(e)}>Удалить фото</button>
         </Modal>
     )

@@ -11,8 +11,8 @@ import PriceDetails from "../../components/PriceDetails";
 import Card from "../../components/UI/Card";
 import CartPage from "../CartPage";
 import AddressForm from "./AddressForm";
-
 import "./style.css";
+import { Redirect } from "react-router-dom";
 
 
 const CheckoutStep = (props) => {
@@ -79,13 +79,13 @@ const Address = ({
             )}
           </div>
         ) : (
-            <AddressForm
-              withoutLayout={true}
-              onSubmitForm={onAddressSubmit}
-              initialData={adr}
-              onCancel={() => { }}
-            />
-          )}
+          <AddressForm
+            withoutLayout={true}
+            onSubmitForm={onAddressSubmit}
+            initialData={adr}
+            onCancel={() => { }}
+          />
+        )}
       </div>
     </div>
   );
@@ -161,7 +161,6 @@ const CheckoutPage = (props) => {
       paymentType: "cod",
     };
 
-    console.log(payload);
     dispatch(addOrder(payload));
     setConfirmOrder(true);
   };
@@ -181,12 +180,10 @@ const CheckoutPage = (props) => {
     //user.address.length === 0 && setNewAddress(true);
   }, [user.address]);
 
-  if (confirmOrder) {
+  if (confirmOrder === true) {
     return (
       <Layout>
-        <Card>
-          <div>Заказ подтвержден</div>
-        </Card>
+        <Redirect to={"/"} />
       </Layout>
     );
   }
@@ -207,10 +204,10 @@ const CheckoutPage = (props) => {
                   <span style={{ margin: "0 5px" }}>{auth.user.email}</span>
                 </div>
               ) : (
-                  <div>
-                    <MaterialInput label="Email" />
-                  </div>
-                )
+                <div>
+                  <MaterialInput label="Email" />
+                </div>
+              )
             }
           />
           <CheckoutStep
@@ -222,16 +219,16 @@ const CheckoutPage = (props) => {
                 {confirmAddress ? (
                   <div className="stepCompleted">{`${selectedAddress.name} ${selectedAddress.address} - ${selectedAddress.pinCode}`}</div>
                 ) : (
-                    address.map((adr) => (
-                      <Address
-                        selectAddress={selectAddress}
-                        enableAddressEditForm={enableAddressEditForm}
-                        confirmDeliveryAddress={confirmDeliveryAddress}
-                        onAddressSubmit={onAddressSubmit}
-                        adr={adr}
-                      />
-                    ))
-                  )}
+                  address.map((adr) => (
+                    <Address
+                      selectAddress={selectAddress}
+                      enableAddressEditForm={enableAddressEditForm}
+                      confirmDeliveryAddress={confirmDeliveryAddress}
+                      onAddressSubmit={onAddressSubmit}
+                      adr={adr}
+                    />
+                  ))
+                )}
               </>
             }
           />

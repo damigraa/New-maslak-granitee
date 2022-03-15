@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useSelector,  useDispatch  } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { getHeader } from '../../actions/components/header';
 
 function HeaderTop() {
@@ -15,12 +15,12 @@ function HeaderTop() {
 
             {header.header.length > 0 ?
                 header.header.map((header) =>
-                    <div className="header">
+                    <div key={header._id} className="header">
                         <div className="header-top row gy-5">
                             <div className="col-md-5  text-center">
                                 <a href="/" className="navbar-brand my-1">
                                     {header.nameSite}</a>
-                                    
+
                             </div>
                             <div className="col-md-2 my-1  text-center">
                                 <a href="tel:8-800-85-4" className="bi bi-chat-square-text-fill">

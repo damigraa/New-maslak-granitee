@@ -16,8 +16,8 @@ const SiteSetting = () => {
                 <li><NavLink to={"/chooseMemorialPhotos"}>Как выбрать памятник Изображения</NavLink></li>
                 <li><NavLink to={"/engraving"}>Гравировка</NavLink></li>
                 <li><NavLink to={"/contact"}>Контакты</NavLink></li>
+                <li><NavLink to={"/paymentAndDelivery"}>Инструкции оплаты</NavLink></li>
                 <li><NavLink to={"/warranty"}>Гарантии</NavLink></li>
-                <li><NavLink to={"/paymentLI"}>Инструкции оплаты</NavLink></li>
                 <li><NavLink to={"/granite-material"}>Материалы</NavLink></li>
                 <li><NavLink to={"/catalog-title"}>Заголовок Каталога</NavLink></li>
 

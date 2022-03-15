@@ -1,5 +1,7 @@
 import { cartConstants, userConstants } from "./constants";
 import axios from "../helpers/axios";
+import swal from 'sweetalert';
+
 
 export const getAddress = () => {
   return async (dispatch) => {
@@ -60,10 +62,16 @@ export const addOrder = (payload) => {
       const res = await axios.post(`/addOrder`, payload);
       dispatch({ type: userConstants.ADD_USER_ORDER_REQUEST });
       if (res.status === 201) {
-        console.log(res);
         dispatch({
           type: cartConstants.RESET_CART,
         });
+
+        swal({
+          title: "Заказ успешно оформлен",
+          text: "Оператор свяжится с вами в ближайшее время",
+          icon: "success",
+        })
+
         // const {
         //   address: { address },
         // } = res.data;

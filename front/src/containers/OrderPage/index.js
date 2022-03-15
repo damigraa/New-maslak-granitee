@@ -20,7 +20,6 @@ const OrderPage = (props) => {
     dispatch(getOrders());
   }, []);
 
-  console.log(user);
 
   return (
     <Layout>
@@ -36,17 +35,18 @@ const OrderPage = (props) => {
         {user.orders.map((order) => {
           return order.items.map((item) => (
             <Card style={{ display: "block", margin: "5px 0" }}>
+              {console.log(item)}
               <Link
                 to={`/order_details/${order._id}`}
                 className="orderItemContainer"
               >
                 <div className="orderImgContainer">
-                  <img
+                  {/* <img
                     className="orderImg"
                     src={generatePublicUrl(
                       item.productId.productPictures[0].img
                     )}
-                  />
+                  /> */}
                 </div>
                 <div className="orderRow">
                   {/* <div className="orderName">{item.productId.name}</div> */}
@@ -55,7 +55,9 @@ const OrderPage = (props) => {
                     {item.payablePrice}
                   </div>
                   <div>{order.paymentStatus}</div>
+
                 </div>
+                <button className="btn btn-secondary">Оплатить</button>
               </Link>
             </Card>
           ));

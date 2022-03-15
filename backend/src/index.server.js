@@ -33,6 +33,7 @@ const graniteMaterialRoutes = require("./routes/graniteMaterial")
 const paymentListInstructionRoutes = require("./routes/components/paymentListInstruction")
 const paymentMethodRoutes = require("./routes/components/paymentMethod")
 const catalogTitleRoutes = require("./routes/components/catalogTitle")
+const costDeliveryRoutes = require("./routes/components/costDelivery")
 
 env.config();
 
@@ -81,6 +82,7 @@ app.use("/api", warrantyRoutes)
 app.use("/api", paymentListInstructionRoutes)
 app.use("/api", paymentMethodRoutes)
 app.use("/api", catalogTitleRoutes)
+app.use("/api", costDeliveryRoutes)
 
 
 app.listen(process.env.PORT, () => {

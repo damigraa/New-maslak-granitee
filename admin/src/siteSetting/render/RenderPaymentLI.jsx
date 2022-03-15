@@ -13,8 +13,9 @@ const RenderPaymentLI = ({ setShow, setCurrentId, paymentLI }) => {
     return (
         <div className="row">
             {!paymentLI ? <Loader /> :
-                paymentLI.map((item) =>
-                    <div className="col-sm-3" key={item._id}>
+                paymentLI.map((item, index) =>
+                    <div  className="col-sm-3" key={item._id}>
+                        <h3 style={{textAlign: 'center'}}>{index + 1}</h3>
                         <div style={{ margin: "20px" }}>
                             <div><span style={{ color: "#fff" }}>Текст </span>{item.text}</div>
                         </div>

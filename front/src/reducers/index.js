@@ -17,6 +17,7 @@ import payment from './components/payment'
 import contact from './components/contact'
 import graniteMaterial from './components/graniteMaterial'
 import catalogTitle from './components/catalogTitle'
+import paymentLI from './components/paymentLI'
 
 import { combineReducers } from 'redux';
 
@@ -40,7 +41,7 @@ const rootReducer = combineReducers({
     payment,
     contact,
     graniteMaterial,
-    catalogTitle
+    paymentLI
 
 });
 

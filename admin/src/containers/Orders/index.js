@@ -34,7 +34,7 @@ const Orders = (props) => {
             margin: "10px 0",
           }}
           key={index}
-          headerLeft={orderItem._id}
+          headerLeft={`Артикул - ${orderItem._id}`}
         >
           <div
             style={{

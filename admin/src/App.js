@@ -30,6 +30,8 @@ import Warranty from './siteSetting/containers/Warranty';
 import PaymentLI from './siteSetting/containers/PaymentLI';
 import CatalogTitle from './siteSetting/containers/CatalogTitle';
 import Test from './siteSetting/containers/Test';
+import PaymentAndDeliveryContainer from './siteSetting/PaymentAndDeliveryContainer';
+import CostDelivery from './siteSetting/containers/CostDelivery';
 
 
 function App() {
@@ -74,8 +76,10 @@ function App() {
         <PrivateRoute path="/granite-material" component={GraniteMaterial} />
         <PrivateRoute path="/warranty" component={Warranty} />
         <PrivateRoute path="/paymentLI" component={PaymentLI} />
+        <PrivateRoute path="/paymentAndDelivery" component={PaymentAndDeliveryContainer} />
         <PrivateRoute path="/catalog-title" component={CatalogTitle} />
-        <PrivateRoute path="/test" component={Test} />
+        <PrivateRoute path="/costDelivery" component={CostDelivery} />
+        {/* <PrivateRoute path="/test" component={Test} /> */}
 
         <Route path="/signin" component={Signin} />
         <Route path="/signup" component={Signup} />

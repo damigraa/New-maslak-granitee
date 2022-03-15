@@ -19,13 +19,12 @@ const ContainerSiteSetting = (props) => {
                     </Row>
                     <Row>
                         <Col md={12}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                            <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'space-between' }}>
                                 <BackButton />
                                 <div className="actionBtnContainer">
                                     <span>Действие: </span>
                                     <ButtonShow
-                                        setShow={props.setShow}
-                                        item={props.item}
+                                        setShow={props.setShow} item={props.item}
                                         limitOne={props.limitOne}
                                         noLimit={props.noLimit}
                                     />

@@ -11,9 +11,9 @@ import "./style.scss";
 const OrderDetailsPage = (props) => {
   const dispatch = useDispatch();
   const orderDetails = useSelector((state) => state.user.orderDetails);
+  console.log(orderDetails);
 
   useEffect(() => {
-    console.log({ props });
     const payload = {
       orderId: props.match.params.orderId,
     };
@@ -86,10 +86,10 @@ const OrderDetailsPage = (props) => {
           >
             <div className="flexRow">
               <div className="delItemImgContainer">
-                <img
+               { <img
                   src={generatePublicUrl(item.productId.productPictures[0].img)}
                   alt=""
-                />
+                />|| "Нет фото"}
               </div>
               <div style={{ width: "250px" }}>
                 <div className="delItemName">{item.productId.name}</div>

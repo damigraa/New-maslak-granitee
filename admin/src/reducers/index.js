@@ -20,6 +20,7 @@ import warranty from './components/warranty'
 import graniteMaterial from './components/graniteMaterial'
 import paymentLI from './components/paymentLI'
 import catalogTitle from './components/catalogTitle'
+import costDelivery from './components/costDelivery'
 
 
 import { combineReducers } from 'redux'
@@ -46,7 +47,8 @@ const rootReducer = combineReducers({
     warranty,
     graniteMaterial,
     paymentLI,
-    catalogTitle
+    catalogTitle,
+    costDelivery
 })
 
 export default rootReducer
