@@ -5,7 +5,6 @@ import { getOrders } from "../../actions";
 import Layout from "../../components/Layout";
 import Card from "../../components/UI/Card";
 import { generatePublicUrl } from "../../urlConfig";
-import { BiRupee } from "react-icons/bi";
 import { IoIosArrowForward } from "react-icons/io";
 
 import "./style.css";
@@ -26,9 +25,9 @@ const OrderPage = (props) => {
       <div style={{ maxWidth: "1160px", margin: "5px auto" }}>
         <Breed
           breed={[
-            { name: "Home", href: "/" },
-            { name: "My Account", href: "/account" },
-            { name: "My Orders", href: "/account/orders" },
+            { name: "Домашнаяя страница", href: "/" },
+            { name: "Мой аккаунт", href: "/account" },
+            { name: "Мои заказы", href: "/account/orders" },
           ]}
           breedIcon={<IoIosArrowForward />}
         />
@@ -51,8 +50,8 @@ const OrderPage = (props) => {
                 <div className="orderRow">
                   {/* <div className="orderName">{item.productId.name}</div> */}
                   <div className="orderPrice">
-                    <BiRupee />
-                    {item.payablePrice}
+                    {item.payablePrice }
+                     руб
                   </div>
                   <div>{order.paymentStatus}</div>
 

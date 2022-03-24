@@ -10,7 +10,7 @@ exports.addAddress = (req, res) => {
           $set: {
             "address.$": payload.address,
           }, 
-        }
+        } 
       ).exec((error, address) => {
         if (error) return res.status(400).json({ error });
         if (address) {

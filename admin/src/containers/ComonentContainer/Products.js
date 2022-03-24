@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts, searchProducts } from "../../actions";
-import { AddProductModal } from "./AddProductModal";
-import { RenderProducts } from "./RenderProducts";
-import { MainContainer } from './../MainContainer';
-import { DetailsProduct } from "./DetailsProduct";
+import { AddProductModal } from "../create/AddProductModal";
+import { MainContainer } from '../MainContainer';
+import { DetailsProduct } from "../render/DetailsProduct";
+import { RenderProducts } from "../render/RenderProducts";
 
 const Products = (props) => {
 
@@ -17,7 +17,6 @@ const Products = (props) => {
   const dispatch = useDispatch();
 
   const product = useSelector((state) => state.product.products)
-  console.log(product)
   
   const handleShow = () => setShow(true)
   const handleClose = () => setShow(false)

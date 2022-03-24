@@ -30,13 +30,15 @@ export const login = (user) => {
                 icon: "success",
             });
         } else {
-            if (res.status === 400) {
-                dispatch({
-                    type: authConstants.LOGIN_FAILURE,
-                    payload: { error: res.data.error }
-                });
-
-            }
+            dispatch({
+                type: authConstants.LOGIN_FAILURE,
+                payload: { error: res.data.error }
+            });
+            swal({
+                title: `Неудача`,
+                text: "Попробуйте заново ввести пароль или логин",
+                icon: "error",
+            });
         }
     }
 }

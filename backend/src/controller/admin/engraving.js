@@ -6,8 +6,7 @@ exports.createEngraving = (req, res) => {
     const engravingObj = { heading, title, description, imageTitle, listText } = req.body
   
     if (req.file) {
-      engravingObj.engImage =
-        process.env.API + "/public/" + req.file.filename;
+      engravingObj.engImage = req.file.filename;
     }
     const eng = new Engraving(engravingObj)
     eng.save((error, engraving) => {

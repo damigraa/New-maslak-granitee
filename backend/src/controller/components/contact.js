@@ -10,8 +10,7 @@ exports.createContact = (req, res) => {
         }
 
         if (req.file) {
-            contactObj.iconImg =
-                process.env.API + "/public/" + req.file.filename;
+            contactObj.iconImg = req.file.filename;
         }
         const con = new Contact(contactObj)
         con.save((error, contact) => {

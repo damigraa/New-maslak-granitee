@@ -12,7 +12,7 @@ const AddGraniteMaterial = ({ currentId, setCurrentId, show, handleClose }) => {
         name: "",
         title: "",
         description: "",
-        advantage: "",
+        advantage: "", 
         list: "",
         buttonHref: "",
         colorText: "",

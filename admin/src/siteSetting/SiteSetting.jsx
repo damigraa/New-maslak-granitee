@@ -20,6 +20,7 @@ const SiteSetting = () => {
                 <li><NavLink to={"/warranty"}>Гарантии</NavLink></li>
                 <li><NavLink to={"/granite-material"}>Материалы</NavLink></li>
                 <li><NavLink to={"/catalog-title"}>Заголовок Каталога</NavLink></li>
+                <li style={{ marginTop: "20px" }}><NavLink to={"/chip"}>Для тестов</NavLink></li>
 
             </ul>
         </Layout>

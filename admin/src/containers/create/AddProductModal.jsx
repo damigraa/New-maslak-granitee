@@ -11,6 +11,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Icon from '@material-ui/core/Icon';
 import { v4 as uuidv4 } from 'uuid';
 import TextField from '@material-ui/core/TextField';
+import MultipleSelectChip from '../../siteSetting/containers/Chip';
 
 
 export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) => {
@@ -170,6 +171,7 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
                 placeholder={`Подробное описание`}
                 onChange={(e) => setProductForm({ ...productForm, description: e.target.value })}
             />
+            <MultipleSelectChip />
             {
                 !currentId ? <select
                     className="form-control"

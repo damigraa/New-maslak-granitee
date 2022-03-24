@@ -12,6 +12,7 @@ const AddCostDelivery = ({ show, handleClose, setCurrentId, currentId }) => {
     const [formCostDelivery, setFormCostDelivery] = useState({
         city: "",
         price: "",
+        deliveryTime: ""
     })
 
     useEffect(() => {
@@ -19,7 +20,7 @@ const AddCostDelivery = ({ show, handleClose, setCurrentId, currentId }) => {
             setFormCostDelivery(costDelivery)
         }
     }, [costDelivery])
-    
+
     const submitCostDelivery = () => {
         if (currentId) {
             dispatch(updateCostDelivery(currentId, formCostDelivery))
@@ -29,6 +30,7 @@ const AddCostDelivery = ({ show, handleClose, setCurrentId, currentId }) => {
             const form = new FormData();
             form.append("city", formCostDelivery.city);
             form.append("price", formCostDelivery.price);
+            form.append("deliveryTime", formCostDelivery.deliveryTime);
             dispatch(addCostDelivery(formCostDelivery)).then(() => handleClose());
             clear()
         }
@@ -66,7 +68,13 @@ const AddCostDelivery = ({ show, handleClose, setCurrentId, currentId }) => {
                 placeholder={"Стоимость"}
                 onChange={changeHandler}
             />
-
+            <Input
+                label="Время доставки"
+                name={"deliveryTime"}
+                value={formCostDelivery.deliveryTime}
+                placeholder={"Сроки доставки"}
+                onChange={changeHandler}
+            />
         </Modal>
 
     )

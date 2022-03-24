@@ -6,7 +6,7 @@ import { MaterialButton, MaterialInput } from "../../components/MaterialUI";
 const AddressForm = (props) => {
   const { initialData } = props;
   const [name, setName] = useState(initialData ? initialData.name : "");
-  const [mobileNumber, setMobileNumber] = useState( 
+  const [mobileNumber, setMobileNumber] = useState(
     initialData ? initialData.mobileNumber : ""
   );
   const [pinCode, setPinCode] = useState(
@@ -50,7 +50,7 @@ const AddressForm = (props) => {
         locality,
         address,
         cityDistrictTown,
-        state, 
+        state,
         landmark,
         alternatePhone,
         addressType,
@@ -97,14 +97,14 @@ const AddressForm = (props) => {
         <div className="flexRow">
           <div style={inputContainer}>
             <MaterialInput
-              label="Name"
+              label="Имя"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
           </div>
           <div style={inputContainer}>
             <MaterialInput
-              label="10-digit mobile number"
+              label="основной мобильный телефон"
               value={mobileNumber}
               onChange={(e) => setMobileNumber(e.target.value)}
             />
@@ -113,14 +113,14 @@ const AddressForm = (props) => {
         <div className="flexRow">
           <div style={inputContainer}>
             <MaterialInput
-              label="Pincode"
+              label="почтовый индекс"
               value={pinCode}
               onChange={(e) => setPinCode(e.target.value)}
             />
           </div>
           <div style={inputContainer}>
             <MaterialInput
-              label="Locality"
+              label="Город"
               value={locality}
               onChange={(e) => setLocality(e.target.value)}
             />
@@ -129,7 +129,7 @@ const AddressForm = (props) => {
         <div className="flexRow">
           <div style={inputContainer}>
             <MaterialInput
-              label="Address"
+              label="Адрес"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
             />
@@ -139,14 +139,14 @@ const AddressForm = (props) => {
         <div className="flexRow">
           <div style={inputContainer}>
             <MaterialInput
-              label="City/District/Town"
+              label="город"
               value={cityDistrictTown}
               onChange={(e) => setCityDistrictTown(e.target.value)}
             />
           </div>
           <div style={inputContainer}>
             <MaterialInput
-              label="State"
+              label="область"
               value={state}
               onChange={(e) => setState(e.target.value)}
             />
@@ -155,21 +155,21 @@ const AddressForm = (props) => {
         <div className="flexRow">
           <div style={inputContainer}>
             <MaterialInput
-              label="Landmark (Optional)"
+              label="Ориентир (необязательно)"
               value={landmark}
               onChange={(e) => setLandmark(e.target.value)}
             />
           </div>
           <div style={inputContainer}>
             <MaterialInput
-              label="Alternate Phone (Optional)"
+              label="Запасной номер(необязательно)"
               value={alternatePhone}
               onChange={(e) => setAlternatePhone(e.target.value)}
             />
           </div>
         </div>
         <div>
-          <label>Address Type</label>
+          <h3>Тип адреса</h3>
           <div className="flexRow">
             <div>
               <input
@@ -178,7 +178,7 @@ const AddressForm = (props) => {
                 name="addressType"
                 value="home"
               />
-              <span>Home</span>
+              <span>Домашний</span>
             </div>
             <div>
               <input
@@ -187,7 +187,7 @@ const AddressForm = (props) => {
                 name="addressType"
                 value="work"
               />
-              <span>Work</span>
+              <span>Рабочий</span>
             </div>
           </div>
         </div>

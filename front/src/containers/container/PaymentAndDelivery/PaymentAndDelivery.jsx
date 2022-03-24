@@ -1,20 +1,26 @@
 import React from 'react';
-import Layout from '../components/Layout';
+import Layout from '../../../components/Layout';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getPaymentLi } from '../actions';
-import RenderPaymentLi from './render/renderPaymentLi';
+import { getPaymentLi, getCostDelivery } from '../../../actions';
+import RenderPaymentLi from '../../render/renderPaymentLi';
+import RenderCostDelivery from '../../render/renderCostDelivery';
 
 
 const PaymentAndDelivery = () => {
 
     const paymentLI = useSelector((state) => state.paymentLI.paymentLI)
+    const costDelivery = useSelector((state) => state.costDelivery.costDelivery)
 
     const dispatch = useDispatch()
 
     useEffect(() => {
         dispatch(getPaymentLi())
-    })
+    }, [])
+
+    useEffect(() => {
+        dispatch(getCostDelivery())
+    }, [])
 
     return (
         <Layout>
@@ -38,79 +44,19 @@ const PaymentAndDelivery = () => {
                             </ul>
                             <div className="PaymentAndDelivery-delivery_title-two">Горот отправления: Мурманск</div>
                         </div>
-                        <table>
-                            <tr>
-                                <th>Город</th>
-                                <th>Стоимость</th>
-                                <th>Город</th>
-                                <th>Стоимость</th>
-                            </tr>
-                            <tr>
-                                <td>Архангельск</td>
-                                <td>2200 руб.</td>
-                                <td>Орел</td>
-                                <td>1700 руб.</td>
-                            </tr>
-                            <tr>
-                                <td>Великий Новгород</td>
-                                <td>1500 руб.</td>
-                                <td>Пенза</td>
-                                <td>1900 руб.</td>
-                            </tr>
-                            <tr>
-                                <td>Волгоград</td>
-                                <td>2400 руб.</td>
-                                <td>Пермь</td>
-                                <td>2600 руб.</td>
-                            </tr>
-                            <tr>
-                                <td>Екатеринбург</td>
-                                <td>3000 руб.</td>
-                                <td>Петрозаводск</td>
-                                <td>500 руб.</td>
-                            </tr>
-                            <tr>
-                                <td>Екатеринбург</td>
-                                <td>3000 руб.</td>
-                                <td>Петрозаводск</td>
-                                <td>500 руб.</td>
-                            </tr>
-                            <tr>
-                                <td>Казань</td>
-                                <td>2100 руб</td>
-                                <td>Ростов-на-Дону</td>
-                                <td>2200 руб</td>
-                            </tr>
-                            <tr>
-                                <td>Киров</td>
-                                <td>2070 руб</td>
-                                <td>Самара</td>
-                                <td>2400 руб.</td>
-                            </tr>
-                            <tr>
-                                <td>Курск</td>
-                                <td>1800 руб.</td>
-                                <td>Санкт-Петербург</td>
-                                <td>1500 руб.</td>
-                            </tr>
-                            <tr>
-                                <td>Москва</td>
-                                <td>2000 руб.</td>
-                                <td>Саратов</td>
-                                <td>2300 руб.</td>
-                            </tr>
-                            <tr>
-                                <td>Мурманск</td>
-                                <td>1900 руб.</td>
-                                <td>Тюмень</td>
-                                <td>2900 руб.</td>
-                            </tr>
-                            <tr>
-                                <td>Нижний Новгород</td>
-                                <td>1830 руб.</td>
-                                <td>Ярославль</td>
-                                <td>1800 руб.</td>
-                            </tr>
+                        <table class="table table-dark">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Номер</th>
+                                    <th scope="col">Город</th>
+                                    <th scope="col">Стоимость</th>
+                                    <th scope="col">Сроки доставки</th>
+                
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <RenderCostDelivery costDelivery={costDelivery} />
+                            </tbody>
                         </table>
                         <div>
                             *Стоимость доставки уточняйте у менеджера. Доставка зависит от габаритов и веса

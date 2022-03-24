@@ -18,6 +18,10 @@ import contact from './components/contact'
 import graniteMaterial from './components/graniteMaterial'
 import catalogTitle from './components/catalogTitle'
 import paymentLI from './components/paymentLI'
+import costDelivery from './components/costDelivery'
+import standMonument from './components/standMonument'
+import tombstoneCurb from './components/tombstoneCurb'
+
 
 import { combineReducers } from 'redux';
 
@@ -29,7 +33,6 @@ const rootReducer = combineReducers({
     cart,
     user,
     filters,
-    // application,
     header,
     manufacture,
     chooseMemorialPhotos,
@@ -41,7 +44,11 @@ const rootReducer = combineReducers({
     payment,
     contact,
     graniteMaterial,
-    paymentLI
+    paymentLI,
+    catalogTitle,
+    costDelivery,
+    standMonument,
+    tombstoneCurb,
 
 });
 

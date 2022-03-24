@@ -13,8 +13,7 @@ exports.createGraniteMaterial = (req, res) => {
         }
 
         if (req.file) {
-            graniteMaterialObj.graniteImg =
-                process.env.API + "/public/" + req.file.filename;
+            graniteMaterialObj.graniteImg = req.file.filename;
         }
         const con = new GraniteMaterial(graniteMaterialObj)
         con.save((error, graniteMaterial) => {

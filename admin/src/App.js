@@ -8,7 +8,7 @@ import Signup from './containers/Signup';
 import PrivateRoute from './components/HOC/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { isUserLoggedIn, getInitialData } from './actions';
-import Products from './containers/Products';
+import Products from './containers/ComonentContainer/Products';
 import Orders from './containers/Orders';
 import Category from './containers/Category';
 import NewPage from './containers/NewPage';
@@ -30,9 +30,12 @@ import Warranty from './siteSetting/containers/Warranty';
 import PaymentLI from './siteSetting/containers/PaymentLI';
 import CatalogTitle from './siteSetting/containers/CatalogTitle';
 import Test from './siteSetting/containers/Test';
-import PaymentAndDeliveryContainer from './siteSetting/PaymentAndDeliveryContainer';
 import CostDelivery from './siteSetting/containers/CostDelivery';
+import MultipleSelectChip from './siteSetting/containers/Chip';
 
+import PaymentAndDeliveryContainer from './siteSetting/PaymentAndDeliveryContainer';
+import StandMonument from './containers/ComonentContainer/StandMonument';
+import ContainerProductPage from './containers/ContainerProductPage';
 
 function App() {
 
@@ -79,6 +82,9 @@ function App() {
         <PrivateRoute path="/paymentAndDelivery" component={PaymentAndDeliveryContainer} />
         <PrivateRoute path="/catalog-title" component={CatalogTitle} />
         <PrivateRoute path="/costDelivery" component={CostDelivery} />
+        <PrivateRoute path="/containerProductPage" component={ContainerProductPage} />
+        <PrivateRoute path="/test" component={MultipleSelectChip} />
+        <PrivateRoute path="/standMonument" component={StandMonument} />
         {/* <PrivateRoute path="/test" component={Test} /> */}
 
         <Route path="/signin" component={Signin} />

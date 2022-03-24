@@ -1,12 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
-export default function BackButton() {
+export default function BackButton(props) {
 
     return (
         <div>
             <button className="btn btn-secondary">
-                <NavLink to="/siteSetting" style={{ color: "white", textDecoration: "none" }}>Вернеться в главное меню</NavLink>
+                <NavLink to={`${props.href}`} style={{ color: "white", textDecoration: "none" }}>{props.text}</NavLink>
             </button>
         </div>
     )

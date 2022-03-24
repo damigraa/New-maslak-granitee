@@ -13,7 +13,7 @@ import OrderDetailsPage from "./containers/OrderDetailsPage";
 
 import ToStart from './containers/ToStart';
 import Contacts from './containers/Contacts';
-import PaymentAndDelivery from './containers/PaymentAndDelivery';
+import PaymentAndDelivery from './containers/container/PaymentAndDelivery/PaymentAndDelivery';
 import Discounts from './containers/Promotion';
 import Warranty from './containers/Warranty';
 import Workshop from './containers/Workshop';

@@ -11,6 +11,12 @@ const costDelivery = new mongoose.Schema({
         require: true,
         min: 1,
         max: 20
+    },
+    deliveryTime: {
+        type: String,
+        require: true,
+        min: 1,
+        max: 20
     }
 
 }, { timestamps: true });

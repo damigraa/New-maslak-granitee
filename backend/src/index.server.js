@@ -34,6 +34,8 @@ const paymentListInstructionRoutes = require("./routes/components/paymentListIns
 const paymentMethodRoutes = require("./routes/components/paymentMethod")
 const catalogTitleRoutes = require("./routes/components/catalogTitle")
 const costDeliveryRoutes = require("./routes/components/costDelivery")
+const standMonumentRoutes = require("./routes/components/standMonument")
+const tombstoneCurbRoutes = require("./routes/components/tombstoneCurb")
 
 env.config();
 
@@ -83,6 +85,8 @@ app.use("/api", paymentListInstructionRoutes)
 app.use("/api", paymentMethodRoutes)
 app.use("/api", catalogTitleRoutes)
 app.use("/api", costDeliveryRoutes)
+app.use("/api", standMonumentRoutes)
+app.use("/api", tombstoneCurbRoutes)
 
 
 app.listen(process.env.PORT, () => {

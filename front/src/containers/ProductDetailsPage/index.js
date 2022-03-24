@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProductDetailsById } from '../../actions';
+import { getProductDetailsById, getStandMonument } from '../../actions';
 import Layout from '../../components/Layout';
 import {
   IoIosArrowForward,
@@ -14,23 +14,32 @@ import './style.css';
 import { generatePublicUrl } from '../../urlConfig';
 import { addToCart } from '../../actions';
 import { Link } from 'react-router-dom';
+import RenderStandMonumentModal from './../ProductListPage/StandMonument/StandMonumentModal';
+import RenderTombstoneCurbModal from './../ProductListPage/TombstoneCurb/TombstoneCurb';
+import { getTombstoneCurb } from './../../actions/components/tombstoneCurb';
+import RenderSection from './../render/renderSection';
 
 
 const ProductDetailsPage = (props) => {
-  const [SizeMemorials, setSizeMemorials] = React.useState("")
-  const [SizeCurb, setSizeCurb] = React.useState("0")
-  const [Engraving, setEngraving] = React.useState("")
-  const [Ceramics, setCeramics] = React.useState("")
-  const [Fio, setFio] = React.useState("")
-  const [Gold, setGold] = React.useState("")
-  const [Milling, setMilling] = React.useState("")
-  const [isCheckedRetouch, setIsCheckedRetouch] = React.useState("")
-  const [isCheckedRecovery, setIsCheckedRecovery] = React.useState("")
-  const [checked, setChecked] = React.useState(true);
-  const [checkedTwo, setCheckedTwo] = React.useState(true);
+
+  const [SizeMemorials, setSizeMemorials] = useState("")
+  const [SizeCurb, setSizeCurb] = useState("0")
+
+  const [Engraving, setEngraving] = useState("")
+  const [Ceramics, setCeramics] = useState("")
+  const [Fio, setFio] = useState("")
+  const [Gold, setGold] = useState("")
+  const [Milling, setMilling] = useState("")
+  const [isCheckedRetouch, setIsCheckedRetouch] = useState("")
+  const [isCheckedRecovery, setIsCheckedRecovery] = useState("")
+  const [checked, setChecked] = useState(true);
+  const [checkedTwo, setCheckedTwo] = useState(true);
 
   const dispatch = useDispatch();
   const product = useSelector(state => state.product)
+
+
+
 
   useEffect(() => {
     const { productId } = props.match.params;
@@ -42,18 +51,16 @@ const ProductDetailsPage = (props) => {
     }
     dispatch(getProductDetailsById(payload));
   }, []);
+
+
+
+
   const price = (Number(SizeMemorials) + Number(SizeCurb) + Number(Engraving) + Number(Ceramics) + Number(Fio) + Number(Milling) + Number(Gold)
     + Number(isCheckedRetouch ? "1000" : "0") + Number(isCheckedRecovery ? "3000" : "0")
   )
   var differencePensioners = price / 100 * 2
   var difference = price / 100 * 5
   var tallage = price / 100 * 93;
-  const onChange = e => {
-    setSizeMemorials(e.target.value)
-  }
-  const onChangeCurb = e => {
-    setSizeCurb(e.target.value)
-  }
 
   // if (!product) {
   //     return <div>
@@ -83,23 +90,22 @@ const ProductDetailsPage = (props) => {
     return null;
   }
 
-
-
-
-  var money = product.productDetails.price; // у нас есть деньги;
-  var tallage = money / 100 * 110;
-  var tallage2 = money / 100 * 120;
-  var tallage3 = money / 100 * 130;
-  var tallage4 = money / 100 * 140;
-  var tallage5 = money / 100 * 150;
-  var tallage6 = money / 100 * 150;
-  var tallage7 = money / 100 * 150;
-
-
   return (
     <Layout>
       <form className="container prod">
         <div className="row">
+          <Breed
+            breed={[
+              { name: "Главная", href: "/" },
+              { name: "Памятники", href: "/" },
+              { name: "Вертикальные", href: "/" },
+              { name: prod, href: "" },
+            ]}
+            breedIcon={<IoIosArrowForward />}
+          />
+        </div>
+        <div className="row">
+
           <div className="col-sm-6">
             <div className="flexRow">
               <div className="verticalImageStack">
@@ -115,12 +121,15 @@ const ProductDetailsPage = (props) => {
                 <div className="productDescImgContainer">
                   <img src={generatePublicUrl(product.productDetails.productPictures[0].img)} alt={`${product.productDetails.productPictures[0].img}`} />
                 </div>
-
+                <RenderSection
+                  product={product}
+                />
                 {/* action buttons */}
+
                 <div className="flexRow">
                   <MaterialButton
                     title="Добавить в корзину"
-                    bgColor="#ff9f00"
+                    bgColor="#1E1E1E"
                     textColor="#ffffff"
                     style={{
                       marginTop: '20px',
@@ -145,101 +154,19 @@ const ProductDetailsPage = (props) => {
                     icon={<AiFillThunderbolt />}
                   /> */}
                 </div>
+
+
               </div>
             </div>
-            <div className="section">
-              <div className="section-title">
-                О памятнике
-</div>
-              <div className="parameters-list">
-                <div className="parameter-item">
-                  <div>
 
 
 
-                    <span className="lev">
-                      Артикул
-                            </span>
-                    <span className="val">
-                      {product.vendorCod}
-                    </span>
-                  </div>
-                  <hr />
-                  <div>
-                    <span className="lev">
-                      Статус
-                            </span>
-                    <span className="val">
-                      {product.status}
-                    </span>
-                  </div>
-                  <hr />
 
-                  <div>
-                    <span className="lev">
-                      Гарандия - материал
-                            </span>
-                    <span className="val">
-                      10 лет
-                            </span>
-                  </div>
-                  <hr />
 
-                  <div>
-                    <span className="lev">
-                      Фаска
-                            </span>
-                    <span className="val">
-                      Техническая(1-4см.)
-                            </span>
-                  </div>
-                  <hr />
-
-                  <div>
-                    <span className="lev">
-                      Полировка
-                            </span>
-                    <span className="val">
-                      Все стороны
-                                </span>
-                  </div>
-                  <hr />
-
-                  <div>
-                    <span className="lev">
-                      Вес комплекта
-                            </span>
-                    <span className="val">
-                      {product.setWeight} кг.
-                                </span>
-                  </div>
-                  <hr />
-
-                  <div>
-                    <span className="lev">
-                      Высота с тумбой
-                                </span>
-                    <span className="val">
-                      {product.setHeight} см.
-                                </span>
-                  </div>
-                  <hr />
-
-                </div>
-              </div>
-            </div>
 
           </div>
           <div className="col-sm-6">
-            <Breed
-              breed={[
-                { name: "Главная", href: "/" },
-                { name: "Памятники", href: "/account" },
-                { name: "Вертикальные", href: "/account/orders" },
-                { name: prod, href: "" },
-              ]}
-              breedIcon={<IoIosArrowForward />}
-            />
+
 
             <h2> {product.productDetails.name}</h2>
             <div className="order-info" id="order-info-1">
@@ -252,10 +179,10 @@ const ProductDetailsPage = (props) => {
                   </span>
                   <span className="val">
                     Полная оплата (5%)
-                        </span>
+                  </span>
                   <span className="lev">
                     - {difference} руб
-                        </span>
+                  </span>
                 </label>
               </div>
               <div className="checkbox-item">
@@ -265,10 +192,10 @@ const ProductDetailsPage = (props) => {
                   </span>
                   <span className="val">
                     Пенсионерам (2%)
-                        </span>
+                  </span>
                   <span className="lev">
                     - {differencePensioners} руб.
-                        </span>
+                  </span>
                 </label>
               </div>
               <hr />
@@ -276,11 +203,11 @@ const ProductDetailsPage = (props) => {
                 <div className="head">
 
                   Цена :
-                      </div>
+                </div>
                 <div className="old">
                   {product.price = price}
-                                 руб.
-                     </div>
+                  руб.
+                </div>
                 <div className="new">
                   <b>{tallage} ₽</b>
 
@@ -288,90 +215,17 @@ const ProductDetailsPage = (props) => {
               </div>
             </div>
             <div>
-              <div>
-                <div className="order-info" >
-                  <h4 className="text-center  section-title">Размер стелы и тумбы</h4>
-                  <hr />
-                  <div>
-                    <label className="checkbox-item">
-                      <input
-                        onChange={onChange} type="radio" value={tallage} checked={SizeMemorials === tallage} />{' '}
-                      <span className="val">  80 x 40 x 5 см.</span>
-                      <span className="lev">{tallage}</span>
-                    </label>
-                  </div>
-                  <div>
-                    <label className="checkbox-item">
-                      <input
-                        onChange={onChange} type="radio" value={tallage2} checked={SizeMemorials === tallage2} />{' '}
-                      <span className="val"> 100 x 50 x 6 см.</span>
-                      <span className="lev"> ({tallage2} руб.)</span>
-                    </label>
-                  </div>
-                  <div>
-                    <label className="checkbox-item">
-                      <input
-                        onChange={onChange} type="radio" value={tallage3} checked={SizeMemorials === tallage3} />{' '}
-                      <span className="val"> 100 x 50 x 8 см.</span>
-                      <span className="lev"> ({tallage3} руб.)</span>
-                    </label>
-                  </div>
-                  <div>
-                    <label className="checkbox-item">
-                      <input
-                        onChange={onChange} type="radio" value={tallage4} checked={SizeMemorials === tallage4} />{' '}
-                      <span className="val"> 110 x 60 x 6 см.</span>
-                      <span className="lev"> ({tallage4} руб.)</span>
-                    </label>
-                  </div>
-                  <div>
-                    <label className="checkbox-item">
-                      <input
-                        onChange={onChange} type="radio" value={tallage5} checked={SizeMemorials === tallage5} />{' '}
-                      <span className="val"> 110 x 60 x 8 см.</span>
-                      <span className="lev"> ({tallage6} руб.)</span>
-                    </label>
-                  </div>
-                  <div>
-                    <label className="checkbox-item">
-                      <input
-                        onChange={onChange} type="radio" value={tallage6} checked={SizeMemorials === tallage6} />{' '}
-                      <span className="val"> 120 x 60 x 8 см.</span>
-                      <span className="lev"> ({tallage7} руб.)</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="order-info Mem" >
-                  <h4 className="text-center  section-title">Выбор цветника</h4>
-                  <hr />
-                  <div>
-                    <label className="checkbox-item">
-                      <input
-                        onChange={onChangeCurb} name="sizeCurb" component="input" type="radio" value="0" checked={SizeCurb === "0"} />{' '}
-                      <span className="val"> Без Цветника</span>
-                      <span className="lev"> (0 руб.)</span>
-                    </label>
-                  </div>
-                  <div>
-                    <label className="checkbox-item">
-                      <input
-                        onChange={onChangeCurb} name="sizeCurb" component="input" type="radio" value="3000" checked={SizeCurb === "3000"} />{' '}
-                      <span className="val"> 100 x 8 x 6 см.</span>
-                      <span className="lev"> (3 000 руб.)</span>
-                    </label>
-                  </div>
-                  <div>
-                    <label className="checkbox-item">
-                      <input
-                        onChange={onChangeCurb} name="sizeCurb" component="input" type="radio" value="5000" checked={SizeCurb === "5000"} />{' '}
-                      <span className="val"> 100 x 8 x 8 см.</span>
-                      <span className="lev"> (5 000 руб.)</span>
-                    </label>
-                  </div>
+              <RenderTombstoneCurbModal
+                SizeMemorials={SizeMemorials}
+                setSizeMemorials={setSizeMemorials}
+              />
 
-                </div>
+              <div>
+                <RenderStandMonumentModal
+                  SizeCurb={SizeCurb}
+                  setSizeCurb={setSizeCurb}
+
+                />
               </div>
               <div className="order-info" >
                 <h4 className="text-center  section-title">Оформление</h4>

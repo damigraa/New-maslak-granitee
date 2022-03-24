@@ -9,8 +9,7 @@ exports.createPromotions = (req, res) => {
             description: req.body.description
         }
         if (req.file) {
-            promotionObj.iconImg =
-                process.env.API + "/public/" + req.file.filename;
+            promotionObj.iconImg =  req.file.filename;
         }
         const con = new Promotion(promotionObj)
         con.save((error, contact) => {

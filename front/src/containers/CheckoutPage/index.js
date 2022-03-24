@@ -191,6 +191,8 @@ const CheckoutPage = (props) => {
   return (
     <Layout>
       <div className="cartContainer" style={{ alignItems: "flex-start" }}>
+      <a className="btn-secondary" href="/">Вернуться на главную</a>
+      
         <div className="checkoutContainer">
           {/* check if user logged in or not */}
           <CheckoutStep

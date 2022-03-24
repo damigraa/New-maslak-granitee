@@ -12,8 +12,7 @@ exports.createWeWorkOnline = (req, res) => {
             buttonHref: req.body.buttonHref,
         }
         if (req.file) {
-            weWorkOnlineObj.image =
-                process.env.API + "/public/" + req.file.filename;
+            weWorkOnlineObj.image = req.file.filename;
         }
         const weWorkOnline = new WeWorkOnline(weWorkOnlineObj)
         weWorkOnline.save((error, weWorkOnline) => {

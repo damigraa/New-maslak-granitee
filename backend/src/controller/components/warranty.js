@@ -10,8 +10,7 @@ exports.createWarranty = (req, res) => {
         }
 
         if (req.file) {
-            warrantyObj.iconImg =
-                process.env.API + "/public/" + req.file.filename;
+            warrantyObj.iconImg = req.file.filename;
         }
         const war = new Warranty(warrantyObj)
         war.save((error, warranty) => {

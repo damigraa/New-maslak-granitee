@@ -21,6 +21,7 @@ const RenderCostDelivery = ({ setShow, setCurrentId, costDelivery }) => {
                         <div style={{ margin: "20px" }}>
                             <div><span style={{ color: "#fff" }}></span>{item.city}</div>
                             <div><span style={{ color: "#fff" }}></span>{item.price}</div>
+                            <div><span style={{ color: "#fff" }}></span>{item.deliveryTime || "Пусто W"}</div>
                         </div>
                         <div style={{ borderBottom: "2px solid #fff" }}></div>
                         <button className="btn btn-secondary m-2" onClick={() => dispatch(deleteCostDelivery(item._id))}>Удалить</button>

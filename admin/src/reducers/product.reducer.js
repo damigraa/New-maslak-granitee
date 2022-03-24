@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
             }
             break;
         case productConstants.SET_VIEW:
-            state = {
+            state = { 
                 ...state,
                 view: action.payload
             }

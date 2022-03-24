@@ -11,10 +11,9 @@ import "./style.scss";
 const OrderDetailsPage = (props) => {
   const dispatch = useDispatch();
   const orderDetails = useSelector((state) => state.user.orderDetails);
-  console.log(orderDetails);
 
   useEffect(() => {
-    const payload = {
+    const payload =  {
       orderId: props.match.params.orderId,
     };
     dispatch(getOrder(payload));
@@ -58,27 +57,62 @@ const OrderDetailsPage = (props) => {
     <Layout>
       <div
         style={{
-          width: "1160px",
+          width: "800px",
           margin: "10px auto",
         }}
       >
         <Card style={{
           margin: "10px 0",
         }}>
-          <div className="delAdrContainer">
-            <div className="delAdrDetails">
-              <div className="delTitle">Delivery Address</div>
-              <div className="delName">{orderDetails.address.name}</div>
-              <div className="delAddress">{orderDetails.address.address}</div>
-              <div className="delPhoneNumber">
-                Phone number {orderDetails.address.mobileNumber}
+          <div className="row">
+            <h3>Выполнен</h3>
+            <div className="order-heading__decoration"></div>
+          </div>
+          <div className="row">
+            <div className="col-sm-4">
+              <div className="delAdrContainer">
+                <a href="/account/orders">Вернуться обратно</a>
+                <div className="delAdrDetails">
+                  <div className="delTitle">Информация о заказе</div>
+                  <div className="delName">{orderDetails.address.name}</div>
+                  <div className="delAddress">{orderDetails.address.address}</div>
+                  <div className="delPhoneNumber">
+                    Мобильный {orderDetails.address.mobileNumber}
+                  </div>
+                </div>
+                <div className="delMoreActionContainer">
+                  <button className="btn btn-secondary">История заказа</button>
+                  <div className="delName">Download Invoice</div>
+                </div>
               </div>
             </div>
-            <div className="delMoreActionContainer">
-              <div className="delTitle">More Actions</div>
-              <div className="delName">Download Invoice</div>
+            <div className="col-sm-8">
+              <div className="row" style={{ marginTop: "30px" }}>
+                <div className="col-sm-5">
+                  <div>
+                    <div>Оплата</div>
+                    <div>Доставка</div>
+                    <div>Итого</div>
+                  </div>
+                  <button className="btn btn-secondary">Оставить отзыв</button>
+
+                </div>
+                <div className="col-sm-7">
+                <div style={{textAlign: 'right'}}>
+                    <div>Оплата при получении товара</div>
+                    <div>Бесплатно</div>
+                    <div>20000 руб</div>
+                  </div>
+
+                  <button className="btn btn-secondary">Оплатить</button>
+
+                </div>
+              </div>
             </div>
           </div>
+
+
+
         </Card>
         {orderDetails.items.map((item, index) => (
           <Card
@@ -86,10 +120,10 @@ const OrderDetailsPage = (props) => {
           >
             <div className="flexRow">
               <div className="delItemImgContainer">
-               { <img
+                {<img
                   src={generatePublicUrl(item.productId.productPictures[0].img)}
                   alt=""
-                />|| "Нет фото"}
+                /> || "Нет фото"}
               </div>
               <div style={{ width: "250px" }}>
                 <div className="delItemName">{item.productId.name}</div>
@@ -126,3 +160,32 @@ const OrderDetailsPage = (props) => {
 };
 
 export default OrderDetailsPage;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

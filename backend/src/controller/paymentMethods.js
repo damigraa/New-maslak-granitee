@@ -9,8 +9,7 @@ exports.createPaymentMethod = (req, res) => {
         }
 
         if (req.file) {
-            paymentMethodObj.paymentMethodImg =
-                process.env.API + "/public/" + req.file.filename;
+            paymentMethodObj.paymentMethodImg = req.file.filename;
         }
 
         const paymentMethod = new PaymentMethod(paymentMethodObj)

@@ -8,6 +8,7 @@ exports.createCostDelivery = (req, res) => {
         const costDeliveryObj = {
             city: req.body.city,
             price: req.body.price,
+            deliveryTime: req.body.deliveryTime
         }
         const costDelivery = new CostDelivery(costDeliveryObj)
         costDelivery.save((error, costDelivery) => {
