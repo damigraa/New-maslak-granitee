@@ -4,12 +4,12 @@ import HeaderNav from './HeaderNav';
 
 function Header() {
 
-    return (
-      <div className="header">
-        <HeaderTop />
-        <HeaderNav />
-      </div>
-    );
-  }
-  
-  export default Header;
+  return (
+    <div className="header">
+      <HeaderTop />
+      <HeaderNav />
+    </div>
+  );
+}
+
+export default Header;

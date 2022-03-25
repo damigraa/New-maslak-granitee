@@ -90,10 +90,8 @@ export default function Photo() {
       <h2>Фотогалерия мастерской</h2>
       <Slider {...settings}>
         {photos.map((p) => (
-          <div className="Photo"
-            key={p.id}
-          >
-            <img height="300px" src={p.photo} />
+          <div className="Photo" key={p.id}>
+            <img height="250px" src={p.photo} />
           </div>
         ))}
       </Slider>

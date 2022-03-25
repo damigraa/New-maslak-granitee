@@ -1,5 +1,6 @@
 .slider {
-  // background-color: rgb(220, 220, 220);
+max-width: 95%;
+margin: 0 auto;
 .Photo{
   margin: 30px;
   display: block;
@@ -11,7 +12,7 @@ border-radius: 10px;
   }
   .btn{
     background-color: rgb(216, 178, 143);
-    border-radius: 18px;
+    // border-radius: 18px;
     border: 0;
     opacity: 0.6;
   }

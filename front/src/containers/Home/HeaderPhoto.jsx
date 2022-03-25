@@ -5,6 +5,7 @@ import { createApplication, getMainImage } from '../../actions';
 import { useSelector } from 'react-redux';
 import Loader from './../../components/Small/Loader';
 import { RenderApplicationModal } from './../../components/Help/RenderApplicationModal';
+import { generatePublicUrl } from '../../urlConfig';
 
 const HeaderPhoto = (props) => {
 
@@ -17,7 +18,7 @@ const HeaderPhoto = (props) => {
   useEffect(() => {
     dispatch(getMainImage())
   }, [])
-
+  console.log(mainImage)
 
   const handleShow = () => setShow(true)
   const handleClose = () => setShow(false)
@@ -33,6 +34,10 @@ const HeaderPhoto = (props) => {
       <div>
         {mainImage.length > 0 ?
           mainImage.map((m, index) =>
+          <div className="container-fluid header-photo"
+          style={{
+            backgroundImage: `url(${generatePublicUrl(m.image)})`
+          }}>
             <div key={index} className="container header-text">
               <div className="container row">
                 <div className="col-sm-12 text-center">
@@ -69,12 +74,14 @@ const HeaderPhoto = (props) => {
 
               </div>
             </div>
+            </div>
           ) : null}
       </div>
     )
   }
   return (
-    <div className="container-fluid header-photo">
+    <div>
+
       {renderMainImage()}
     </div>
   )

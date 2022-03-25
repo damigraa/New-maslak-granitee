@@ -1,13 +1,13 @@
 import React from 'react';
 import Footer from '../Footer';
 import MenuHeader from '../MenuHeader';
-import Header from './../Header/Header';
+import Header from '../Header/Header';
 
 
 const Layout = (props) => {
   return(
     <>
-        <Header />
+        <Header/>
         <div>
         <MenuHeader />
 

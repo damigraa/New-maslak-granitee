@@ -7,7 +7,7 @@ import Cart from "../UI/Cart";
 
 import "./style.css";
 
-const Header = (props) => {
+const HeaderNav = (props) => {
   const [loginModal, setLoginModal] = useState(false);
   const [signup, setSignup] = useState(false);
   const [firstName, setFirstName] = useState("");
@@ -114,7 +114,7 @@ const Header = (props) => {
               }}
               style={{ color: "#2874f0" }}
             >
-              Sign Up
+              Регестрация
             </a>
           </div>
         }
@@ -128,8 +128,8 @@ const Header = (props) => {
         <div className="authContainer">
           <div className="row-h">
             <div className="leftspace">
-              <h2>Login</h2>
-              <p>Get access to your Orders, Wishlist and Recommendations</p>
+              <h2>Войти</h2>
+              <p>Войдите в свой личный кабинет для оформления заказа</p>
             </div>
             <div className="rightspace">
               <div className="loginInputContainer">
@@ -152,7 +152,6 @@ const Header = (props) => {
                     onChange={(e) => setLastName(e.target.value)}
                   />
                 )}
-
                 <MaterialInput
                   type="text"
                   label="Email/Mobile Number"
@@ -187,6 +186,10 @@ const Header = (props) => {
                 /> */}
               </div>
             </div>
+
+
+
+
           </div>
         </div>
       </Modall>
@@ -227,7 +230,7 @@ const Header = (props) => {
             <a href={`/cart`} className="cart">
               <Cart count={Object.keys(cart.cartItems).length} />
               <span style={{ margin: "0 10px" }}>Корзина</span>
-            </a>
+            </a> 
           </div>
         </div>
       </div>
@@ -235,4 +238,4 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+export default HeaderNav;
