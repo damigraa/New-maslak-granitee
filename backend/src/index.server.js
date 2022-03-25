@@ -36,6 +36,7 @@ const catalogTitleRoutes = require("./routes/components/catalogTitle")
 const costDeliveryRoutes = require("./routes/components/costDelivery")
 const standMonumentRoutes = require("./routes/components/standMonument")
 const tombstoneCurbRoutes = require("./routes/components/tombstoneCurb")
+const graniteTilesRoutes = require("./routes/components/graniteTiles")
 
 env.config();
 
@@ -86,6 +87,7 @@ app.use("/api", paymentMethodRoutes)
 app.use("/api", catalogTitleRoutes)
 app.use("/api", costDeliveryRoutes)
 app.use("/api", standMonumentRoutes)
+app.use("/api", graniteTilesRoutes)
 app.use("/api", tombstoneCurbRoutes)
 
 

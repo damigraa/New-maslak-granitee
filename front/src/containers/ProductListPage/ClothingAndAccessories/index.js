@@ -59,34 +59,31 @@ const ClothingAndAccessories = (props) => {
       return (
         <div className="">
           <Card className="row caRow">
-            {product.products.map((product) => (
+            {product.products.map((item) => (
 
               <div
                 className="caContainer"
-                key={product._id}
+                key={item._id}
               >
                 <Link
                   className="caImgContainer"
-                  to={`/${product.slug}/${product._id}/p`}
+                  to={`/${item.slug}/${item._id}/p`}
                 >
-                  {<img src={generatePublicUrl(product.productPictures[0].img)} /> || null}
+                  {<img src={generatePublicUrl(item.productPictures[0].img)} /> || null}
                 </Link>
                 <div className="caDescContainer">
                   <div className="caProductName">
-                    <h4>{product.name}</h4>
+                    <h4>{item.name}</h4>
                   </div>
                   <div className="caProductPrice">
-                    {product.price}
+                    {item.price}
                     <BiRuble />
                   </div>
                   <div>
-                    Описание
+                    {item.size}
                   </div>
                   <div>
-                    Что угодно
-                  </div>
-                  <div>
-                    Любой текст
+                    {item.weight}
                   </div>
                 </div>
               </div>
@@ -189,7 +186,7 @@ const ClothingAndAccessories = (props) => {
             <option value="updatedAt">Самые старые</option>
           </select>
           <div className="disk__title" >Заголовок</div>
-          <div className="disk__number">(Всего товаров - 7)</div>
+          <div className="disk__number">(Всего товаров - {product.products.length})</div>
         </div>
 
 

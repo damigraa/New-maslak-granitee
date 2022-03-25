@@ -1,0 +1,62 @@
+.containerList__form-title {
+    font-size: 1.125rem;
+    font-family: "Qanelas SemiBold", sans-serif;
+    display: flex;
+    align-items: center;
+}
+.containerList__form-title-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #E4E4E4;
+    margin-left: 14px;
+}
+.containerList__form-item {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.containerList__form-caption {
+    margin-top: 5px;
+    font-size: 0.875rem;
+    font-family: "Qanelas Medium", sans-serif;
+    color: #979797;
+}
+.containerList__form-radio {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+}
+input[type="radio"], input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+.containerList__form-radio-title {
+    font-size: 1rem;
+    font-weight: bold
+}
+.containerList__form-radio-caption {
+    font-size: 0.875rem;
+    font-family: "Qanelas Medium", sans-serif;
+    
+}
+
+.containerList__form-radio--tile .containerList__form-radio-label {
+    min-width: 50px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #F1F1F1;
+    padding: 15px;
+    border-radius: 4px;
+    transition: .3s;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.containerList__form-radio--tile .containerList__form-radio-label.checked {
+    background-color: #F1F1F1;
+    border-color: transparent;
+}
+
+@media (min-width: 480px){
+.containerList__form-radio--tile .containerList__form-radio-label  {
+    min-width: 230px;
+}}

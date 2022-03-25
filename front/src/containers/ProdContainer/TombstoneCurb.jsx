@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ContainerList from '../ContainerList';
-import { getTombstoneCurb } from './../../../actions/components/tombstoneCurb';
+import ContainerList from '../ProductListPage/ContainerList';
+import { getTombstoneCurb } from '../../actions/components/tombstoneCurb';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -19,7 +19,8 @@ const RenderTombstoneCurbModal = ({ SizeMemorials, setSizeMemorials }) => {
 
     return (
         <ContainerList
-            title="Цветники и надгробия"
+            title="Надгробие"
+            titleTwo="надгробия или цветника"
             product={tombstoneCurb}
             onChange={onChange}
             checked={SizeMemorials}

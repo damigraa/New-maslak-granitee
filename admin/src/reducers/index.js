@@ -22,6 +22,8 @@ import paymentLI from './components/paymentLI'
 import catalogTitle from './components/catalogTitle'
 import costDelivery from './components/costDelivery'
 import standMonument from './components/standMonument'
+import tombstoneCurb from './components/tombstoneCurb'
+import graniteTiles from './components/graniteTiles'
 
 
 import { combineReducers } from 'redux'
@@ -50,7 +52,9 @@ const rootReducer = combineReducers({
     paymentLI,
     catalogTitle,
     costDelivery,
-    standMonument
+    standMonument,
+    graniteTiles,
+    tombstoneCurb,
 })
 
 export default rootReducer

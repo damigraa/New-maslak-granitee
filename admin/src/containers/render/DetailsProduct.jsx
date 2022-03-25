@@ -4,7 +4,7 @@ import { generatePublicUrl } from '../../urlConfig';
 import Modal from './../../components/UI/Modal/index';
 
 
-export const DetailsProduct = ({ productDetailModal, setProductDetailModal,handleCloseProductDetailsModal, productDetails }) => {
+export const DetailsProduct = ({ productDetailModal, setProductDetailModal, handleCloseProductDetailsModal, productDetails }) => {
     if (!productDetails) {
         return null;
     }
@@ -34,6 +34,16 @@ export const DetailsProduct = ({ productDetailModal, setProductDetailModal,handl
                 <Col md="6">
                     <label className="key">Категория</label>
                     <p className="value">{productDetails.category.name}</p>
+                </Col>
+            </Row>
+            <Row>
+                <Col md="6">
+                    <label className="key">Вес готового изделия</label>
+                    <p className="value">{productDetails.weight}</p>
+                </Col>
+                <Col md="6">
+                    <label className="key">Размеры памятника</label>
+                    <p className="value">{productDetails.size}</p>
                 </Col>
             </Row>
             <Row>

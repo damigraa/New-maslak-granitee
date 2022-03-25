@@ -36,6 +36,16 @@ const productSchema = new mongoose.Schema({
         required: true,
         trim: true
     },
+    size: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    weight: {
+        type: String,
+        required: true,
+        trim: true
+    },
     offer: { type: Number },
     productPrice: [productPriceSchema],
     productPictures: [

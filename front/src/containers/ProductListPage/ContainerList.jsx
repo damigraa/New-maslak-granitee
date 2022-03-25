@@ -3,23 +3,33 @@ import React from 'react';
 
 const ContainerList = (props) => {
     return (
-        <div className="order-info Mem" >
-            <h4 className="text-center  section-title">{props.title}</h4>
-            <hr />
-            {
-                props.product.length > 0 ?
-                    props.product.map((item) =>
-                        <div key={item._id}>
-                            <label className="checkbox-item">
+        <div className="containerList__form-item off-js-product-prop" >
+            <div className="containerList__form-title">
+
+                <span>{props.title}</span><span className="containerList__form-title-line"></span>
+            </div>
+            <div className="containerList__form-caption">Вы можете выбрать свой вариант {props.titleTwo}:</div>
+            <div className="containerList__form-radio containerList__form-radio--tile">
+
+                {
+                    props.product.length > 0 ?
+                        props.product.map((item) =>
+                            <label key={item._id} className="containerList__form-radio-label checked">
                                 <input
-                                    onChange={props.onChange} name="sizeCurb" component="input" type="radio" value="0" checked={props.checked === "0"} />{' '}
-                                <span className="val">{item.size}</span>
-                                <span className="lev"> ({item.price} руб.)</span>
+                                    className="containerList__form-radio-input"
+                                    type="radio"
+                                    onChange={props.onChange}
+                                    value="0"
+                                    name="sizeCurb"
+                                    checked={props.checked === "0"}
+                                />
+                                <span className="containerList__form-radio-title">{item.price}&nbsp;руб.</span>
+                                <span className="containerList__form-radio-caption">{item.size}&nbsp;мм</span>
                             </label>
-                        </div>
-                    ) : "нет данных"
-            }
-        </div>
+                        ) : "нет данных"
+                }
+            </div>
+        </div >
     )
 }
 

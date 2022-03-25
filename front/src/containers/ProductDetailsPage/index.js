@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProductDetailsById, getStandMonument } from '../../actions';
-import Layout from '../../components/Layout';
+import { getProductDetailsById, getStandMonument } from './../../actions';
+import Layout from './../../components/Layout';
 import {
   IoIosArrowForward,
   IoIosStar,
@@ -9,21 +9,21 @@ import {
 } from 'react-icons/io';
 import { BiRupee } from 'react-icons/bi';
 import { AiFillThunderbolt } from 'react-icons/ai';
-import { Breed, MaterialButton } from '../../components/MaterialUI';
+import { Breed, MaterialButton } from './../../components/MaterialUI';
 import './style.css';
-import { generatePublicUrl } from '../../urlConfig';
-import { addToCart } from '../../actions';
-import { Link } from 'react-router-dom';
-import RenderStandMonumentModal from './../ProductListPage/StandMonument/StandMonumentModal';
-import RenderTombstoneCurbModal from './../ProductListPage/TombstoneCurb/TombstoneCurb';
-import { getTombstoneCurb } from './../../actions/components/tombstoneCurb';
-import RenderSection from './../render/renderSection';
+import { generatePublicUrl } from './../../urlConfig';
+import RenderSection from '../../containers/render/renderSection';
+import RenderStandMonumentModal from './../ProdContainer/StandMonumentModal';
+import RenderTombstoneCurbModal from './../ProdContainer/TombstoneCurb';
+import { addToCart } from './../../actions/cart.action';
+import RenderGraniteTilesModal from '../ProdContainer/GraniteTilesModal';
 
 
 const ProductDetailsPage = (props) => {
 
   const [SizeMemorials, setSizeMemorials] = useState("")
   const [SizeCurb, setSizeCurb] = useState("0")
+  const [tiles, setTiles] = useState("0")
 
   const [Engraving, setEngraving] = useState("")
   const [Ceramics, setCeramics] = useState("")
@@ -154,16 +154,8 @@ const ProductDetailsPage = (props) => {
                     icon={<AiFillThunderbolt />}
                   /> */}
                 </div>
-
-
               </div>
             </div>
-
-
-
-
-
-
           </div>
           <div className="col-sm-6">
 
@@ -226,6 +218,11 @@ const ProductDetailsPage = (props) => {
                   setSizeCurb={setSizeCurb}
 
                 />
+                <RenderGraniteTilesModal
+                  tiles={tiles}
+                  setTiles={setTiles}
+                />
+
               </div>
               <div className="order-info" >
                 <h4 className="text-center  section-title">Оформление</h4>

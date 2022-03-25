@@ -25,6 +25,8 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
         price: "",
         description: "",
         categoryId: "",
+        size: "",
+        weight: "",
     })
     const [productPrice, setProductPrice] = useState([
         { id: uuidv4(), newPrice: '', size: '' },
@@ -81,6 +83,8 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
             form.append("description", productForm.description);
             form.append("category", productForm.categoryId);
             form.append("productPrice", productPrice);
+            form.append("size", productForm.size);
+            form.append("weight", productForm.weight);
             for (let pic of productPictures) {
                 form.append("productPicture", pic);
             }
@@ -108,6 +112,8 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
             price: "",
             description: "",
             categoryId: "",
+            weight: "",
+            size: ""
         })
     }
     return (
@@ -117,7 +123,7 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
             modalTitle={"Добавить новый продукт"}
             onSubmit={submitProductForm}
         >
-            {productPrice.map(item => (
+            {/* {productPrice.map(item => (
                 <div key={item.id}>
                     <TextField
                         name="newPrice"
@@ -142,7 +148,7 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
                         <AddIcon />
                     </IconButton>
                 </div>
-            ))}
+            ))} */}
             <Input
                 label="Название"
                 name="name"
@@ -171,7 +177,21 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
                 placeholder={`Подробное описание`}
                 onChange={(e) => setProductForm({ ...productForm, description: e.target.value })}
             />
-            <MultipleSelectChip />
+            <Input
+                label="Размеры памятника"
+                name="size"
+                value={productForm.size}
+                placeholder={`Введите размеры`}
+                onChange={(e) => setProductForm({ ...productForm, size: e.target.value })}
+            />
+            <Input
+                label="Вес готового изделия"
+                name="weight"
+                value={productForm.weight}
+                placeholder={`Вес`}
+                onChange={(e) => setProductForm({ ...productForm, weight: e.target.value })}
+            />
+            {/* <MultipleSelectChip /> */}
             {
                 !currentId ? <select
                     className="form-control"

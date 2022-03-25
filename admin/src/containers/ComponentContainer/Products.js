@@ -56,6 +56,7 @@ const Products = (props) => {
         handleClose={handleClose}
         currentId={currentId}
         setCurrentId={setCurrentId}
+        product={product}
       />
       <DetailsProduct
         productDetailModal={productDetailModal}

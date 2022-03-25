@@ -2,24 +2,12 @@ import React from 'react';
 
 
 
-const RenderSection = ({ paymentLI, product }) => {
-console.log(product)
-
+const RenderSection = ({ product }) => {
+    if (!product.productDetails) {
+        return null
+    }
     return (
         <div className=" w-100 PaymentAndDelivery-block">
-            {
-                // paymentLI.length > 0 ?
-                //     paymentLI.map((item) =>
-                //         <>
-                //             <div key={item._id} className="Img PaymentAndDelivery-img"></div>
-                //             <div className="my-3 w-100 PaymentAndDelivery-text">
-                //                 {item.text}
-                //             </div>
-                //         </>
-                //     ) : null
-            }
-
-
             <div className="section">
                 <div className="section-title">
                     О памятнике
@@ -34,26 +22,26 @@ console.log(product)
                                 Артикул
                             </span>
                             <span className="val">
-                                {product.vendorCod}
+                                {product.productDetails.name}
                             </span>
                         </div>
                         <hr />
                         <div>
                             <span className="lev">
-                                Статус
+                            Габариты
                             </span>
                             <span className="val">
-                                {product.status}
+                                {product.productDetails.size}мм.
                             </span>
                         </div>
                         <hr />
 
                         <div>
                             <span className="lev">
-                                Гарандия - материал
+                                Цвет
                             </span>
                             <span className="val">
-                                10 лет
+                                Черный
                             </span>
                         </div>
                         <hr />
@@ -83,28 +71,18 @@ console.log(product)
                                 Вес комплекта
                             </span>
                             <span className="val">
-                                {product.setWeight} кг.
+                                {product.productDetails.weight} кг.
                             </span>
                         </div>
                         <hr />
-
-                        <div>
-                            <span className="lev">
-                                Высота с тумбой
-                            </span>
-                            <span className="val">
-                                {product.setHeight} см.
-                            </span>
-                        </div>
-                        <hr />
-
                     </div>
                 </div>
             </div>
-
-
         </div>
     )
 }
 
 export default RenderSection
+
+
+

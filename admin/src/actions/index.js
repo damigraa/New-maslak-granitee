@@ -22,3 +22,6 @@ export * from "./components/paymentListInstruction"
 export * from "./components/catalogTitle"
 export * from "./components/costDelivery"
 export * from "./components/standMonument"
+export * from "./components/tombstoneCurb"
+export * from "./components/graniteTiles"
+

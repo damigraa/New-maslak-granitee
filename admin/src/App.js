@@ -8,7 +8,7 @@ import Signup from './containers/Signup';
 import PrivateRoute from './components/HOC/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { isUserLoggedIn, getInitialData } from './actions';
-import Products from './containers/ComonentContainer/Products';
+import Products from './containers/ComponentContainer/Products';
 import Orders from './containers/Orders';
 import Category from './containers/Category';
 import NewPage from './containers/NewPage';
@@ -34,7 +34,9 @@ import CostDelivery from './siteSetting/containers/CostDelivery';
 import MultipleSelectChip from './siteSetting/containers/Chip';
 
 import PaymentAndDeliveryContainer from './siteSetting/PaymentAndDeliveryContainer';
-import StandMonument from './containers/ComonentContainer/StandMonument';
+import StandMonument from './containers/ComponentContainer/StandMonument';
+import TombstoneCurb from './containers/ComponentContainer/TombstoneCurb';
+import GraniteTiles from './containers/ComponentContainer/GraniteTiles';
 import ContainerProductPage from './containers/ContainerProductPage';
 
 function App() {
@@ -85,6 +87,8 @@ function App() {
         <PrivateRoute path="/containerProductPage" component={ContainerProductPage} />
         <PrivateRoute path="/test" component={MultipleSelectChip} />
         <PrivateRoute path="/standMonument" component={StandMonument} />
+        <PrivateRoute path="/tombstoneCurb" component={TombstoneCurb} />
+        <PrivateRoute path="/graniteTiles" component={GraniteTiles} />
         {/* <PrivateRoute path="/test" component={Test} /> */}
 
         <Route path="/signin" component={Signin} />

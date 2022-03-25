@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getStandMonument } from './../../../actions/components/standMonument';
-import ContainerList from './../ContainerList';
+import { getStandMonument } from '../../actions/components/standMonument';
+import ContainerList from '../ProductListPage/ContainerList';
 
 
 const RenderStandMonumentModal = ({ setSizeCurb, SizeCurb }) => {

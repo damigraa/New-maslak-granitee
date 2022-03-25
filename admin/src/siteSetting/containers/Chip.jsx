@@ -28,24 +28,15 @@ function getStyles(name, personName, theme) {
   };
 }
 
-const MultipleSelectChip = () => {
-  const names = [
-    "roman", "cdtnkf", "dfcz"
-  ];
+const MultipleSelectChip = (props) => {
+
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
+
   const product = useSelector((state) => state.product.products)
-  // const [personName, setPersonName] = React.useState([]);
 
+  const productTest = props.product.map((prod) => prod.size)
 
-
-  console.log(product)
-  console.log(personName)
-
-
-  const productTest = product.map((prod) => prod.name )
-
-  console.log(productTest)
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProducts())
@@ -61,12 +52,6 @@ const MultipleSelectChip = () => {
   };
 
   return (
-    // <ContainerSiteSetting
-    //   // item={comeToUs}
-    //   // setShow={handleShow}
-    //   noLimit
-    //   title={`Редактор "Приходи к нам"`}
-    // >
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
         <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
@@ -87,13 +72,13 @@ const MultipleSelectChip = () => {
           )}
           MenuProps={MenuProps}
         >
-          {productTest.map((name) => (
+          {productTest.map((size) => (
             <MenuItem
-              key={name}
-              value={name}
-              style={getStyles(name, personName, theme)}
+              key={size}
+              value={size}
+              style={getStyles(size, personName, theme)}
             >
-              {name}
+              {size}
             </MenuItem>
           ))}
         </Select>

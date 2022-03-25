@@ -2,29 +2,30 @@ import React from 'react'
 import { useSelector, useDispatch } from "react-redux";
 import { generatePublicUrl } from '../../urlConfig'
 import Loader from '../../components/Loader';
-import { deleteStandMonument } from '../../actions';
+import { deleteGraniteTiles } from '../../actions';
 
 
-export const RenderStandMonument = ({ setShow, showProductDetailsModal, setCurrentId, standMonument }) => {
+export const RenderGraniteTiles = ({ setShow, showGraniteTilesModal, setCurrentId, graniteTiles }) => {
 
-    const fileView = useSelector(state => state.standMonument.view)
-
+    const fileView = useSelector(state => state.graniteTiles.view)
     const dispatch = useDispatch()
+
     const Edit = (item) => {
         setCurrentId(item._id)
         setShow(true)
     }
 
     if (fileView === "plate") {
+        
         return (
             <div className="fileplate">
-                {!standMonument ? <Loader /> :
-                    standMonument.map((item) =>
+                {!graniteTiles ? <Loader /> :
+                    graniteTiles.map((item) =>
                         <div className='file-plate' >
                             <img
-                                onClick={() => showProductDetailsModal(item)}
+                                onClick={() => showGraniteTilesModal(item)}
                                 className="file__img"
-                                src={generatePublicUrl(item.img[0])}
+                                src={generatePublicUrl(item.img[0].img)}
                                 alt={item.name}
                             />
                             <div className="file-plate__name"
@@ -32,13 +33,14 @@ export const RenderStandMonument = ({ setShow, showProductDetailsModal, setCurre
                             >{item.name}</div>
                             <div className="file-plate__btns">
                                 <button className="btn btn-secondary" onClick={() => Edit(item)}>Редактировать</button>
-                                <button className="btn btn-secondary" onClick={() => dispatch(deleteStandMonument(item._id))}>Удалить</button>
+                                <button className="btn btn-secondary" onClick={() => dispatch(deleteGraniteTiles(item._id))}>Удалить</button>
                             </div>
                         </div>
                     )}
             </div>
         )
     } else {
+
         return (
             <div>
                 <div className="file-title">
@@ -47,15 +49,15 @@ export const RenderStandMonument = ({ setShow, showProductDetailsModal, setCurre
                     {/* <div className="file-title__date">Категория</div> */}
                     <div className="file-title__size">Цена</div>
                 </div>
-                {!standMonument ? <Loader /> :
-                    standMonument.map((item) =>
+                {!graniteTiles ? <Loader /> :
+                    graniteTiles.map((item) =>
                         <div className="file" key={item._id}>
-                            <img className="file__img"
-                                onClick={() => showProductDetailsModal(item)}
+                            {<img className="file__img"
+                                onClick={() => showGraniteTilesModal(item)}
                                 src={generatePublicUrl(item.img[0].img)}
                                 alt={item.name} />
-
-                                {/* <img src={generatePublicUrl(item.img[0].img)} alt="" /> */}
+                                || null}
+                            {/* <img src={generatePublicUrl(item.img[0].img)} alt="" /> */}
                             <div className="file__block-name">
                                 <div className="file__name"
                                     style={{ color: '#f1c40f' }}
@@ -69,7 +71,7 @@ export const RenderStandMonument = ({ setShow, showProductDetailsModal, setCurre
                                 style={{ color: '#f1c40f' }}
                             >{item.price} руб.</div>
                             <button className="file__btn file__download" onClick={() => Edit(item)}>Редактировать</button>
-                            <button className="file__btn file__delete " onClick={() => dispatch(deleteStandMonument(item._id))}>Удалить</button>
+                            <button className="file__btn file__delete " onClick={() => dispatch(deleteGraniteTiles(item._id))}>Удалить</button>
                         </div>
                     )
                 }
