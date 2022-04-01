@@ -6,7 +6,7 @@ import Home from './Home';
 function AppHome() {
     return (
         <div className="appHome">
-            <HeaderPhoto />
+            <HeaderPhoto /> 
             <Home />
 
         </div>

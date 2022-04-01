@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { useState } from 'react'
 import Modal from '../../components/UI/Modal';
 import Layout from '../../components/Layout';
@@ -6,36 +7,33 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { addGallery, deleteGalleryById } from './../../actions/galleryImage.action';
 import { generatePublicUrl } from '../../urlConfig';
+import { MultiUploader } from './MultipleUload';
 
 const GalleryPhoto = (props) => {
     const gallery = useSelector(state => state.gallery)
     const [name, setName] = useState("");
     const [createModal, setCreateModal] = useState(false);
-    const [galleryPictures, setGalleryPictures] = useState([]);
+    const [galleryPictures, setGalleryPictures] = useState('');
     const dispatch = useDispatch()
 
 
 
-    const submitGalleryForm = () => {
-
-        if (name === "") {
-            alert('Поле название Обязательно');
-            // setCreateModal(false); 
-            return;
-        }
+    const submitGalleryForm = (e) => {
         const form = new FormData();
         form.append("name", name);
-        for (let pic of galleryPictures) {
-            form.append("galleryPictures", pic);
+        for (let i = 0; i < galleryPictures.length; i++) {
+            form.append('files', galleryPictures[i]);
         }
         dispatch(addGallery(form)).then(() => setCreateModal(false))
+        console.log(galleryPictures, form)
     }
+    const MultipleFileChange = (e) => {
+        setGalleryPictures(e.target.files);
+    }
+
     const deleteProductPicture = () => {
         setGalleryPictures([])
     }
-    const handleProductPictures = (e) => {
-        setGalleryPictures([...galleryPictures, e.target.files[0]]);
-    };
 
 
     const renderCreateGalleryImageModal = () => {
@@ -57,18 +55,25 @@ const GalleryPhoto = (props) => {
                             />
                         </Col>
                     </Row>
+                    <input
+                        multiple={true}
+                        onChange={(e) => MultipleFileChange(e)}
+                        type="file"
+                        name="galleryPictures"
+                    />
 
-                    {galleryPictures.length > 0
+                    {/* {galleryPictures.length > 0
                         ? galleryPictures.map((pic, index) => (
                             <div key={index}>{pic.name}</div>
                         ))
-                        : null}
-                    <input
+                        : null} */}
+                    {/* <input
                         type="file"
-                        name="galleryImage"
-                        onChange={handleProductPictures}
-                        multiple={true}
-                    />
+                        name={galleryPictures}
+                        onChange={(e) => setGalleryPictures(e.target.files)}
+                        multiple
+                    /> */}
+
                     <button onClick={(e) => deleteProductPicture(e)}>Удалить фото</button>
 
                 </Container>
@@ -95,7 +100,7 @@ const GalleryPhoto = (props) => {
                                 }}
                             >
                                 Удалить
-                 </button>
+                            </button>
                         </div>
 
                         <div style={{ display: "flex" }} >
@@ -119,6 +124,9 @@ const GalleryPhoto = (props) => {
     return (
         <Layout sidebar>
             <h2>ГАЛЕРЕЯ ФОТОГРАФИЙ</h2>
+            <div className='container'>
+                <MultiUploader />
+            </div>
             {
                 gallery.loading ?
                     <p>Создание страницы, пожалуйста подождите...</p>

@@ -5,18 +5,12 @@ import Card from './../../components/UI/Card/index';
 
 
 
-export const RenderOrders = ({ order, formatDate, onOrderUpdate, setType }) => {
+export const RenderOrders = ({ order, formatDate, onOrderUpdate, setType, showOrderModal }) => {
 
-    // const dispatch = useDispatch()
-
-    // const Edit = (item) => {
-    //     setCurrentId(item._id)
-    //     setShow(true)
-    // }
 
     return (
         <>
-            {order.orders.length > 0 ? order.orders.map((orderItem, index) => (
+            {order.length > 0 ? order.map((orderItem, index) => (
                 <Card
                     style={{
                         margin: "10px 0",
@@ -34,7 +28,7 @@ export const RenderOrders = ({ order, formatDate, onOrderUpdate, setType }) => {
                         }}
                     >
                         <div>
-                            <div className="title">Название</div>
+                            <div onClick={showOrderModal} className="title">Название</div>
                             {orderItem.items.map((item, index) => (
                                 <div className="value" key={index}>
                                     {item.productId.name}

@@ -1,9 +1,10 @@
 import { authConstants } from "./constants";
 import axios from "../helpers/axios";
 import swal from 'sweetalert';
-
+import Swal from 'sweetalert2'
 
 export const login = (user) => {
+
 
     console.log(user)
 
@@ -29,15 +30,20 @@ export const login = (user) => {
                 text: "Добавить новый товар или может категорию?",
                 icon: "success",
             });
-        } else {
+        }
+        
+        else {
+            Swal.fire({
+                title: 'Sweet!',
+                text: 'Modal with a custom image.',
+                imageUrl: 'https://unsplash.it/400/200',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+            })
             dispatch({
                 type: authConstants.LOGIN_FAILURE,
                 payload: { error: res.data.error }
-            });
-            swal({
-                title: `Неудача`,
-                text: "Попробуйте заново ввести пароль или логин",
-                icon: "error",
             });
         }
     }

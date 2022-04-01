@@ -641,7 +641,7 @@
   opacity: 0.8;
 }
 .header-photo .header-text span {
-  color: white;
+  /* color: white; */
 }
 .header-photo .header-text .header-buttons {
   margin: 0 auto;

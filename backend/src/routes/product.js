@@ -13,7 +13,7 @@ const {
 
 
 
-router.post("/product/create", requireSignin, adminMiddleware, upload.array("productPicture"), createProduct)
+router.post("/product/create", requireSignin, adminMiddleware, upload.any("productPicture"), createProduct)
 router.get("/product/getProducts" , getProducts)
 router.patch("/product/update/:id", requireSignin, adminMiddleware, updateProduct)
 router.delete("/product/delete/:id", requireSignin, adminMiddleware, deleteProductById)

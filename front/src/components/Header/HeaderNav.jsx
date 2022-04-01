@@ -6,14 +6,12 @@ import { login, signout, getCartItems, signup as _signup } from "../../actions";
 import Cart from "../UI/Cart";
 
 import "./style.css";
+import CreateUser from './CreateUser';
 
 const HeaderNav = (props) => {
   const [loginModal, setLoginModal] = useState(false);
   const [signup, setSignup] = useState(false);
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+
   const [error, setError] = useState("");
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
@@ -21,31 +19,6 @@ const HeaderNav = (props) => {
   // state cart value
   const cart = useSelector((state) => state.cart);
 
-  const userSignup = () => {
-    const user = { firstName, lastName, email, password };
-    if (
-      firstName === "" ||
-      lastName === "" ||
-      email === "" ||
-      password === ""
-    ) {
-      return;
-    }
-
-    dispatch(_signup(user));
-  };
-
-  const userLogin = () => {
-    if (signup) {
-      userSignup();
-    } else {
-      dispatch(login({ email, password }));
-    }
-  };
-
-  const logout = () => {
-    dispatch(signout());
-  };
 
   useEffect(() => {
     if (auth.authenticate) {
@@ -56,7 +29,9 @@ const HeaderNav = (props) => {
   useEffect(() => {
     dispatch(getCartItems());
   }, []);
-
+  const logout = () => {
+    dispatch(signout());
+  };
   const renderLoggedInMenu = () => {
     return (
       <DropdownMenu
@@ -125,83 +100,21 @@ const HeaderNav = (props) => {
   return (
     <div className="header">
       <Modall visible={loginModal} onClose={() => setLoginModal(false)}>
-        <div className="authContainer">
-          <div className="row-h">
-            <div className="leftspace">
-              <h2>Войти</h2>
-              <p>Войдите в свой личный кабинет для оформления заказа</p>
-            </div>
-            <div className="rightspace">
-              <div className="loginInputContainer">
-                {auth.error && (
-                  <div style={{ color: "red", fontSize: 12 }}>{auth.error}</div>
-                )}
-                {signup && (
-                  <MaterialInput
-                    type="text"
-                    label="First Name"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                  />
-                )}
-                {signup && (
-                  <MaterialInput
-                    type="text"
-                    label="Last Name"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                  />
-                )}
-                <MaterialInput
-                  type="text"
-                  label="Email/Mobile Number"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <MaterialInput
-                  type="password"
-                  label="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                // rightElement={<a href="#">Forgot?</a>}
-                />
-                <MaterialButton
-                  style={{ textAlign: "center" }}
-                  title={signup ? "Register" : "Login"}
-                  bgColor="#fb641b"
-                  textColor="#ffffff"
-                  style={{
-                    margin: "40px 0 20px 0",
-                  }}
-                  onClick={userLogin}
-                />
-                {/* <p style={{ textAlign: "center" }}>OR</p>
-                <MaterialButton
-                  title="Request OTP"
-                  bgColor="#ffffff"
-                  textColor="#2874f0"
-                  style={{
-                    margin: "20px 0",
-                  }}
-                /> */}
-              </div>
-            </div>
-
-
-
-
-          </div>
-        </div>
+        <CreateUser
+          auth={auth}
+          signup={signup}
+          login={login}
+        />
       </Modall>
       <div className="subHeader">
         {/* Logo  */}
         <div className="logo">
           <a className="logoimage" href="/choice-of-monument">
             Как Выбрать Памятник?
-         </a>
+          </a>
           <a className="logoimage" href="/to-start">
             С чего начать?
-         </a>
+          </a>
         </div>
 
         <div className="rightMenu">
@@ -230,7 +143,7 @@ const HeaderNav = (props) => {
             <a href={`/cart`} className="cart">
               <Cart count={Object.keys(cart.cartItems).length} />
               <span style={{ margin: "0 10px" }}>Корзина</span>
-            </a> 
+            </a>
           </div>
         </div>
       </div>

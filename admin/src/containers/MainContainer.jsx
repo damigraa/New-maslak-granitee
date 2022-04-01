@@ -8,10 +8,12 @@ import { setFileView } from "../reducers/product.reducer";
 
 export const MainContainer = (props) => {
     const dispatch = useDispatch();
-
+    if (!props) {
+        return null
+    }
     return (
         <Layout sidebar>
-            <Container>
+            <Container fluid={props.fluid} >
                 <Row>
                     <Col md={12}>
                         <h3 style={{ textAlign: "center", marginBottom: "20px" }}>{props.title}</h3>
@@ -21,8 +23,8 @@ export const MainContainer = (props) => {
                     <Col md={12}>
                         <div className="disk">
                             <button className="disk__upload-label" onClick={props.handleShow}>
-                                Добавить
-              </button>
+                                {props.buttonText || "Добавить"}
+                            </button>
                             <Search
                                 search={props.search}
                                 get={props.get}

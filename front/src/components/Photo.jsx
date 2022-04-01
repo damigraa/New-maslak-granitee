@@ -46,7 +46,7 @@ export default function Photo() {
         }
       }
     ]
-  };
+  }; 
 
 
   let photos = [

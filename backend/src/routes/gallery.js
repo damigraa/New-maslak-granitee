@@ -5,11 +5,7 @@ const { createGallery, getGallery, deleteGalleryById } = require("../controller/
 const router = express.Router();
 
 
-router.post("/gallery/create", requireSignin, adminMiddleware, upload.array("galleryPictures"), createGallery);
-// router.get("/products/:slug", getProductsBySlug);
-// //router.get('/category/getcategory', getCategories);
-// router.get("/product/:productId", getProductDetailsById);
-
+router.post("/gallery/create", requireSignin, adminMiddleware, upload.any("galleryPictures"), createGallery);
 router.delete("/gallery/deleteGalleryById",
   requireSignin,
   adminMiddleware,

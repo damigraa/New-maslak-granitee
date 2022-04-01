@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 
 exports.createMainImage = (req, res) => {
   try {
-    const mainImageObj = {
+    const mainImageObj = { 
       header: req.body.header,
       name: req.body.name,
       description: req.body.description,

@@ -58,6 +58,7 @@
   left: 0;
   text-align: right;
   opacity: 0.8;
+  color: #2E2E2E;
 }
 .prod .main-image {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.23);

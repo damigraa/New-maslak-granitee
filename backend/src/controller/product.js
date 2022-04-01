@@ -6,35 +6,40 @@ const mongoose = require("mongoose")
 
 exports.createProduct = (req, res) => {
   //res.status(200).json( { file: req.files, body: req.body } );
+  try {
+    const { name, price, description, category, quantity, createdBy, weight, size } = req.body;
+    let productPictures = [];
 
-  const { name, price, description, category, quantity, createdBy, weight, size, } = req.body;
-  let productPictures = [];
+    if (req.files.length > 0) {
+      productPictures = req.files.map((file) => {
+        return { img: file.filename };
+      });
+    }
 
-  if (req.files.length > 0) {
-    productPictures = req.files.map((file) => {
-      return { img: file.filename };
+    const product = new Product({
+      name: name,
+      slug: slugify(name),
+      price,
+      quantity,
+      description,
+      productPictures,
+      category,
+      weight,
+      size,
+      createdBy: req.user._id,
     });
+
+    product.save((error, product) => {
+      if (error) return res.status(400).json({ error });
+      if (product) {
+        res.status(201).json({ product });
+      }
+    });
+  } catch (e) {
+    console.log(e)
+
   }
 
-  const product = new Product({
-    name: name,
-    slug: slugify(name),
-    price,
-    quantity,
-    description,
-    productPictures,
-    category,
-    weight,
-    size,
-    createdBy: req.user._id,
-  });
-
-  product.save((error, product) => {
-    if (error) return res.status(400).json({ error });
-    if (product) {
-      res.status(201).json({ product });
-    }
-  });
 };
 
 exports.getProductsBySlug = (req, res) => {
@@ -194,7 +199,7 @@ exports.getProducts = async (req, res) => {
     const { sort } = req.query
     const pSort = Product.find({})
     let products
-    switch (sort) { 
+    switch (sort) {
       case 'name':
         products = await pSort.sort({ name: 1 })
         break
@@ -214,7 +219,7 @@ exports.getProducts = async (req, res) => {
         products = await pSort.sort({ updatedAt: -1 })
         break
       default:
-        products = await Product.find({ updatedAt: 1})
+        products = await Product.find({ updatedAt: 1 })
         break;
     }
     return res.status(200).json({ products });

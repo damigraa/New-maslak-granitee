@@ -32,6 +32,7 @@ import CatalogTitle from './siteSetting/containers/CatalogTitle';
 import Test from './siteSetting/containers/Test';
 import CostDelivery from './siteSetting/containers/CostDelivery';
 import MultipleSelectChip from './siteSetting/containers/Chip';
+import Footer from './siteSetting/containers/Footer';
 
 import PaymentAndDeliveryContainer from './siteSetting/PaymentAndDeliveryContainer';
 import StandMonument from './containers/ComponentContainer/StandMonument';
@@ -89,6 +90,7 @@ function App() {
         <PrivateRoute path="/standMonument" component={StandMonument} />
         <PrivateRoute path="/tombstoneCurb" component={TombstoneCurb} />
         <PrivateRoute path="/graniteTiles" component={GraniteTiles} />
+        <PrivateRoute path="/footer" component={Footer} />
         {/* <PrivateRoute path="/test" component={Test} /> */}
 
         <Route path="/signin" component={Signin} />

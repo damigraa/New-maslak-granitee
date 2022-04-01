@@ -3,6 +3,7 @@ import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signout } from "../../actions";
+import Example from './../Offcanvas/Offcanvas';
 
 
 const Header = (props) => {
@@ -53,14 +54,15 @@ const Header = (props) => {
       style={{ zIndex: 1 }}
     >
       <Container fluid>
-        {/* <Navbar.Brand href="#home">Admin Dashboard</Navbar.Brand> */}
+        {/* <Navbar.Brand href="#home">Admin Dashboard</Navbar.Brand> */} 
+        <Example />
         <Link to="/" className="navbar-brand">
           Admin
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">
-          
+
           </Nav>
           {auth.authenticate ? renderLoggedInLinks() : renderNonLoggedInLinks()}
         </Navbar.Collapse>

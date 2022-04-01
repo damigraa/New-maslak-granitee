@@ -1,36 +1,61 @@
 
-.header-photo {
-  font-family: sans-serif;
-  position: relative;
-  overflow: hidden;
-  margin: 0 auto;
-  align-items: center;
-  // background: url('../../assets/main.jpg') 0 0/100% auto no-repeat;
-  background-size: cover;
-  color: rgb(206, 206, 206);
-  padding-top:50px;
-  padding-bottom: 50px;
-.header-text{
-  max-height: 300px;
-  h1{
-    font-size: 37px;
-    opacity: 0.9;
-    font-weight: 600;
-  }
-  h2{
-  padding: 20px 0 30px;
-  opacity: 0.8;
-  }
-  span{
-    color: rgb(255, 255, 255);
-  }
-  .header-buttons{
-    margin: 0 auto;
-    padding-top: 20px;
-    // box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
-  }
 
+.mainImage {
+color: aliceblue;
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+text-align: center;
+.carousel-caption{
+  top: 50px;
 }
+div{
+  text-align: center;
+}
+
+h1{
+  // font-size: 25px;
+  opacity: 0.9;
+  font-weight: 600;
+}
+h2{
+padding: 20px 0 30px;
+}
+
+h4{
+  padding-top: 20px;
+}
+.header-buttons{
+
+  padding-top: 40px;
+  &__btn {
+    // bottom: 0;
+  }
 }
 
 
+}
+
+.carousel-item{
+  display: flex;
+  height: 400px;
+
+  img{
+  object-fit: cover;
+   }
+}
+
+.test{
+  text-align: center;
+  background-color: bisque;
+  min-width: 200px;
+  height: 120px;
+  box-shadow:  0 12px 15px rgb(0 0 0 / 20%);
+  padding: 10px;
+  margin: 15px;
+  border-radius: 10px;
+}
+.test:hover{
+  background-color: aqua;
+  opacity: 0.7;
+  border: 2px solid black;
+  box-shadow:  0 12px 15px rgb(0 0 0 / 30%);
+}

@@ -2,6 +2,7 @@ const Gallery = require("../models/gallery");
 const slugify = require("slugify");
 
 exports.createGallery = (req, res) => {
+
  try {
     const { name, description } = req.body;
     let galleryPictures = [];
@@ -20,13 +21,13 @@ exports.createGallery = (req, res) => {
     });
 
     gallery.save((error, gallery) => {
-      if (error) return res.status(400).json({ message: "Ошибка при сохранении" });
+      if (error) return res.status(400).json({error, message: "Ошибка при сохранении" });
       if (gallery) {
         res.status(201).json({ gallery, message: "Данные добавлены" });
       }
     });
    } catch (e) {
-     res.status(500).json({ message: "Произошла ошибка при попытке сохранить данные..." })
+     res.status(500).json(e)
    }
 };
 

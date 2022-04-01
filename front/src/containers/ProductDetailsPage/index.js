@@ -17,10 +17,12 @@ import RenderStandMonumentModal from './../ProdContainer/StandMonumentModal';
 import RenderTombstoneCurbModal from './../ProdContainer/TombstoneCurb';
 import { addToCart } from './../../actions/cart.action';
 import RenderGraniteTilesModal from '../ProdContainer/GraniteTilesModal';
+import RenderProductImg from '../render/renderProductImg';
+import ModalPrice from './ModalPrice';
 
 
 const ProductDetailsPage = (props) => {
-
+console.log(props)
   const [SizeMemorials, setSizeMemorials] = useState("")
   const [SizeCurb, setSizeCurb] = useState("0")
   const [tiles, setTiles] = useState("0")
@@ -94,7 +96,12 @@ const ProductDetailsPage = (props) => {
     <Layout>
       <form className="container prod">
         <div className="row">
-          <Breed
+          <div className='row'>
+            <h3 className='col-sm text center titleName'>
+              {product.productDetails.name}
+            </h3>
+          </div>
+          {/* <Breed
             breed={[
               { name: "Главная", href: "/" },
               { name: "Памятники", href: "/" },
@@ -102,25 +109,16 @@ const ProductDetailsPage = (props) => {
               { name: prod, href: "" },
             ]}
             breedIcon={<IoIosArrowForward />}
-          />
+          /> */}
         </div>
         <div className="row">
 
-          <div className="col-sm-6">
+          <div className="col-md-5">
             <div className="flexRow">
-              <div className="verticalImageStack">
-                {
-                  product.productDetails.productPictures.map((thumb, index) =>
-                    <div className="thumbnail">
-                      <img src={generatePublicUrl(thumb.img)} alt={thumb.img} />
-                    </div>
-                  )
-                }
-              </div>
               <div className="productDescContainer">
-                <div className="productDescImgContainer">
-                  <img src={generatePublicUrl(product.productDetails.productPictures[0].img)} alt={`${product.productDetails.productPictures[0].img}`} />
-                </div>
+                <RenderProductImg
+                  product={product}
+                />
                 <RenderSection
                   product={product}
                 />
@@ -129,7 +127,7 @@ const ProductDetailsPage = (props) => {
                 <div className="flexRow">
                   <MaterialButton
                     title="Добавить в корзину"
-                    bgColor="#1E1E1E"
+                    // bgColor="#1E1E1E"
                     textColor="#ffffff"
                     style={{
                       marginTop: '20px',
@@ -144,24 +142,31 @@ const ProductDetailsPage = (props) => {
                       props.history.push(`/cart`);
                     }}
                   />
-                  {/* <MaterialButton
+                  <MaterialButton
                     title="Купить сейчас"
-                    bgColor="#fb641b"
+                    // bgColor="#1E1E1E"
                     textColor="#ffffff"
                     style={{
                       marginLeft: '5px'
                     }}
                     icon={<AiFillThunderbolt />}
-                  /> */}
+                  />
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-sm-6">
+          <div className="col-md-7">
+
+            <ModalPrice
+              history={props.history}
+              product={product}
+              difference={difference}
+              differencePensioners={differencePensioners}
+            />
 
 
             <h2> {product.productDetails.name}</h2>
-            <div className="order-info" id="order-info-1">
+            {/* <div className="order-info" id="order-info-1">
 
               <hr />
               <div className="checkbox-item">
@@ -205,7 +210,7 @@ const ProductDetailsPage = (props) => {
 
                 </div>
               </div>
-            </div>
+            </div> */}
             <div>
               <RenderTombstoneCurbModal
                 SizeMemorials={SizeMemorials}
@@ -290,21 +295,25 @@ const ProductDetailsPage = (props) => {
                 </label>
                 <br />
                 <label className="checkbox-item">
+
                   <input
                     type="checkbox"
                     checked={isCheckedRecovery}
                     onChange={e => { setIsCheckedRecovery(e.target.checked) }} />
+
                   <span className="val">Востановление фотографии</span>
                   <span className="lev"> (3000руб)</span>
                 </label>
                 <br />
-                <label className="checkbox-item">
+                {/* <label className="checkbox-item">
+
                   <input
                     type="checkbox"
                     checked={checked} />
+
                   <span className="val">Хранение на складе</span>
                   <span className="lev"> (бесплатно)</span>
-                </label>
+                </label> */}
                 <br />
               </div>
             </div>

@@ -9,7 +9,7 @@ const mainImageSchema = new mongoose.Schema({
         required: true,
     },
     description: {
-        type: String, 
+        type: String,
         // required: true,
     },
     descriptionButton: {
@@ -26,4 +26,4 @@ const mainImageSchema = new mongoose.Schema({
 }, { timestamps: true });
 
 
-module.exports = mongoose.model('PaymentMethods', mainImageSchema);
+module.exports = mongoose.model('MainImage', mainImageSchema);

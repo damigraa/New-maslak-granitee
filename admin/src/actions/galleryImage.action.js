@@ -36,7 +36,7 @@ export const addGallery = (form) => {
       }
     } catch (error) {
       console.log(error);
-    }
+    } 
   };
 };
 

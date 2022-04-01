@@ -32,7 +32,7 @@ const Products = (props) => {
     setProductDetailModal(true);
   };
   return (
-    <MainContainer
+    <MainContainer 
       productSort
       fullFunctional
       search={searchProducts}

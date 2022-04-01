@@ -18,7 +18,7 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
     const dispatch = useDispatch();
     const category = useSelector((state) => state.category)
     const product = useSelector((state) => currentId ? state.product.products.find((m) => m._id === currentId) : null)
-    const [productPictures, setProductPictures] = useState([]);
+    const [productPictures, setProductPictures] = useState("");
     const [productForm, setProductForm] = useState({
         name: "",
         quantity: "",
@@ -31,26 +31,26 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
     const [productPrice, setProductPrice] = useState([
         { id: uuidv4(), newPrice: '', size: '' },
     ]);
-    const handleChangeInput = (id, event) => {
-        const newInputFields = productPrice.map(i => {
-            if (id === i.id) {
-                i[event.target.name] = event.target.value
-            }
-            return i;
-        })
+    // const handleChangeInput = (id, event) => {
+    //     const newInputFields = productPrice.map(i => {
+    //         if (id === i.id) {
+    //             i[event.target.name] = event.target.value
+    //         }
+    //         return i;
+    //     })
 
-        setProductPrice(newInputFields);
-    }
+    //     setProductPrice(newInputFields);
+    // }
 
-    const handleAddFields = () => {
-        setProductPrice([...productPrice, { id: uuidv4(), newPrice: '', size: '' }])
-    }
+    // const handleAddFields = () => {
+    //     setProductPrice([...productPrice, { id: uuidv4(), newPrice: '', size: '' }])
+    // }
 
-    const handleRemoveFields = id => {
-        const values = [...productPrice];
-        values.splice(values.findIndex(value => value.id === id), 1);
-        setProductPrice(values);
-    }
+    // const handleRemoveFields = id => {
+    //     const values = [...productPrice];
+    //     values.splice(values.findIndex(value => value.id === id), 1);
+    //     setProductPrice(values);
+    // }
 
     useEffect(() => {
         if (product) setProductForm(product)
@@ -85,23 +85,19 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
             form.append("productPrice", productPrice);
             form.append("size", productForm.size);
             form.append("weight", productForm.weight);
-            for (let pic of productPictures) {
-                form.append("productPicture", pic);
+            for (let i = 0; i < productPictures.length; i++) {
+                form.append("productPictures", productPictures[i]);
             }
+            // for (let pic of productPictures) {
+            //     form.append("productPictures", pic);
+            // }
             dispatch(addProduct(form)).then(() => handleClose());
         }
 
     };
 
-
-
-    function fileUploadHandler(event) {
-        const files = [...event.target.files]
-        // files.forEach(file => dispatch(uploadFile(file, currentDir)))
-    }
-
     const handleProductPictures = (e) => {
-        setProductPictures([...productPictures, e.target.files[0]]);
+        setProductPictures(e.target.files);
     };
 
     const clear = () => {
@@ -208,19 +204,19 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
                 </select> : null
             }
 
-            {productPictures.length > 0
+            {/* {productPictures.length > 0
                 ? productPictures.map((pic, index) => (
                     <div key={index}>{pic.name}</div>
                 ))
-                : null}
+                : null} */}
             <input
                 type="file"
-                name="productPicture"
-                onChange={handleProductPictures}
+                name="productPictures"
+                onChange={(e) => handleProductPictures(e)}
                 required
                 multiple
             />
-            <input multiple={true} onChange={(event) => fileUploadHandler(event)} type="file" id="disk__upload-input" className="disk__upload-input" />
+            {/* <input multiple={true} onChange={(event) => fileUploadHandler(event)} type="file" id="disk__upload-input" className="disk__upload-input" /> */}
 
             <button onClick={(e) => clearAddedPhotos(e)}>Удалить фото</button>
         </Modal>

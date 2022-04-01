@@ -6,7 +6,7 @@ import ContainerSiteSetting from '../ContainerSiteSetting';
 import CreateMainImage from '../create/CreateMainImage'
 import { RenderMainImage } from '../render/RenderMainImage';
 
-function Contact() {
+function MainImage() {
     const mainImage = useSelector((state) => state.mainImage.mainImage)
     const [currentId, setCurrentId] = useState(null)
     const dispatch = useDispatch()
@@ -30,7 +30,7 @@ function Contact() {
         <ContainerSiteSetting
             item={mainImage}
             setShow={handleShow}
-            limitOne
+            noLimit
             title={"Редактор Главного изображени страницы"}
         >
 
@@ -50,5 +50,5 @@ function Contact() {
     )
 }
 
-export default Contact
+export default MainImage
 

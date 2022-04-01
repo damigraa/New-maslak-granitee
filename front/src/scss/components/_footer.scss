@@ -1,10 +1,14 @@
 
 .footer {
-  height: 200px;
-  border-top: 2px solid;
-  background: url('../../assets/header-background-dark.jpg') 0 0/100% auto no-repeat;
-  background-size: cover;
+  min-height: 200px;
+  margin: 0 auto;
+  // background: url('../../assets/header-background-dark.jpg') 0 0/100% auto no-repeat;
+  // background-size: cover;
   color: #a4a4a4;
+  .footer-container{
+    height: 100%;
+    padding: 20px 0;
+  }
 .f{
   width: 100%;
   margin: 20px auto;

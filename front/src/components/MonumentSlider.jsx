@@ -7,6 +7,8 @@ export default function MonumentSlider() {
   var settings = {
     dots: true,
     infinite: true,
+    autoplay: true,
+    focusOnSelect: true,
     speed: 1800,
     slidesToShow: 5,
     slidesToScroll: 5,
@@ -18,9 +20,11 @@ export default function MonumentSlider() {
           slidesToShow: 4,
           slidesToScroll: 2,
           initialSlide: 2
+
         }
       },
       {
+
         breakpoint: 1000,
         settings: {
           slidesToShow: 3,
