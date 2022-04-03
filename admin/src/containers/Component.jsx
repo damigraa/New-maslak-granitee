@@ -37,7 +37,7 @@ export function Search(props) {
 }
 export const Sort = (props) => {
     const dispatch = useDispatch();
-    const [sort, setSort] = useState("updatedAtMinus");
+    const [sort, setSort] = useState("");
 
     useEffect(() => {
         dispatch(props.get(sort))
@@ -73,5 +73,39 @@ export const Sort = (props) => {
                 }
             </select>
         </>
+    )
+}
+
+
+export const Tabs = (props) => {
+    const [appState, setAppState] = useState({
+        activeObject: null,
+        objects: [{ id: 1, text: "Заказы" }, { id: 2, text: "Выполненые" },]
+    });
+    const toggleActive = (index) => {
+        setAppState({ ...setAppState, activeObject: appState.objects[index] })
+    }
+    return (
+        <div className="tabs">
+            <div className="tabs__container">
+                <div className="tabs__list">
+                    {
+                        appState.objects.map((item, index) => (
+                            <div
+                                className="tabs__item"
+                                onClick={() => { toggleActive(index) }}
+                                key={index} >
+                                <div className='tabs__link' >
+
+                                    {item.text}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+            </div>
+
+        </div>
     )
 }

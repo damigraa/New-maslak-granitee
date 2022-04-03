@@ -53,7 +53,7 @@ mongoose.connect(
   }
 ).then(() => {
   console.log('Database connected')
-})
+}) 
 
 
 app.use(cors())

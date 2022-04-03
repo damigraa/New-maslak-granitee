@@ -24,3 +24,15 @@ exports.getCustomerOrders = async (req, res) => {
     .exec();
   res.status(200).json({ orders });
 };
+exports.searchOrder = async (req, res) => {
+  try {
+    const searchName = req.query.search
+    let orders = await Order.find({})
+    console.log(orders)
+    orders = orders.filter(order => order.totalAmount.includes(searchName))
+    return res.status(200).json({ orders });
+  } catch (e) {
+    console.log(e)
+    return res.status(400).json({ message: 'Search error' })
+  }
+}

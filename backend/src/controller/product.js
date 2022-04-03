@@ -219,7 +219,7 @@ exports.getProducts = async (req, res) => {
         products = await pSort.sort({ updatedAt: -1 })
         break
       default:
-        products = await Product.find({ updatedAt: 1 })
+        products = await pSort
         break;
     }
     return res.status(200).json({ products });

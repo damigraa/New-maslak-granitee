@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+import Accordion from './../Accordion';
 
 const Sidebar = (props) => {
     return (

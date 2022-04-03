@@ -73,7 +73,7 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
     const submitProductForm = () => {
         if (currentId) {
             dispatch(updateProductById(currentId, productForm))
-            handleClose()
+            // handleClose()
             clear()
         } else {
             const form = new FormData();

@@ -45,3 +45,7 @@ const NewModal = (props) => {
 };
 
 export default NewModal;
+
+
+
+

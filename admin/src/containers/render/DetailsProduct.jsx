@@ -8,7 +8,7 @@ export const DetailsProduct = ({ productDetailModal, setProductDetailModal, hand
     if (!productDetails) {
         return null;
     }
-
+    console.log(productDetails)
     return (
         <Modal
             show={productDetailModal}

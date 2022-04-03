@@ -1,118 +1,126 @@
-import React from 'react'
-import { useSelector, useDispatch } from "react-redux";
-import Loader from '../../components/Loader';
+import React, { useState } from 'react'
 import Card from './../../components/UI/Card/index';
+import foto from './f19.jpg'
+import fotoTwo from './20.jpg'
+import { BsChevronUp, BsChevronDown } from 'react-icons/bs';
+import { useSelector } from 'react-redux';
+import RenderProductOrder from './RenderProductOrder';
 
 
+export const RenderOrders = ({ order, showOrderModal, orderProduct, newArrayProd }) => {
+    const [clicked, setClicked] = useState(false);
 
-export const RenderOrders = ({ order, formatDate, onOrderUpdate, setType, showOrderModal }) => {
+
+    const toggle = index => {
+        // if (clicked === index) {
+        //     return setClicked(null);
+        // }
+        setClicked(index);
+    };
 
 
     return (
         <>
-            {order.length > 0 ? order.map((orderItem, index) => (
-                <Card
-                    style={{
-                        margin: "10px 0",
-                    }}
-                    key={index}
-                    headerLeft={`Артикул - ${orderItem._id}`}
-                >
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                            padding: "50px 50px",
-                            alignItems: "center",
 
-                        }}
-                    >
-                        <div>
-                            <div onClick={showOrderModal} className="title">Название</div>
-                            {orderItem.items.map((item, index) => (
-                                <div className="value" key={index}>
-                                    {item.productId.name}
-                                </div>
-                            ))}
-                        </div>
-                        <div>
-                            <span className="title">Общая сумма</span>
-                            <br />
-                            <span className="value">{orderItem.totalAmount} руб.</span>
-                        </div>
-                        <div>
-                            <span className="title">Тип Оплаты</span> <br />
-                            <span className="value">{orderItem.paymentType}</span>
-                        </div>
-                        <div>
-                            <span className="title">Статус готовности</span> <br />
-                            <span className="value">{orderItem.paymentStatus}</span>
-                        </div>
-                    </div>
-                    <div
-                        style={{
-                            boxSizing: "border-box",
-                            padding: "100px",
-                            display: "flex",
-                            alignItems: "center",
-                        }}
-                    >
-                        <div className="orderTrack">
-                            {orderItem.orderStatus.map((status) => (
+            <div>
+                {order.map((orderItem, index) => {
+                    return (
+                        <>
+                            <Card
+                                onClick={() => { toggle(index) }}
+                                style={{
+                                    margin: "10px 0",
+                                }}
+                                key={index}
+                            >
                                 <div
-                                    className={`orderStatus ${status.isCompleted ? "active" : ""
-                                        }`}
-                                >
-                                    <div
-                                        className={`point ${status.isCompleted ? "active" : ""}`}
-                                    ></div>
-                                    <div className="orderInfo">
-                                        <div className="status">{status.type}</div>
-                                        <div className="date">{formatDate(status.date)}</div>
+                                    onClick={() => orderProduct(orderItem)}
+                                    className="order row m-1 p-2 ">
+                                    <div className="col-sm-4">
+                                        <div className="order__start">
+                                            <div className="order__heading ">
+                                            </div>
+                                            <div className="order__leftContainer">
+                                                <span className="title">{` № ${index}`} от {orderItem.createdAt.slice(0, 10)}</span>
+                                                <div className="value">{orderItem.paymentStatus}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="col-sm-3">
+                                        <div className="title">
+                                            Cумма заказа
+                                        </div>
+                                        <span className="value">{orderItem.totalAmount} руб.</span>
+                                    </div>
+                                    <div className="col-sm-5">
+                                        <div className="order__rightContainer">
+                                            <div className='row text-right'>
+                                                <div className="order__imgContainer">
+                                                    <div className='order__img '>
+                                                        <img className='order__i ' src={foto} alt="foto" />
+                                                    </div>
+                                                    <div className='order__img '>
+                                                        <img className='order__i ' src={fotoTwo} alt="foto" />
+                                                    </div>
+                                                </div>
+                                                <div className='order-iconContainer'>
+                                                    <span>{clicked === index
+                                                        ? <BsChevronDown size='20px' color='#3e77aa' />
+                                                        : <BsChevronUp size='20px' color="#3e77aa" />}</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            ))}
+                                {clicked === index ? (
+                                    <div className='container'>
+                                        <div className="row">
+                                            <div className="col-sm-4">
+                                                <p>Информация о заказе</p>
+                                                <div className="m-2 p-1">
+                                                    <div>График Работы</div>
+                                                    <div> Пн-Сб: 10:00-21:00</div>
+                                                    <div>Вс: 10:00-18:00</div>
+                                                </div>
+                                                <div className="m-2 p-1">
+                                                    <div> Маслак Роман Сергеевич</div>
+                                                    <div> +79537513915 </div>
+                                                    <div> +380987653421 </div>
+                                                </div>
+                                                <div className="m-2 p-1">
+                                                    <div className="orderHistoryButton" onClick={() => showOrderModal(orderItem)}>История заказа</div>
+                                                </div>
+                                                <span className="title">{` № ${index}`} от {orderItem.createdAt.slice(0, 10)}</span>
+                                                <span className="value">{orderItem.totalAmount} руб.</span>
+                                            </div>
+                                            <div className="col-sm-8">
+                                                <span className="title">Товары Нашего производства</span>
+                                                {newArrayProd.map((item) => (
+                                                    <div>
+                                                        {console.log(item)}
+                                                        <RenderProductOrder
+                                                            orderItem={orderItem}
+                                                            orderProduct={orderProduct}
+                                                            item={item}
+                                                        />
+                                                    </div>
+                                                ))}
+                                            </div>
 
-                        </div>
 
-                        {/* select input to apply order action */}
-                        <div
-                            style={{
-                                padding: "0 50px",
-                                boxSizing: "border-box",
-                            }}
-                        >
-                            <select onChange={(e) => setType(e.target.value)}>
-                                <option value={""}>Выбрать статус</option>
-                                {orderItem.orderStatus.map((status) => {
-                                    return (
-                                        <>
-                                            {!status.isCompleted ? (
-                                                <option key={status.type} value={status.type}>
-                                                    {status.type}
-                                                </option>
-                                            ) : null}
-                                        </>
-                                    );
-                                })}
-                            </select>
-                        </div>
-                        {/* button to confirm action */}
-
-                        <div
-                            style={{
-                                padding: "0 50px",
-                                boxSizing: "border-box",
-                            }}
-                        >
-                            <button onClick={() => onOrderUpdate(orderItem._id)}>
-                                подтвердить
-                            </button>
-                        </div>
-                    </div>
-                </Card>
-            )) : <Loader />}
+                                        </div>
+                                    </div>
+                                ) : null}
+                            </Card>
+                        </>
+                    );
+                })}
+            </div>
         </>
     )
-
 }
+
+
+
+
+

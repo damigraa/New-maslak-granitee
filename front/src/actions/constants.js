@@ -198,3 +198,11 @@ export const footerConstants = {
   GET_FOOTER_FAILURE: "GET_FOOTER_FAILURE",
 };
 
+
+export const galleryConstants = {
+  GET_GALLERY_REQUEST: "GET_GALLERY_REQUEST",
+  GET_GALLERY_SUCCESS: "GET_GALLERY_SUCCESS",
+  GET_GALLERY_FAILURE: "GET_GALLERY_FAILURE",
+};
+
+

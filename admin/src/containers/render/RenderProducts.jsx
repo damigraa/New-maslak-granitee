@@ -14,7 +14,9 @@ export const RenderProducts = ({ setShow, showProductDetailsModal, setCurrentId,
         setCurrentId(item._id)
         setShow(true)
     }
-
+if (!product) {
+    return null
+}
     if (fileView === "plate") {
         return (
             <div className="fileplate">
@@ -44,25 +46,26 @@ export const RenderProducts = ({ setShow, showProductDetailsModal, setCurrentId,
                 <div className="file-title">
                     <div className="file-title__img">Фото</div>
                     <div className="file-title__name">Название</div>
-                    {/* <div className="file-title__date">Категория</div> */}
+                    <div className="file-title__date">Категория</div>
                     <div className="file-title__size">Цена</div>
                 </div>
                 {!product ? <Loader /> :
                     product.map((item) =>
+                   
                         <div className="file" key={item._id}>
                             <img className="file__img"
                                 onClick={() => showProductDetailsModal(item)}
                                 src={generatePublicUrl(item.productPictures[0].img)}
                                 alt={item.name} />
                             <div className="file__block-name">
+                            {console.log(item)}
                                 <div className="file__name"
                                     style={{ color: '#f1c40f' }}
                                 >
                                     {item.name}
                                 </div>
-                                {/* <div className="file__category">{item.category.name}</div> */}
+                                <div className="">{"Памятники"}</div>
                             </div>
-                            {/* <div className="file__date">{item.category.name}</div> */}
                             <div className="file__size"
                                 style={{ color: '#f1c40f' }}
                             >{item.price} руб.</div>

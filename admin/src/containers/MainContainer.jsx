@@ -1,7 +1,7 @@
 import React from 'react'
 import Layout from "../components/Layout";
 import { useDispatch } from "react-redux";
-import { Search, Sort } from './Component';
+import { Search, Sort, Tabs } from './Component';
 import { Container, Row, Col } from "react-bootstrap";
 import { setFileView } from "../reducers/product.reducer";
 
@@ -16,9 +16,10 @@ export const MainContainer = (props) => {
             <Container fluid={props.fluid} >
                 <Row>
                     <Col md={12}>
-                        <h3 style={{ textAlign: "center", marginBottom: "20px" }}>{props.title}</h3>
+                        <h1 style={{ textAlign: "left", marginBottom: "26px" }}>{props.title}</h1>
                     </Col>
                 </Row>
+                {props.tabs && <Tabs />}
                 {props.fullFunctional ? <Row>
                     <Col md={12}>
                         <div className="disk">

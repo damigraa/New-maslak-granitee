@@ -1,4 +1,6 @@
 import axios from "../helpers/axios";
+import { setOrder} from "../reducers/order.reducer";
+
 import { orderConstants } from "./constants";
 
 export const getCustomerOrders = () => {
@@ -45,3 +47,18 @@ export const updateOrder = (payload) => {
     }
   };
 };
+
+
+
+
+export const searchOrders = (search) => {
+  return async dispatch => {
+    try {
+      const response = await axios.get(`/order/getCustomerOrders/search?search=${search}`)
+      dispatch(setOrder(response.data))
+    } catch (e) {
+      alert(e?.response?.data?.message)
+    }
+  }
+}
+

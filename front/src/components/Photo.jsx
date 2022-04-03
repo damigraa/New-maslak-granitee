@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useSelector, useDispatch } from 'react-redux';
+import { getGallery } from './../actions/components/gallery';
+import { generatePublicUrl } from "../urlConfig";
 
 export default function Photo() {
   var settings = {
@@ -46,55 +49,50 @@ export default function Photo() {
         }
       }
     ]
-  }; 
+  };
 
 
-  let photos = [
-    {
-      id: 1,
-      photo: 'https://home-granit.ru/images/zavod/1.jpg',
-    },
-    {
-      id: 2,
-      photo: 'https://home-granit.ru/images/zavod/2.jpg',
-    },
-    {
-      id: 3,
-      photo: 'https://home-granit.ru/images/zavod/3.jpg',
-    },
-    {
-      id: 4,
-      photo: 'https://home-granit.ru/images/zavod/4.jpg',
-    },
-    {
-      id: 5,
-      photo: 'https://home-granit.ru/images/zavod/1.jpg',
-    },
-    {
-      id: 6,
-      photo: 'https://home-granit.ru/images/zavod/2.jpg',
-    },
-    {
-      id: 7,
-      photo: 'https://home-granit.ru/images/zavod/3.jpg',
-    },
-    {
-      id: 8,
-      photo: 'https://home-granit.ru/images/zavod/4.jpg',
-    },
-  ];
+  // const gallery = useSelector(state => state.gallery)
+  const dispatch = useDispatch()
+
+  const gallery = useSelector((state) => state.gallery.galleries.filter((item) => item.name === "foto"))
+
+  console.log(gallery)
+  useEffect(() => {
+    dispatch(getGallery())
+  }, [])
+
+  const renderGallery = () => {
+
+    return (
+      <>
+        {
+          gallery.map((item) => (
+
+            <Slider {...settings}>
+              {item.galleryPictures.map((i, index) =>
+                <div className="foto">
+                  <img
+                    height="250px"
+                    key={index}
+                    src={generatePublicUrl(i.img)}
+                    alt={gallery.name}
+                  />
+
+                </div>
+              )}
+            </Slider>
+          ))
+        }
+      </>
+    )
+  }
 
 
   return (
     <div className="slider">
       <h2>Фотогалерия мастерской</h2>
-      <Slider {...settings}>
-        {photos.map((p) => (
-          <div className="Photo" key={p.id}>
-            <img height="250px" src={p.photo} />
-          </div>
-        ))}
-      </Slider>
+      {renderGallery()}
     </div>
   );
 }

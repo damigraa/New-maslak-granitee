@@ -16,3 +16,6 @@ export default (state = initState, action) => {
 
   return state;
 };
+
+
+export const setOrder = (orders) => ({ type: orderConstants.GET_CUSTOMER_ORDER_SUCCESS, payload: orders })

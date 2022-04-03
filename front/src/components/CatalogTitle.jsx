@@ -6,7 +6,6 @@ import { getCatalogTitle } from './../actions/components/catalogTitle';
 
 const CatalogTitle = () => {
     const catalogTitle = useSelector((state) => state.catalogTitle.catalogTitle)
-    console.log(catalogTitle)
     const dispatch = useDispatch();
 
 
