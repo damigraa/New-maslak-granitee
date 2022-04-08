@@ -1,6 +1,7 @@
 
 const mongoose = require("mongoose");
 const GraniteTiles = require("../../models/components/graniteTiles")
+
 exports.createGraniteTiles = (req, res) => {
 
   const { name, size, price, description, weight } = req.body;

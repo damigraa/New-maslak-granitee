@@ -20,30 +20,30 @@ const productSchema = new mongoose.Schema({
     },
     slug: {
         type: String,
-        required: true,
+        // required: true,
         unique: true
     },
     price: {
         type: Number,
-        required: true
+        // required: true
     },
     quantity: {
         type: Number,
-        required: true
+        // required: true
     },
     description: {
         type: String,
-        required: true,
+        // required: true,
         trim: true
     },
     size: {
         type: String,
-        required: true,
+        // required: true,
         trim: true
     },
     weight: {
         type: String,
-        required: true,
+        // required: true,
         trim: true
     },
     offer: { type: Number },

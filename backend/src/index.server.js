@@ -35,6 +35,7 @@ const paymentMethodRoutes = require("./routes/components/paymentMethod")
 const catalogTitleRoutes = require("./routes/components/catalogTitle")
 const costDeliveryRoutes = require("./routes/components/costDelivery")
 const standMonumentRoutes = require("./routes/components/standMonument")
+
 const graniteTilesRoutes = require("./routes/components/graniteTiles")
 const tombstoneCurbRoutes = require("./routes/components/tombstoneCurb")
 const footerRoutes = require("./routes/components/footer")
@@ -54,9 +55,10 @@ mongoose.connect(
   }
 ).then(() => {
   console.log('Database connected')
-}) 
+})
 
 
+const port = process.env.PORT || 2000
 app.use(cors())
 app.use(express.json())
 app.use("/public", express.static(path.join(__dirname, "uploads")))
@@ -89,12 +91,14 @@ app.use("/api", paymentMethodRoutes)
 app.use("/api", catalogTitleRoutes)
 app.use("/api", costDeliveryRoutes)
 app.use("/api", standMonumentRoutes)
+
 app.use("/api", graniteTilesRoutes)
 app.use("/api", footerRoutes)
 app.use("/api", tombstoneCurbRoutes)
 app.use("/api", ceramicsRoutes)
 
 
-app.listen(process.env.PORT, () => {
-  console.log(`Server in running on port ${process.env.PORT}`)
+
+app.listen(port, () => {
+  console.log(`Server in running on port ${port}`)
 })
