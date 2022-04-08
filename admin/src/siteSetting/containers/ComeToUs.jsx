@@ -27,10 +27,9 @@ const ComeToUs = () => {
 
     return (
         <ContainerSiteSetting
-        text="Назад"
             item={comeToUs}
+            limitOne
             setShow={handleShow}
-            noLimit
             title={`Редактор "Приходи к нам"`}
         >
             <RenderComeToUs

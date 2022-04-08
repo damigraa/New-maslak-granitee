@@ -25,7 +25,7 @@ const ceramicsSchema = new mongoose.Schema({
         // required: true,
     },
 
-    img: [
+    ceramicsPictures: [
         {
             img: {
                 type: String,

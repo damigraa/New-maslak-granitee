@@ -35,7 +35,6 @@ const GraniteMaterial = () => {
         <ContainerSiteSetting
             item={graniteMaterial}
             setShow={handleShow}
-            noLimit
             title={"Материалы"}
         >
             <AddGraniteMaterial

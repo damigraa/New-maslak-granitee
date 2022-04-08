@@ -29,7 +29,7 @@ const HeaderSetting = () => {
         <ContainerSiteSetting
             item={header}
             setShow={handleShow}
-            noLimit
+            limitOne
             title={"Редактор шапки сайта"}
         >
             <RenderHeader

@@ -105,9 +105,10 @@
   transform: translateX(50%);
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
   border-radius: 2px;
-  z-index: 1;
+  z-index: 100;
   margin-top: 10px;
   display: none;
+  border: 1px solid #ccc transparent;
 }
 .dropdown:after {
   /* content: ''; */

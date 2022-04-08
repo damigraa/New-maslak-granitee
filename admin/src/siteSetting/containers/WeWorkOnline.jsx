@@ -30,7 +30,7 @@ const WeWorkOnline = () => {
         <ContainerSiteSetting
             item={weWorkOnline}
             setShow={handleShow}
-            noLimit
+            limitOne
             title={"Работаем онлайн"}
         >
             <CreateWeWorkOnline

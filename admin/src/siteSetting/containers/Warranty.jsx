@@ -27,7 +27,6 @@ function Warranty() {
         <ContainerSiteSetting
             item={warranty}
             setShow={handleShow}
-            noLimit
             title={"Гарантии"}
         >
             <RenderWarranty

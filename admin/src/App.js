@@ -39,6 +39,7 @@ import StandMonument from './containers/ComponentContainer/StandMonument';
 import TombstoneCurb from './containers/ComponentContainer/TombstoneCurb';
 import GraniteTiles from './containers/ComponentContainer/GraniteTiles';
 import LinkProductPage from './containers/LinkProductPage';
+import Ceramics from './containers/ComponentContainer/Ceramics';
 
 function App() {
 
@@ -91,6 +92,7 @@ function App() {
         <PrivateRoute path="/tombstoneCurb" component={TombstoneCurb} />
         <PrivateRoute path="/graniteTiles" component={GraniteTiles} />
         <PrivateRoute path="/footer" component={Footer} />
+        <PrivateRoute path="/ceramics" component={Ceramics} />
         {/* <PrivateRoute path="/test" component={Test} /> */}
 
         <Route path="/signin" component={Signin} />

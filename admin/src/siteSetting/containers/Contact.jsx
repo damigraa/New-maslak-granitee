@@ -24,7 +24,6 @@ function Contacts() {
     return (
         <ContainerSiteSetting
             item={contact}
-            noLimit
             setShow={handleShow}
             title={"Связаться с нами"}
         >

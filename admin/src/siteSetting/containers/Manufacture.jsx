@@ -27,7 +27,6 @@ const Manufacture = () => {
         <ContainerSiteSetting
             item={manufacture}
             setShow={handleShow}
-            noLimit
             title={"Мы производители"}
         >
             <AddManufacture

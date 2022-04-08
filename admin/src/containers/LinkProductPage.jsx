@@ -28,6 +28,11 @@ const ContainerProductPage = () => {
             href: "/graniteTiles",
             photo: "https://i.otzovik.com/objects/b/1490000/1483430.png"
         },
+        {
+            text: "Керамогранит",
+            href: "/ceramics",
+            photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS33K_bJJE9rx0Vs-C99g0KS-VO76evWtGv_Q&usqp=CAU"
+        },
     ]
     return (
         <Layout sidebar>

@@ -27,7 +27,6 @@ const Promotions = () => {
         <ContainerSiteSetting
             item={promotion}
             setShow={handleShow}
-            noLimit
             title={"Все Акции"}
         >
             <CreatePromotion

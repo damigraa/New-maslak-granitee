@@ -27,7 +27,6 @@ const ChooseMemorialPhotos = () => {
         <ContainerSiteSetting
             item={chooseMemorialPhotos}
             setShow={handleShow}
-            noLimit
             title={`Картинка "Как выбрать памятник" `}
         >
 

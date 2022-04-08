@@ -8,6 +8,30 @@ import { ButtonShow } from './ButtonShow';
 
 const ContainerSiteSetting = (props) => {
 
+
+
+    console.log(props.item)
+
+    const test = () => {
+        if (props.limitOne) {
+            if (props.item?.length > 0) {
+                return null
+            } else {
+                return (
+                    <ButtonShow
+                        setShow={props.setShow}
+                    />
+
+                )
+            }
+        } else {
+            return (
+                <ButtonShow
+                    setShow={props.setShow}
+                />
+            )
+        }
+    }
     return (
         <>
             <Layout sidebar>
@@ -23,11 +47,8 @@ const ContainerSiteSetting = (props) => {
                                 <BackButton text={props.text} />
                                 <div className="actionBtnContainer">
                                     <span>Действие: </span>
-                                    <ButtonShow
-                                        setShow={props.setShow} item={props.item}
-                                        limitOne={props.limitOne}
-                                        noLimit={props.noLimit}
-                                    />
+
+                                    {test()}
                                     <button className="btn btn-secondary" onClick={props.delete}><IoIosTrash /> <span>Удалить</span></button>
                                     <button className="btn btn-secondary" onClick={props.update}><IoIosCloudUpload /> <span>Редактировать</span></button>
                                 </div>

@@ -4,7 +4,7 @@ const { createCeramics, getCeramics, updateCeramics, deleteCeramics } = require(
 const router = express.Router();
 
 
-router.post("/ceramics/create", requireSignin, adminMiddleware, upload.array("img"), createCeramics)
+router.post("/ceramics/create", requireSignin, adminMiddleware, upload.any("ceramicsPicture"), createCeramics)
 router.get("/ceramics/get", getCeramics)
 router.patch("/ceramics/update/:id", requireSignin, adminMiddleware, updateCeramics)
 router.delete("/ceramics/delete/:id", requireSignin, adminMiddleware, deleteCeramics)

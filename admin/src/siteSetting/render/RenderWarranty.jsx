@@ -2,6 +2,7 @@ import React from 'react'
 import Loader from "../../components/Loader"
 import { useDispatch } from 'react-redux';
 import { deleteWarranty } from '../../actions';
+import { generatePublicUrl } from '../../urlConfig';
 
 const RenderWarranty = ({ setShow, setCurrentId, warranty }) => {
     const dispatch = useDispatch()
@@ -14,7 +15,7 @@ const RenderWarranty = ({ setShow, setCurrentId, warranty }) => {
             {!warranty ? <Loader /> :
                 warranty.map((item) =>
                     <div className="col-sm-4" key={item._id} style={{ textAlign: "center", height: "300px", paddingTop: "20px", margin: "auto" }}>
-                        <img src={item.iconImg} style={{ height: "150px", width: "100px" }} />
+                        <img src={generatePublicUrl(item.iconImg)} style={{ height: "150px", width: "100px" }} />
                         <div style={{ margin: "20px" }}>
                             <div>{item.title}</div>
                             <div>{item.description}</div>

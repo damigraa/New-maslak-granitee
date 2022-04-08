@@ -28,8 +28,8 @@ const CatalogTitle = () => {
     return (
         <ContainerSiteSetting
             item={catalogTitle}
+            limitOne
             setShow={handleShow}
-            noLimit
             title={"Заголовок для Каталога"}
         >
 

@@ -27,7 +27,6 @@ const PaymentLI = () => {
         <ContainerSiteSetting
             item={paymentLI}
             setShow={handleShow}
-            noLimit
             title={"Инструкция оплаты"}
         >
             <AddPaymentList

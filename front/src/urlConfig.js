@@ -1,4 +1,4 @@
-export const api = 'https://powerful-ridge-53185.herokuapp.com/api';
+export const api = 'http://localhost:2000/api';
 export const generatePublicUrl = (fileame) => {
-    return `https://powerful-ridge-53185.herokuapp.com/public/${fileame}`; 
+    return `http://localhost:2000/public/${fileame}`; 
 } 

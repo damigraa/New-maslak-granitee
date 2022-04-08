@@ -27,7 +27,6 @@ const Engraving = () => {
         <ContainerSiteSetting
             item={engraving}
             setShow={handleShow}
-            noLimit
             title={"Страница Гравировка"}
         >
             <AddEngraving

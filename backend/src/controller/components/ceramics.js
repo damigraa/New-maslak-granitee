@@ -5,10 +5,10 @@ const Ceramics = require("../../models/components/ceramics");
 exports.createCeramics = (req, res) => {
 
   const { name, size, price, description, weight } = req.body;
-  let img = [];
+  let ceramicsPictures = [];
 
   if (req.files) {
-    img = req.files.map((file) => {
+    ceramicsPictures = req.files.map((file) => {
       return { img: file.filename };
     });
   }
@@ -18,7 +18,7 @@ exports.createCeramics = (req, res) => {
     size,
     price,
     description,
-    img,
+    ceramicsPictures,
     weight,
   });
 

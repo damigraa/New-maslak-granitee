@@ -28,7 +28,6 @@ const CostDelivery = () => {
         <ContainerSiteSetting
             item={costDelivery}
             setShow={handleShow}
-            noLimit
             title={"Стоимость доставки"}
         >
             <AddCorsDelivery

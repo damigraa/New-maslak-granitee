@@ -30,7 +30,7 @@ function Footer() {
         <ContainerSiteSetting
             item={footer}
             setShow={handleShow}
-            noLimit
+            limitOne
             title={"Редактор Фона подвала"}
         >
 

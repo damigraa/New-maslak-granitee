@@ -40,7 +40,7 @@ export const addCeramics = (form) => {
         }
     }
 }
-export const updateCeramics = (id, ceramics) => async (dispatch) => {
+export const updateCeramicById = (id, ceramics) => async (dispatch) => {
     try {
         const { data } = await updatedCeramics(id, ceramics)
         dispatch({
@@ -53,7 +53,7 @@ export const updateCeramics = (id, ceramics) => async (dispatch) => {
 }
 
 
-export const deleteCeramics = (id) => async (dispatch) => {
+export const deleteCeramicsById = (id) => async (dispatch) => {
     try {
         await deletedCeramics(id);
 

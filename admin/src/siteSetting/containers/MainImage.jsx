@@ -30,7 +30,6 @@ function MainImage() {
         <ContainerSiteSetting
             item={mainImage}
             setShow={handleShow}
-            noLimit
             title={"Редактор Главного изображени страницы"}
         >
 
