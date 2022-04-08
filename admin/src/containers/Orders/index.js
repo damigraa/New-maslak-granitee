@@ -16,20 +16,28 @@ const Orders = (props) => {
   const [modalShow, setModalShow] = useState(false);
   const [currentIdProd, setCurrentIdProd] = useState("");
 
-  const [orderedProduct, setOrderedProduct] = useState(null)
+  const [orderedProduct, setOrderedProduct] = useState([])
 
+  const product = useSelector((state) => state.product.products)
 
+  console.log("orderedProduct", product)
 
-  const product = useSelector((state) => orderedProduct ? state.product.products.find((item) => item._id) : null)
-  const newArrayProd = Array.from([product])
+  // const leastArr = orderedProduct.length < product.length ? orderedProduct : product;
+  // const biggestArr = orderedProduct.length >= product.length ? orderedProduct : product;
+
+  // const resultArray = leastArr.filter((item) => {
+  //   return biggestArr.some((item2) => item2.id === item.id)
+  // });
+
+  // console.log(resultArray);
 
 
   const orderProduct = (orderItem) => {
-    console.log(orderItem)
-    const prodId = orderItem.items.map((item) => item.productId._id)
-    setOrderedProduct(prodId)
-    console.log(prodId)
 
+
+    const orderArray = orderItem.items.map((item) => item.productId)
+    setOrderedProduct(orderArray)
+    console.log(orderArray)
   }
 
 
@@ -81,7 +89,7 @@ const Orders = (props) => {
         onOrderUpdate={onOrderUpdate}
       />
       <RenderOrders
-        newArrayProd={newArrayProd}
+        // newArrayProd={newArrayProd}
         order={order}
         showOrderModal={showOrderModal}
         orderProduct={orderProduct}

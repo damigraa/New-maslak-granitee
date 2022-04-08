@@ -33,15 +33,14 @@ const GraniteTiles = (props) => {
   };
   return (
     <MainContainer
+    backButtonProduct
+      backButton
       // productSort
       fullFunctional
       get={getGraniteTiles}
       handleShow={handleShow}
     >
-      <BackButton
-        text="Назад"
-        href="containerProductPage"
-      />
+
       <Container>
         <Row>
           <Col>

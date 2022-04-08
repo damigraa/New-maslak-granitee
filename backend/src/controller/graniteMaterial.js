@@ -1,5 +1,12 @@
 const mongoose = require("mongoose")
 const GraniteMaterial = require("../models/pages/graniteMaterial")
+
+
+
+
+
+
+
 exports.createGraniteMaterial = (req, res) => {
     try {
         const graniteMaterialObj = {
@@ -21,6 +28,7 @@ exports.createGraniteMaterial = (req, res) => {
             if (graniteMaterial) return (
                 res.status(201).json({ graniteMaterial })
             )
+            graniteMaterial.name[0]
         })
     } catch (e) {
         res.status(500).json(e)
@@ -33,7 +41,7 @@ exports.getGraniteMaterial = (req, res) => {
         GraniteMaterial.find({}).exec((error, graniteMaterial) => {
             if (error) return res.status(400).json({ message: "Проблема при получении данных!" })
             if (graniteMaterial) return (
-                res.status(200).json({ graniteMaterial, message: "Данные успешно получены!" })
+                res.status(200).json({ graniteMaterial, message: "Лерка учись!" })
             )
         })
     } catch (e) {

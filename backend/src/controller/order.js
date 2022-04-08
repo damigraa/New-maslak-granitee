@@ -14,7 +14,7 @@ exports.addOrder = (req, res) => {
           isCompleted: true,
         },
         {
-          type: "packed",
+          type: "packed", 
           isCompleted: false,
         },
         {
@@ -39,8 +39,8 @@ exports.addOrder = (req, res) => {
 
 exports.getOrders = (req, res) => {
   Order.find({ user: req.user._id })
-    // .select("_id paymentStatus paymentType orderStatus items")
-    // .populate("items.productId", "_id name productPictures")
+    .select("_id paymentStatus paymentType orderStatus items")
+    .populate("items.productId", "_id name productPictures")
     .exec((error, orders) => {
       if (error) return res.status(400).json({ error });
       if (orders) {

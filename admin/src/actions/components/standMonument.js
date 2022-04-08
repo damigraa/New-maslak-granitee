@@ -56,7 +56,6 @@ export const updateStandMonument = (id, standMonument) => async (dispatch) => {
 export const deleteStandMonument = (id) => async (dispatch) => {
     try {
         await deletedStandMonument(id);
-
         dispatch({ type: standMonumentConstants.DELETE_STAND_MONUMENT_SUCCESS, payload: id });
         dispatch(getStandMonument())
     } catch (error) {

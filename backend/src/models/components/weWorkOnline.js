@@ -17,7 +17,7 @@ const weWorkOnlineSchema = new mongoose.Schema({
     buttonHref: {
         type: String,
         required: true,
-    },
+    }, 
     image: {
         type: String,
         // required: true,

@@ -20,7 +20,7 @@ const ContainerSiteSetting = (props) => {
                     <Row>
                         <Col md={12}>
                             <div style={{ marginBottom: '20px', display: 'flex', justifyContent: 'space-between' }}>
-                                <BackButton />
+                                <BackButton text={props.text} />
                                 <div className="actionBtnContainer">
                                     <span>Действие: </span>
                                     <ButtonShow

@@ -41,8 +41,8 @@ const Address = ({
 }) => {
   return (
     <div className="flexRow addressContainer">
-      <div>
-        <input name="address" onClick={() => selectAddress(adr)} type="radio" />
+      <div className="addressContainer__addressInput">
+        <input className="addressContainer__addressInput" name="address" onClick={() => selectAddress(adr)} type="radio" />
       </div>
       <div className="flexRow sb addressinfo">
         {!adr.edit ? (
@@ -67,7 +67,7 @@ const Address = ({
             <div className="fullAddress">
               {adr.address} <br /> {`${adr.state} - ${adr.pinCode}`}
             </div>
-            {adr.selected && (
+            
               <MaterialButton
                 title="ВЫБРАТЬ АДРЕСС"
                 onClick={() => confirmDeliveryAddress(adr)}
@@ -76,7 +76,6 @@ const Address = ({
                   margin: "10px 0",
                 }}
               />
-            )}
           </div>
         ) : (
           <AddressForm

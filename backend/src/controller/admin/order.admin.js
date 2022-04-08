@@ -29,7 +29,7 @@ exports.searchOrder = async (req, res) => {
     const searchName = req.query.search
     let orders = await Order.find({})
     console.log(orders)
-    orders = orders.filter(order => order.totalAmount.includes(searchName))
+    orders = orders.filter(order => order.addressId.includes(searchName))
     return res.status(200).json({ orders });
   } catch (e) {
     console.log(e)

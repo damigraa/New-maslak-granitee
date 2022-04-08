@@ -42,157 +42,56 @@ exports.createProduct = (req, res) => {
 
 };
 
-exports.getProductsBySlug = (req, res) => {
-  const { slug } = req.params;
-  Category.findOne({ slug: slug })
-    .select("_id type")
-    .exec((error, category) => {
-      if (error) {
-        return res.status(400).json({ error });
-      }
-
-      if (category) {
-        Product.find({ category: category._id }).exec((error, products) => {
-          if (error) {
-            return res.status(400).json({ error });
-          }
-
-          if (category.type) {
-            if (products.length > 0) {
-              res.status(200).json({
-                products,
-                priceRange: {
-                  under5k: 5000,
-                  under10k: 10000,
-                  under15k: 15000,
-                  under20k: 20000,
-                  under30k: 30000,
-                },
-                productsByPrice: {
-                  under5k: products.filter((product) => product.price <= 5000),
-                  under10k: products.filter(
-                    (product) => product.price > 5000 && product.price <= 10000
-                  ),
-                  under15k: products.filter(
-                    (product) => product.price > 10000 && product.price <= 15000
-                  ),
-                  under20k: products.filter(
-                    (product) => product.price > 15000 && product.price <= 20000
-                  ),
-                  under30k: products.filter(
-                    (product) => product.price > 20000 && product.price <= 30000
-                  ),
-                },
-              });
-            }
-          } else {
-            res.status(200).json({ products });
-          }
-        });
-      }
-    });
-};
 // exports.getProductsBySlug = (req, res) => {
-//   try {
-//     const { slug } = req.params;
-//     const { sort } = req.query
-//     Category.findOne({ slug: slug })
-//       .select("_id type")
-//       .exec((error, category) => {
-//         if (error) {
-//           return res.status(400).json({ error });
-//         }
-//         switch (category && sort) {
-//           case 'name':
-//             Product.find({}).sort({ name: 1 })
-//             break
-//           case 'nameMinus':
-//             Product.find({}).sort({ name: - 1 })
-//             break
-//           case 'price':
-//             Product.find({}).sort({ price: - 1 })
-//             break
-//           case 'priceMinus':
-//             Product.find({}).sort({ price: 1 })
-//             break
-//           case 'updatedAt':
-//             Product.find({}).sort({ name: -1 })
-//             break
-//           case 'updatedAtMinus':
-//             Product.find({}).sort({ name: 1 })
-//             break
-//           default:
-//             Product.find({ category: category.id }).exec((error, products) => {
-//               if (error) {
-//                 return res.status(400).json({ message: "Error products" })
-//               }
-//               if (category.type) {
+//   const { slug } = req.params;
+//   Category.findOne({ slug: slug })
+//     .select("_id type")
+//     .exec((error, category) => {
+//       if (error) {
+//         return res.status(400).json({ error });
+//       }
 
-//                 if (products.length > 0) {
-//                   res.status(200).json({
-//                     products,
-//                     priceRange: {
-//                       under5k: 5000,
-//                       under10k: 10000,
-//                       under15k: 15000,
-//                       under20k: 20000,
-//                       under30k: 30000,
-//                     },
-//                     productsByPrice: {
-//                       under5k: products.filter((product) => product.price <= 5000),
-//                       under10k: products.filter(
-//                         product => product.price > 5000 && product.price <= 10000
-//                       ),
-//                       under15k: products.filter(
-//                         (product) => product.price > 10000 && product.price <= 15000
-//                       ),
-//                       under20k: products.filter(
-//                         (product) => product.price > 15000 && product.price <= 20000
-//                       ),
-//                       under30k: products.filter(
-//                         (product) => product.price > 20000 && product.price <= 30000
-//                       ),
-//                     },
-//                   });
+//       if (category) {
+//         Product.find({ category: category._id }).exec((error, products) => {
+//           if (error) {
+//             return res.status(400).json({ error });
+//           }
 
-
-//                 }
-//               } else {
-//                 res.status(200).json({ products });
-//               }
-//             });
-//         }
-//       });
-//   } catch (e) {
-//     console.log(e)
-//     return res.status(500).json({ message: "Can not get products" })
-//   }
+//           if (category.type) {
+//             if (products.length > 0) {
+//               res.status(200).json({
+//                 products,
+//                 priceRange: {
+//                   under5k: 5000,
+//                   under10k: 10000,
+//                   under15k: 15000,
+//                   under20k: 20000,
+//                   under30k: 30000,
+//                 },
+//                 productsByPrice: {
+//                   under5k: products.filter((product) => product.price <= 5000),
+//                   under10k: products.filter(
+//                     (product) => product.price > 5000 && product.price <= 10000
+//                   ),
+//                   under15k: products.filter(
+//                     (product) => product.price > 10000 && product.price <= 15000
+//                   ),
+//                   under20k: products.filter(
+//                     (product) => product.price > 15000 && product.price <= 20000
+//                   ),
+//                   under30k: products.filter(
+//                     (product) => product.price > 20000 && product.price <= 30000
+//                   ),
+//                 },
+//               });
+//             }
+//           } else {
+//             res.status(200).json({ products });
+//           }
+//         });
+//       }
+//     });
 // };
-exports.getProductDetailsById = (req, res) => {
-  const { productId } = req.params;
-  if (productId) {
-    Product.findOne({ _id: productId }).exec((error, product) => {
-      if (error) return res.status(400).json({ error });
-      if (product) {
-        res.status(200).json({ product });
-      }
-    });
-  } else {
-    return res.status(400).json({ error: "Params required" });
-  }
-};
-
-
-exports.deleteProductById = async (req, res) => {
-  const { id } = req.params;
-
-  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No product with id: ${id}`);
-  await Product.findByIdAndDelete(id);
-
-  res.json({ message: "Блок удален успешно" });
-};
-
-
 
 exports.getProducts = async (req, res) => {
   try {
@@ -219,7 +118,7 @@ exports.getProducts = async (req, res) => {
         products = await pSort.sort({ updatedAt: -1 })
         break
       default:
-        products = await pSort
+        products = await pSort.sort({ updatedAt: -1 })
         break;
     }
     return res.status(200).json({ products });
@@ -228,6 +127,152 @@ exports.getProducts = async (req, res) => {
     return res.status(500).json({ message: "Can not get products" })
   }
 }
+
+
+exports.getProductsBySlug = (req, res) => {
+
+
+  try {
+    const { slug } = req.params;
+    const { sort } = req.query
+
+    Category.findOne({ slug: slug })
+      .select("_id type")
+      .exec((error, category) => {
+        if (error) {
+          return res.status(400).json({ error });
+        }
+        console.log(category && sort)
+        switch (category && sort) {
+          case 'name':
+            Product.find({ category: category.id }).sort({ name: 1 }).exec((error, products) => {
+              if (error) {
+                return res.status(400).json({ error })
+              }
+              if (products) {
+                return res.status(200).json({ products })
+              }
+            })
+            break
+          case 'nameMinus':
+            Product.find({ category: category.id }).sort({ name: - 1 }).exec((error, products) => {
+              if (error) {
+                return res.status(400).json({ error })
+              }
+              if (products) {
+                return res.status(200).json({ products })
+              }
+            })
+            break
+          case 'price':
+            Product.find({ category: category.id }).sort({ price: - 1 }).exec((error, products) => {
+              if (error) {
+                return res.status(400).json({ error })
+              }
+              if (products) {
+                return res.status(200).json({ products })
+              }
+            })
+            break
+          case 'priceMinus':
+            Product.find({ category: category.id }).sort({ price: 1 }).exec((error, products) => {
+              if (error) {
+                return res.status(400).json({ error })
+              }
+              if (products) {
+                return res.status(200).json({ products })
+              }
+            })
+            break
+          case 'updatedAt':
+            Product.find({ category: category.id }).sort({ updatedAt: -1 }).exec((error, products) => {
+              if (error) {
+                return res.status(400).json({ error })
+              }
+              if (products) {
+                return res.status(200).json({ products })
+              }
+            })
+            break
+          case 'updatedAtMinus':
+            Product.find({ category: category.id }).sort({ updatedAtMinus: 1 }).exec((error, products) => {
+              if (error) {
+                return res.status(400).json({ error })
+              }
+              if (products) {
+                return res.status(200).json({ products })
+              }
+            })
+            break
+          default:
+            Product.find({ category: category.id }).sort({ updatedAt: -1 }).exec((error, products) => {
+              if (error) {
+                return res.status(400).json({ message: "Error products" })
+              }
+              if (category.type) {
+
+                if (products.length > 0) {
+                  res.status(200).json({
+                    products,
+                    priceRange: {
+                      under5k: 5000,
+                      under10k: 10000,
+                      under15k: 15000,
+                      under20k: 20000,
+                      under30k: 30000,
+                    },
+                    productsByPrice: {
+                      under5k: products.filter((product) => product.price <= 5000),
+                      under10k: products.filter(
+                        product => product.price > 5000 && product.price <= 10000
+                      ),
+                      under15k: products.filter(
+                        (product) => product.price > 10000 && product.price <= 15000
+                      ),
+                      under20k: products.filter(
+                        (product) => product.price > 15000 && product.price <= 20000
+                      ),
+                      under30k: products.filter(
+                        (product) => product.price > 20000 && product.price <= 30000
+                      ),
+                    },
+                  });
+                }
+              } else {
+                res.status(400).json({ error });
+              }
+            });
+        }
+      });
+  } catch (e) {
+    console.log(e)
+    return res.status(500).json({ message: "Can not get products" })
+  }
+};
+exports.getProductDetailsById = (req, res) => {
+  const { productId } = req.params;
+  if (productId) {
+    Product.findOne({ _id: productId }).exec((error, product) => {
+      if (error) return res.status(400).json({ error });
+      if (product) {
+        res.status(200).json({ product });
+      }
+    });
+  } else {
+    return res.status(400).json({ error: "Params required" });
+  }
+};
+
+
+exports.deleteProductById = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No product with id: ${id}`);
+  await Product.findByIdAndDelete(id);
+
+  res.json({ message: "Блок удален успешно" });
+};
+
 
 
 exports.searchFile = async (req, res) => {

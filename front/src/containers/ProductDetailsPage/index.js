@@ -122,12 +122,10 @@ console.log(props)
                 <RenderSection
                   product={product}
                 />
-                {/* action buttons */}
 
-                <div className="flexRow">
+                {/* <div className="flexRow">
                   <MaterialButton
                     title="Добавить в корзину"
-                    // bgColor="#1E1E1E"
                     textColor="#ffffff"
                     style={{
                       marginTop: '20px',
@@ -144,14 +142,13 @@ console.log(props)
                   />
                   <MaterialButton
                     title="Купить сейчас"
-                    // bgColor="#1E1E1E"
                     textColor="#ffffff"
                     style={{
                       marginLeft: '5px'
                     }}
                     icon={<AiFillThunderbolt />}
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -248,7 +245,7 @@ console.log(props)
                     <option value="0">Выберите количесво</option>
                     <option value="3000">1шт. 3000 (руб.)</option>
                     <option value="5500">2шт. 5500 (руб.)</option>
-                    <option value="8500">3шт. 8500 (руб.)</option>
+                    <option value="8500">3шт. 8500 (руб.)</option> 
                     <option value="10000">4шт. 10 000 (руб.)</option>
                   </select>
                   <br />

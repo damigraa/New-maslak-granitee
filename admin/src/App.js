@@ -38,7 +38,7 @@ import PaymentAndDeliveryContainer from './siteSetting/PaymentAndDeliveryContain
 import StandMonument from './containers/ComponentContainer/StandMonument';
 import TombstoneCurb from './containers/ComponentContainer/TombstoneCurb';
 import GraniteTiles from './containers/ComponentContainer/GraniteTiles';
-import ContainerProductPage from './containers/ContainerProductPage';
+import LinkProductPage from './containers/LinkProductPage';
 
 function App() {
 
@@ -85,7 +85,7 @@ function App() {
         <PrivateRoute path="/paymentAndDelivery" component={PaymentAndDeliveryContainer} />
         <PrivateRoute path="/catalog-title" component={CatalogTitle} />
         <PrivateRoute path="/costDelivery" component={CostDelivery} />
-        <PrivateRoute path="/containerProductPage" component={ContainerProductPage} />
+        <PrivateRoute path="/containerProductPage" component={LinkProductPage} />
         <PrivateRoute path="/test" component={MultipleSelectChip} />
         <PrivateRoute path="/standMonument" component={StandMonument} />
         <PrivateRoute path="/tombstoneCurb" component={TombstoneCurb} />

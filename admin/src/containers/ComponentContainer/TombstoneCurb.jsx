@@ -34,6 +34,7 @@ const TombstoneCurb = (props) => {
   };
   return (
     <MainContainer
+    backButtonProduct
       // productSort
       fullFunctional
       get={getTombstoneCurb}

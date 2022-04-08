@@ -17,7 +17,7 @@ const Products = (props) => {
   const dispatch = useDispatch();
 
   const product = useSelector((state) => state.product.products)
-  
+
   const handleShow = () => setShow(true)
   const handleClose = () => setShow(false)
 
@@ -32,7 +32,8 @@ const Products = (props) => {
     setProductDetailModal(true);
   };
   return (
-    <MainContainer 
+    <MainContainer
+      backButtonProduct
       productSort
       fullFunctional
       search={searchProducts}

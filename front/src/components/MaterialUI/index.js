@@ -82,6 +82,7 @@ const MaterialInput = (props) => {
         className={`label ${focus ? "focus" : ""}`}
         style={{
           top: 0,
+          left: 0,
           lineHeight: "none",
         }}
       >

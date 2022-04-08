@@ -35,15 +35,13 @@ const StandMonument = (props) => {
   };
   return (
     <MainContainer
+    backButtonProduct
       // productSort
       fullFunctional
       get={getStandMonument}
       handleShow={handleShow}
     >
-      <BackButton
-        text="Назад"
-        href="containerProductPage"
-      />
+     
       <Container>
         <Row>
           <Col>

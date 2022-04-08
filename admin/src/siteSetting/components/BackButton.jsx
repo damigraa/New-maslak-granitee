@@ -6,7 +6,12 @@ export default function BackButton(props) {
     return (
         <div>
             <button className="btn btn-secondary">
-                <NavLink to={`${props.href}`} style={{ color: "white", textDecoration: "none" }}>{props.text}</NavLink>
+                <NavLink
+                    to={`${props.href ? props.href : "/siteSetting"}`}
+                    style={{ color: "white", textDecoration: "none" }}
+                >
+                    {props.text ? props.text : "Назад"}
+                </NavLink>
             </button>
         </div>
     )

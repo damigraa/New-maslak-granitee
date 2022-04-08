@@ -38,6 +38,7 @@ const standMonumentRoutes = require("./routes/components/standMonument")
 const graniteTilesRoutes = require("./routes/components/graniteTiles")
 const tombstoneCurbRoutes = require("./routes/components/tombstoneCurb")
 const footerRoutes = require("./routes/components/footer")
+const ceramicsRoutes = require("./routes/components/ceramics")
 
 env.config();
 
@@ -91,6 +92,7 @@ app.use("/api", standMonumentRoutes)
 app.use("/api", graniteTilesRoutes)
 app.use("/api", footerRoutes)
 app.use("/api", tombstoneCurbRoutes)
+app.use("/api", ceramicsRoutes)
 
 
 app.listen(process.env.PORT, () => {

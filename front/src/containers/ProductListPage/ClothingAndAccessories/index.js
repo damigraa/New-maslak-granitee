@@ -13,7 +13,7 @@ import { setProductView } from "../../../reducers/product.reducer";
 const ClothingAndAccessories = (props) => {
   const [searchTimeout, setSearchTimeout] = useState(false);
   const [searchName, setSearchName] = useState("");
-  const [sort, setSort] = useState("updatedAtMinus")
+  const [sort, setSort] = useState("")
 
   const product = useSelector(state => state.product);
   // console.log(product)
@@ -73,17 +73,23 @@ const ClothingAndAccessories = (props) => {
                 </Link>
                 <div className="caDescContainer">
                   <div className="caProductName">
-                    <h4>{item.name}</h4>
+                    <h4>Памятник {item.name}
+                      <h3>
+                        ( {item.size}мм.)
+                      </h3>
+
+                    </h4>
                   </div>
                   <div className="caProductPrice">
                     {item.price}
                     <BiRuble />
                   </div>
+
                   <div>
-                    {item.size}
+                    {item.weight} кг.
                   </div>
                   <div>
-                    {item.weight}
+                    {item.description}
                   </div>
                 </div>
               </div>
@@ -108,8 +114,7 @@ const ClothingAndAccessories = (props) => {
                 to={`/${product.slug}/${product._id}/p`}
               >
                 <div
-                  className="col-md-3 product-list__container-img"
-                  style={{ height: "280px", width: "200px" }}>
+                  className="col-md-3 product-list__container-img">
                   {<img
                     className="product-list__img"
                     src={generatePublicUrl(product.productPictures[0].img)}
@@ -118,29 +123,26 @@ const ClothingAndAccessories = (props) => {
 
 
                 <div className="col-md-6">
-                  <div className="">
-                    <ul>
-                      <li className="product-list__D-name" ><h2>{product.name}</h2></li>
-                      <li className="product-list__D-description">{product.description}</li>
-                      <div className="product-list__D-block">
-                        <li>Размеры -  от 100х50см</li>
-                        <li>Вес - от 100кг</li>
-                        <li>Вес - от 100кг</li>
-                        <li>Либо какой текст</li>
-                        <li>Сейчас в наличии</li>
-                        <li>Вес - от 100кг</li>
-                      </div>
+                  <ul>
+                    <li className="product-list__D-name" ><h2>Памятник {product.name} </h2></li>
+                    <li className="product-list__D-description">( {product.size}мм )</li>
+                    <div className="product-list__D-block">
+                      <li>Вес -{product.weight} кг.</li>
+                      <li>{product.description}</li>
 
-                    </ul>
-                  </div>
+                    </div>
+
+                  </ul>
                 </div>
-                <div className="col-md-3">
-                  <div style={{ fontSize: "20px", margin: "10px 0 " }}>
-                    {product.price}
-                    <BiRuble />
+                <div className="col-md-3 product-list__container-price">
+                  <div className="product-list__blockImg">
+                    <div style={{ fontSize: "20px", margin: "10px 0 " }}>
+                      {product.price}
+                      <BiRuble />
+                    </div>
+                    <div>При полной оплате -5%</div>
+                    <div>Скидка пенсионерам -5%</div>
                   </div>
-                  <div>При полной оплате -5%</div>
-                  <div>Скидка пенсионерам -5%</div>
                 </div>
               </Link>
             </div>

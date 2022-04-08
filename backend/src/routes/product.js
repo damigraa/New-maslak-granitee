@@ -24,3 +24,4 @@ router.get("/product/:productId", getProductDetailsById)
 
 module.exports = router;
 
+ 

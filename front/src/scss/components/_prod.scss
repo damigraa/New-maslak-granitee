@@ -1,4 +1,73 @@
 .prod {
+    .carousel .thumb {
+height: 110px;
+width: 70px;
+    }
+    .carousel .thumb img{
+        height: 100px;
+            }
+    .carousel .thumb:hover {
+
+        opacity: 0.8;
+    }
+    .carousel .thumb.selected {
+
+    }
+    .carousel.carousel-slider .control-arrow {
+        top: 0;
+        background: #d2e8e8;
+        font-size: 26px;
+        bottom: 0;
+        margin-top: 0 20px ;
+        padding: 6px;
+    }
+    .carousel .control-arrow {
+        outline: 0;
+        top: 50%;
+        margin-top: -15px;
+        font-size: 18px;
+        background: #d2e8e8;
+    }
+    .carousel .control-arrow:before {
+        margin: 0 5px;
+        display: inline-block;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        content: '';
+    }
+    .carousel .control-dots .dot {
+        transition: opacity .25s ease-in;
+        opacity: .3;
+        filter: alpha(opacity=30);
+        box-shadow: 1px 1px 2px rgb(0 0 0 / 90%);
+        background: rgb(164, 164, 164);
+        border-radius: 50%;
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 8px;
+    }
+    .carousel .thumbs {
+        transition: all .15s ease-in;
+        transform: none;
+        position: relative;
+        list-style: none;
+        white-space: nowrap;
+        // overflow-x: scroll;
+    }
+    .carousel .slide {
+        background: #fff;
+      }
+      .productDetailsContainerImg{
+        width: 100%;
+        margin: 10px auto;
+        max-height: 550px;
+        padding: 20px;
+        background: #fff;
+        margin-left: 10px;
+      }
+ 
     .checkbox-item:hover{
         font-weight: 600
     }

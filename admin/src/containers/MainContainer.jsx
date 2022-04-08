@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Search, Sort, Tabs } from './Component';
 import { Container, Row, Col } from "react-bootstrap";
 import { setFileView } from "../reducers/product.reducer";
+import BackButton from '../siteSetting/components/BackButton';
 
 
 export const MainContainer = (props) => {
@@ -14,6 +15,10 @@ export const MainContainer = (props) => {
     return (
         <Layout sidebar>
             <Container fluid={props.fluid} >
+               {props.backButtonProduct && <BackButton
+                    text="Назад"
+                    href="containerProductPage"
+                />}
                 <Row>
                     <Col md={12}>
                         <h1 style={{ textAlign: "left", marginBottom: "26px" }}>{props.title}</h1>

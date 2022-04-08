@@ -8,15 +8,19 @@ import Loader from './../../components/Loader';
 export const RenderProducts = ({ setShow, showProductDetailsModal, setCurrentId, product }) => {
 
     const fileView = useSelector(state => state.product.view)
- 
+    
     const dispatch = useDispatch()
+    
     const Edit = (item) => {
         setCurrentId(item._id)
         setShow(true)
     }
-if (!product) {
-    return null
-}
+
+
+
+    if (!product) {
+        return null
+    }
     if (fileView === "plate") {
         return (
             <div className="fileplate">
@@ -32,6 +36,8 @@ if (!product) {
                             <div className="file-plate__name"
                                 style={{ color: '#f1c40f' }}
                             >{item.name}</div>
+                            <div className="file__category">{item.category.name} </div>
+
                             <div className="file-plate__btns">
                                 <button className="btn btn-secondary" onClick={() => Edit(item)}>Редактировать</button>
                                 <button className="btn btn-secondary" onClick={() => dispatch(deleteProductById(item._id))}>Удалить</button>
@@ -40,7 +46,7 @@ if (!product) {
                     )}
             </div>
         )
-    }else{
+    } else {
         return (
             <div>
                 <div className="file-title">
@@ -51,19 +57,20 @@ if (!product) {
                 </div>
                 {!product ? <Loader /> :
                     product.map((item) =>
-                   
+
                         <div className="file" key={item._id}>
                             <img className="file__img"
                                 onClick={() => showProductDetailsModal(item)}
                                 src={generatePublicUrl(item.productPictures[0].img)}
                                 alt={item.name} />
                             <div className="file__block-name">
-                            {console.log(item)}
+                                {console.log(item)}
                                 <div className="file__name"
                                     style={{ color: '#f1c40f' }}
                                 >
                                     {item.name}
                                 </div>
+
                                 <div className="">{"Памятники"}</div>
                             </div>
                             <div className="file__size"

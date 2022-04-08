@@ -10,6 +10,7 @@ const comeToUsSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true,
+        
         min: 20,
         max: 200
     },

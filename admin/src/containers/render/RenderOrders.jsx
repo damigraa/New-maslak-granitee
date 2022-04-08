@@ -10,7 +10,6 @@ import RenderProductOrder from './RenderProductOrder';
 export const RenderOrders = ({ order, showOrderModal, orderProduct, newArrayProd }) => {
     const [clicked, setClicked] = useState(false);
 
-
     const toggle = index => {
         // if (clicked === index) {
         //     return setClicked(null);
@@ -95,16 +94,19 @@ export const RenderOrders = ({ order, showOrderModal, orderProduct, newArrayProd
                                             </div>
                                             <div className="col-sm-8">
                                                 <span className="title">Товары Нашего производства</span>
-                                                {newArrayProd.map((item) => (
-                                                    <div>
-                                                        {console.log(item)}
-                                                        <RenderProductOrder
-                                                            orderItem={orderItem}
-                                                            orderProduct={orderProduct}
-                                                            item={item}
-                                                        />
-                                                    </div>
-                                                ))}
+                                                {orderItem.length ? orderItem.map((item) => {
+                                                    console.log("orderItem",orderItem)
+                                                    return (
+                                                        <>
+                                                            <RenderProductOrder
+                                                                orderItem={orderItem}
+                                                                orderProduct={orderProduct}
+                                                                item={item}
+                                                            />
+                                                        </>
+                                                    )
+
+                                                }) : null}
                                             </div>
 
 
