@@ -59,7 +59,7 @@ const AddGraniteMaterial = ({ currentId, setCurrentId, show, handleClose }) => {
         <Modal
             show={show}
             handleClose={handleClose}
-            modalTitle={currentId ? "Редактировать материал" : "Добавить матириал"}
+            modalTitle={currentId ? "Редактировать материал" : "Добавить материал"}
             onSubmit={submitGraniteMaterialForm}
         >
             <Input

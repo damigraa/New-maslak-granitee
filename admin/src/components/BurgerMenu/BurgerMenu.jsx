@@ -1,11 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { IoMdClose } from 'react-icons/io';
+import { useSelector, useDispatch } from 'react-redux';
+import RenderBurgerMenu from './RenderBurgerMenu';
+import { signout } from './../../actions/auth.actions';
+
+import ModalConfirm from './ModalConfirm';
 
 const BurgerMenu = ({ title, items }) => {
     const [show, setShow] = useState(false);
+    const [showConfirm, setShowConfirm] = useState(false);
     const user = useSelector((state) => state.auth.user);
+
+    const dispatch = useDispatch();
+    const logout = () => {
+        dispatch(signout());
+        setShowConfirm(false)
+    };
     console.log(user)
 
     const rootEl = useRef(null);
@@ -15,57 +24,35 @@ const BurgerMenu = ({ title, items }) => {
         document.addEventListener('click', onClick);
         return () => document.removeEventListener('click', onClick);
     }, []);
+
+
+    const handleClose = () => setShowConfirm(false);
+    const handleShow = () => setShowConfirm(true);
+
     return (
-        <div className="burgerMenu" ref={rootEl}>
-
-            <button onClick={() => setShow(!show)}>Open</button>
-
-
-            <div
-                className={show ? "burgerMenu__dropdown active" : "burgerMenu__dropdown"}
-                onClick={e => e.stopPropagation()}
-            >
-                <div className="burgerMenu__header-container">
-                    <div className="burgerMenu__close-icon-container">
-                        <div className="burgerMenu__close-icon" onClick={() => { setShow(false) }}>
-                            <IoMdClose />
-                        </div>
-                    </div>
-                    <div className="burgerMenu__title">
-                        {title}
-                    </div>
-                    <div className="burgerMenu__user">
-                        <div className="burgerMenu__user-content">
-                            <div className="burgerMenu__user-icon">
-                                {user.firstName.charAt(0)}
-                            </div>
-                            <div>
-                                <div >{user.firstName} {user.lastName}</div>
-                                <span>{user.email}</span>
-                            </div>
-
-                        </div>
+        <>
+            <ModalConfirm
+                show={showConfirm}
+                handleClose={handleClose}
+                onClick={logout}
+            />
+            <div className="burgerMenu" ref={rootEl}>
+                <div className="burger-btn-container">
+                    <div className="burger-btn" onClick={() => setShow(!show)} fontSize="large" color="#cecece" >
+                        <span></span>
                     </div>
                 </div>
-                <div className="burgerMenu__container">
-                    <div className="burgerMenu__blur" />
-                    <div className="burgerMenu__body">
-                    </div>
-
-                    <div>
-                        {items.map((item) =>
-                            <li className="burgerMenu__content">
-                                <div className="burgerMenu__icon">
-                                    {item.icon}
-                                </div>
-                                <NavLink to={item.href}>{item.text}</NavLink>
-                            </li>
-                        )}
-                    </div>
-                </div>
+                <RenderBurgerMenu
+                    show={show}
+                    user={user}
+                    items={items}
+                    setShow={setShow}
+                    title={title}
+                    handleShow={handleShow}
+                />
 
             </div >
-        </div >
+        </>
     )
 }
 

@@ -12,7 +12,7 @@ const Orders = (props) => {
   const [show, setShow] = useState(false);
   const [orderDetails, setOrderDetails] = useState(null);
   const order = useSelector((state) => state.order.orders);
-  const [clicked, setClicked] = useState(false)
+  const [clicked, setClicked] = useState(false) 
   const [modalShow, setModalShow] = useState(false);
   const [currentIdProd, setCurrentIdProd] = useState("");
 
@@ -58,7 +58,7 @@ const Orders = (props) => {
 
   const showOrderModal = (orderItem) => {
     setOrderDetails(orderItem);
-    setModalShow(true);
+    setModalShow(!modalShow);
   };
   const formatDate = (date) => {
     if (date) {

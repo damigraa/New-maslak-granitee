@@ -40,6 +40,7 @@ import TombstoneCurb from './containers/ComponentContainer/TombstoneCurb';
 import GraniteTiles from './containers/ComponentContainer/GraniteTiles';
 import LinkProductPage from './containers/LinkProductPage';
 import Ceramics from './containers/ComponentContainer/Ceramics';
+import Cabinet from './containers/Cabinet/Cabinet';
 
 function App() {
 
@@ -93,6 +94,7 @@ function App() {
         <PrivateRoute path="/graniteTiles" component={GraniteTiles} />
         <PrivateRoute path="/footer" component={Footer} />
         <PrivateRoute path="/ceramics" component={Ceramics} />
+        <PrivateRoute path="/cabinet" component={Cabinet} />
         {/* <PrivateRoute path="/test" component={Test} /> */}
 
         <Route path="/signin" component={Signin} />

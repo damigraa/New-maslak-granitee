@@ -11,8 +11,8 @@ const Layout = (props) => {
         props.sidebar ?
           <Container fluid >
             <Row>
-              <Sidebar />
-              <Col md={10} style={{ marginLeft: 'auto', paddingTop: '60px' }}>
+              {/* <Sidebar /> */}
+              <Col md={12} style={{ marginLeft: 'auto', paddingTop: '60px' }}>
                 {props.children}
               </Col>
             </Row>

@@ -11,9 +11,9 @@ export const RenderOrders = ({ order, showOrderModal, orderProduct, newArrayProd
     const [clicked, setClicked] = useState(false);
 
     const toggle = index => {
-        // if (clicked === index) {
-        //     return setClicked(null);
-        // }
+        if (clicked === index) {
+            return setClicked(null);
+        }
         setClicked(index);
     };
 
@@ -86,7 +86,7 @@ export const RenderOrders = ({ order, showOrderModal, orderProduct, newArrayProd
                                                     <div> +79537513915 </div>
                                                     <div> +380987653421 </div>
                                                 </div>
-                                                <div className="m-2 p-1">
+                                                <div className="m-2 p-1" onClick={e => e.stopPropagation()}>
                                                     <div className="orderHistoryButton" onClick={() => showOrderModal(orderItem)}>История заказа</div>
                                                 </div>
                                                 <span className="title">{` № ${index}`} от {orderItem.createdAt.slice(0, 10)}</span>
@@ -95,7 +95,7 @@ export const RenderOrders = ({ order, showOrderModal, orderProduct, newArrayProd
                                             <div className="col-sm-8">
                                                 <span className="title">Товары Нашего производства</span>
                                                 {orderItem.length ? orderItem.map((item) => {
-                                                    console.log("orderItem",orderItem)
+                                                    console.log("orderItem", orderItem)
                                                     return (
                                                         <>
                                                             <RenderProductOrder
