@@ -7,6 +7,7 @@ import { MainContainer } from '../MainContainer';
 import BackButton from '../../siteSetting/components/BackButton';
 import { AddTombstoneCurb } from '../create/AddTombstoneCurb';
 import { RenderTombstoneCurb } from './../render/RenderTombstoneCurb';
+import { DetailsTombstoneCurb } from './../render/DetailsTombstoneCurb';
 
 
 const TombstoneCurb = (props) => {
@@ -28,22 +29,18 @@ const TombstoneCurb = (props) => {
 
 
 
-  const showTombstoneCurbModal = (tombstoneCurb) => { 
+  const showTombstoneCurbModal = (tombstoneCurb) => {
     setTombstoneCurbDetails(tombstoneCurb);
     setTombstoneCurbDetailModal(true);
   };
   return (
     <MainContainer
-    backButtonProduct
+      backButtonProduct
       // productSort
       fullFunctional
       get={getTombstoneCurb}
       handleShow={handleShow}
     >
-      <BackButton
-        text="Назад"
-        href="containerProductPage"
-      />
       <Container>
         <Row>
           <Col>
@@ -62,11 +59,11 @@ const TombstoneCurb = (props) => {
         currentId={currentId}
         setCurrentId={setCurrentId}
       />
-      {/* <DetailsTombstoneCurb
+      <DetailsTombstoneCurb
         tombstoneCurbDetailModal={tombstoneCurbDetailModal}
         tombstoneCurbDetails={tombstoneCurbDetails}
         setTombstoneCurbDetailModal={setTombstoneCurbDetailModal}
-      /> */}
+      />
     </MainContainer >
   );
 };

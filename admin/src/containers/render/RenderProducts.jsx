@@ -8,9 +8,9 @@ import Loader from './../../components/Loader';
 export const RenderProducts = ({ setShow, showProductDetailsModal, setCurrentId, product }) => {
 
     const fileView = useSelector(state => state.product.view)
-    
+
     const dispatch = useDispatch()
-    
+
     const Edit = (item) => {
         setCurrentId(item._id)
         setShow(true)
@@ -59,12 +59,13 @@ export const RenderProducts = ({ setShow, showProductDetailsModal, setCurrentId,
                     product.map((item) =>
 
                         <div className="file" key={item._id}>
-                            <img className="file__img"
-                                onClick={() => showProductDetailsModal(item)}
-                                src={generatePublicUrl(item.productPictures[0].img)}
-                                alt={item.name} />
+                            <div className="file__containerImg">
+                                <img className="file__img"
+                                    onClick={() => showProductDetailsModal(item)}
+                                    src={generatePublicUrl(item.productPictures[0].img)}
+                                    alt={item.name} />
+                            </div>
                             <div className="file__block-name">
-                                {console.log(item)}
                                 <div className="file__name"
                                     style={{ color: '#f1c40f' }}
                                 >

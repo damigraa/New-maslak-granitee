@@ -6,10 +6,11 @@ import { addToCart } from './../../actions';
 import { useDispatch } from 'react-redux';
 import { IoMdCart } from 'react-icons/io';
 
-const ModalPrice = ({ product, history, difference, differencePensioners }) => {
+const ModalPrice = ({ product, history, SizeMemorials, SizeCurb, tiles }) => {
     const dispatch = useDispatch();
+    const prod = product.productDetails
 
-
+    const totalPrices = Number(prod.price) + Number(SizeMemorials) + Number(SizeCurb) + Number(tiles)
 
 
     const handleChange = () => {
@@ -18,7 +19,25 @@ const ModalPrice = ({ product, history, difference, differencePensioners }) => {
         dispatch(addToCart({ _id, name, price, img }));
         history.push(`/cart`);
     }
-    const prod = product.productDetails
+
+    const showQuantityProduct = () => {
+        if (prod.quantity > 0) {
+            return (
+                <div className="miniCart__properties-item">
+                    Наличие товара: {prod.quantity || "Нет в наличии"} шт.
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <div className="miniCart__properties-item not-available">
+                        Нет в наличии
+                    </div>
+                </div>
+            )
+
+        }
+    }
     return (
         <div className='row'>
             <div className="col-12 productCard__content-right js-product-right">
@@ -46,16 +65,17 @@ const ModalPrice = ({ product, history, difference, differencePensioners }) => {
                     <div className="miniCart__price-total">
                         <div className="miniCart__price-total-title">Сумма</div>
                         <div className="miniCart__price-total-count js-tooltip-btn">
-                            {prod.price}&nbsp;руб.
+                            {totalPrices}&nbsp;руб.
                             <span className="tooltip-btn">
 
                             </span>
                         </div>
                     </div>
                     <div className="miniCart__properties">
-                        <div className="miniCart__properties-item">
+                        {/* <div className="miniCart__properties-item">
                             Наличие товара: {prod.quantity || "Нет в наличии"} шт.
-                        </div>
+                        </div> */}
+                        {showQuantityProduct()}
                         <div className="miniCart__properties-item">Вес: {prod.weight} кг</div>
 
 

@@ -2,14 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProductDetailsById, getStandMonument } from './../../actions';
 import Layout from './../../components/Layout';
-import {
-  IoIosArrowForward,
-  IoIosStar,
-  IoMdCart
-} from 'react-icons/io';
-import { BiRupee } from 'react-icons/bi';
-import { AiFillThunderbolt } from 'react-icons/ai';
-import { Breed, MaterialButton } from './../../components/MaterialUI';
+
 import './style.css';
 import { generatePublicUrl } from './../../urlConfig';
 import RenderSection from '../../containers/render/renderSection';
@@ -19,13 +12,21 @@ import { addToCart } from './../../actions/cart.action';
 import RenderGraniteTilesModal from '../ProdContainer/GraniteTilesModal';
 import RenderProductImg from '../render/renderProductImg';
 import ModalPrice from './ModalPrice';
+import ProductImgSliderModal from './ProductImgSliderModal';
+import ProductModalContainer from './ProductModalContainer';
+import { Breed } from '../../components/MaterialUI';
+import { IoIosArrowForward } from 'react-icons/io';
 
 
 const ProductDetailsPage = (props) => {
-console.log(props)
+
+  const product = useSelector(state => state.product)
+
+
+
   const [SizeMemorials, setSizeMemorials] = useState("")
-  const [SizeCurb, setSizeCurb] = useState("0")
-  const [tiles, setTiles] = useState("0")
+  const [SizeCurb, setSizeCurb] = useState("")
+  const [tiles, setTiles] = useState("")
 
   const [Engraving, setEngraving] = useState("")
   const [Ceramics, setCeramics] = useState("")
@@ -34,18 +35,31 @@ console.log(props)
   const [Milling, setMilling] = useState("")
   const [isCheckedRetouch, setIsCheckedRetouch] = useState("")
   const [isCheckedRecovery, setIsCheckedRecovery] = useState("")
-  const [checked, setChecked] = useState(true);
+
+
+
+
+  const [totalPrice, setTotalPrice] = useState(product.productDetails);
+  console.log("цена", totalPrice)
   const [checkedTwo, setCheckedTwo] = useState(true);
 
+
+
+  const [show, setShow] = useState(false);
+
+  const handleShow = () => {
+    setShow(true)
+  }
+
+  const handleClose = () => {
+    setShow(false)
+  }
+
   const dispatch = useDispatch();
-  const product = useSelector(state => state.product)
-
-
 
 
   useEffect(() => {
     const { productId } = props.match.params;
-    console.log(props);
     const payload = {
       params: {
         productId
@@ -55,14 +69,11 @@ console.log(props)
   }, []);
 
 
+  const priceProduct = Number(SizeMemorials) + Number(SizeCurb) + Number(tiles)
 
-
-  const price = (Number(SizeMemorials) + Number(SizeCurb) + Number(Engraving) + Number(Ceramics) + Number(Fio) + Number(Milling) + Number(Gold)
-    + Number(isCheckedRetouch ? "1000" : "0") + Number(isCheckedRecovery ? "3000" : "0")
-  )
-  var differencePensioners = price / 100 * 2
-  var difference = price / 100 * 5
-  var tallage = price / 100 * 93;
+  var differencePensioners = priceProduct / 100 * 2
+  var difference = priceProduct / 100 * 5
+  var tallage = priceProduct / 100 * 93;
 
   // if (!product) {
   //     return <div>
@@ -87,81 +98,63 @@ console.log(props)
   // }
 
 
-  const prod = product.productDetails.name
   if (Object.keys(product.productDetails).length === 0) {
     return null;
   }
-
+  const Edit = (e) => {
+    e.preventDefault()
+    setShow(true)
+  }
   return (
     <Layout>
       <form className="container prod">
         <div className="row">
-          <div className='row'>
-            <h3 className='col-sm text center titleName'>
-              {product.productDetails.name}
-            </h3>
-          </div>
-          {/* <Breed
+
+          <Breed
             breed={[
               { name: "Главная", href: "/" },
               { name: "Памятники", href: "/" },
               { name: "Вертикальные", href: "/" },
-              { name: prod, href: "" },
+              // { name: prod, href: "" },
             ]}
             breedIcon={<IoIosArrowForward />}
-          /> */}
+          />
+        </div>
+        <div className='row'>
+          <h3 className='titleName'>
+            {product.productDetails.name}
+          </h3>
         </div>
         <div className="row">
 
           <div className="col-md-5">
             <div className="flexRow">
               <div className="productDescContainer">
+                <ProductModalContainer
+                  show={show}
+                  handleClose={handleClose}
+                  item={product.productDetails}
+                />
                 <RenderProductImg
+                  setShow={setShow}
                   product={product}
                 />
                 <RenderSection
                   product={product}
                 />
-
-                {/* <div className="flexRow">
-                  <MaterialButton
-                    title="Добавить в корзину"
-                    textColor="#ffffff"
-                    style={{
-                      marginTop: '20px',
-                      textAlign: "center"
-
-                    }}
-                    icon={<IoMdCart />}
-                    onClick={() => {
-                      const { _id, name, price } = product.productDetails;
-                      const img = product.productDetails.productPictures[0].img;
-                      dispatch(addToCart({ _id, name, price, img }));
-                      props.history.push(`/cart`);
-                    }}
-                  />
-                  <MaterialButton
-                    title="Купить сейчас"
-                    textColor="#ffffff"
-                    style={{
-                      marginLeft: '5px'
-                    }}
-                    icon={<AiFillThunderbolt />}
-                  />
-                </div> */}
               </div>
             </div>
           </div>
           <div className="col-md-7">
-
             <ModalPrice
               history={props.history}
               product={product}
               difference={difference}
               differencePensioners={differencePensioners}
+              SizeMemorials={SizeMemorials}
+              SizeCurb={SizeCurb}
+              tiles={tiles}
             />
-
-
             <h2> {product.productDetails.name}</h2>
             {/* <div className="order-info" id="order-info-1">
 
@@ -245,7 +238,7 @@ console.log(props)
                     <option value="0">Выберите количесво</option>
                     <option value="3000">1шт. 3000 (руб.)</option>
                     <option value="5500">2шт. 5500 (руб.)</option>
-                    <option value="8500">3шт. 8500 (руб.)</option> 
+                    <option value="8500">3шт. 8500 (руб.)</option>
                     <option value="10000">4шт. 10 000 (руб.)</option>
                   </select>
                   <br />

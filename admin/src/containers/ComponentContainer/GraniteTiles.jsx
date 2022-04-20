@@ -4,9 +4,9 @@ import { Container, Row, Col, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { getGraniteTiles } from '../../actions/components/graniteTiles';
 import { MainContainer } from '../MainContainer';
-import BackButton from '../../siteSetting/components/BackButton';
 import { RenderGraniteTiles } from './../render/RenderGraniteTiles';
 import { AddGraniteTiles } from './../create/AddGraniteTiles';
+import { DetailsGraniteTiles } from './../render/DetailsGraniteTiles';
 
 
 const GraniteTiles = (props) => {
@@ -33,9 +33,8 @@ const GraniteTiles = (props) => {
   };
   return (
     <MainContainer
-    backButtonProduct
+      backButtonProduct
       backButton
-      // productSort
       fullFunctional
       get={getGraniteTiles}
       handleShow={handleShow}
@@ -59,11 +58,11 @@ const GraniteTiles = (props) => {
         currentId={currentId}
         setCurrentId={setCurrentId}
       />
-      {/* <DetailsTombstoneCurb
+      <DetailsGraniteTiles
         graniteTilesDetailModal={graniteTilesDetailModal}
         graniteTilesDetails={graniteTilesDetails}
         setGraniteTilesDetailModal={setGraniteTilesDetailModal}
-      /> */}
+      />
     </MainContainer >
   );
 };

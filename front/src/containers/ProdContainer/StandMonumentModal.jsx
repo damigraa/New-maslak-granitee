@@ -9,9 +9,6 @@ const RenderStandMonumentModal = ({ setSizeCurb, SizeCurb }) => {
   const standMonument = useSelector((state) => state.standMonument.standMonument)
   const dispatch = useDispatch();
 
-  const onChangeCurb = e => {
-    setSizeCurb(e.target.value)
-  }
 
 
 
@@ -23,8 +20,8 @@ const RenderStandMonumentModal = ({ setSizeCurb, SizeCurb }) => {
     <ContainerList
       title="Выбор цветника"
       product={standMonument}
-      onChange={onChangeCurb}
-      checked={SizeCurb}
+      stateProduct={SizeCurb}
+      setStateProduct={setSizeCurb}
     />
 
   )

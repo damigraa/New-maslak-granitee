@@ -33,14 +33,15 @@ const MultipleSelectChip = (props) => {
   const theme = useTheme();
   const [personName, setPersonName] = React.useState([]);
 
-  const product = useSelector((state) => state.product.products)
 
-  const productTest = props.product.map((prod) => prod.size)
+  const productTest = props.items.map((prod) => prod)
 
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getProducts())
   }, [])
+
+
   const handleChange = (event) => {
     const {
       target: { value },
@@ -54,7 +55,7 @@ const MultipleSelectChip = (props) => {
   return (
     <div>
       <FormControl sx={{ m: 1, width: 300 }}>
-        <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>
+        <InputLabel id="demo-multiple-chip-label">{props.title}</InputLabel>
         <Select
           style={{ padding: "10px" }}
           labelId="demo-multiple-chip-label"
@@ -72,13 +73,13 @@ const MultipleSelectChip = (props) => {
           )}
           MenuProps={MenuProps}
         >
-          {productTest.map((size) => (
+          {productTest.map((item) => (
             <MenuItem
-              key={size}
-              value={size}
-              style={getStyles(size, personName, theme)}
+              key={item}
+              value={item.size}
+              style={getStyles(item, personName, theme)}
             >
-              {size}
+              {item.size}
             </MenuItem>
           ))}
         </Select>

@@ -25,7 +25,7 @@ export const RenderApplicationModal = ({ handleClose, show }) => {
         dispatch(createApplication(form), hhh())
    
     };
-
+ 
     const handleSamplePhoto = e => {
         setSamplePhoto(e.target.files[0])
     }

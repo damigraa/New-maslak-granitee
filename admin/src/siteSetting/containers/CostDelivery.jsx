@@ -17,7 +17,7 @@ const CostDelivery = () => {
     }, [])
 
 
-    const handleShow = () => {
+    const handleShow = () => { 
         setShow(true)
     }
     const handleClose = () => {

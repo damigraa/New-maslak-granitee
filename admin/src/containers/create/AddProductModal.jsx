@@ -4,19 +4,19 @@ import React, { useEffect, useState } from 'react'
 import Input from '../../components/UI/Input/index';
 import Modal from '../../components/UI/Modal';
 import { useSelector, useDispatch } from 'react-redux';
-import { addProduct, updateProductById } from '../../actions';
-import IconButton from '@material-ui/core/IconButton';
-import RemoveIcon from '@material-ui/icons/Remove';
-import AddIcon from '@material-ui/icons/Add';
-import Icon from '@material-ui/core/Icon';
+import { addProduct, getGraniteTiles, getStandMonument, updateProductById } from '../../actions';
 import { v4 as uuidv4 } from 'uuid';
-import TextField from '@material-ui/core/TextField';
 import MultipleSelectChip from '../../siteSetting/containers/Chip';
+import { getTombstoneCurb } from './../../actions/components/tombstoneCurb';
 
 
 export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) => {
     const dispatch = useDispatch();
     const category = useSelector((state) => state.category)
+    const standMonument = useSelector((state) => state.standMonument.standMonument)
+    const tombstoneCurb = useSelector((state) => state.tombstoneCurb.tombstoneCurb)
+    const graniteTiles = useSelector((state) => state.graniteTiles.graniteTiles)
+    console.log(standMonument)
     const product = useSelector((state) => currentId ? state.product.products.find((m) => m._id === currentId) : null)
     const [productPictures, setProductPictures] = useState("");
     const [productForm, setProductForm] = useState({
@@ -55,6 +55,11 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
     useEffect(() => {
         if (product) setProductForm(product)
     }, [product])
+    useEffect(() => {
+        dispatch(getStandMonument())
+        dispatch(getTombstoneCurb())
+        dispatch(getGraniteTiles())
+    }, [])
 
     const createCategoryList = (categories, options = []) => {
         for (let category of categories) {
@@ -88,9 +93,6 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
             for (let i = 0; i < productPictures.length; i++) {
                 form.append("productPictures", productPictures[i]);
             }
-            // for (let pic of productPictures) {
-            //     form.append("productPictures", pic);
-            // }
             dispatch(addProduct(form)).then(() => handleClose());
         }
 
@@ -187,7 +189,19 @@ export const AddProductModal = ({ show, handleClose, setCurrentId, currentId }) 
                 placeholder={`Вес`}
                 onChange={(e) => setProductForm({ ...productForm, weight: e.target.value })}
             />
-            {/* <MultipleSelectChip /> */}
+            <MultipleSelectChip
+                title="Подставки"
+                items={standMonument}
+            />
+            <MultipleSelectChip
+                title="Цветники"
+                items={tombstoneCurb}
+            />
+            <MultipleSelectChip
+                title="Гранитная плитка"
+                items={graniteTiles}
+
+            />
             {
                 !currentId ? <select
                     className="form-control"

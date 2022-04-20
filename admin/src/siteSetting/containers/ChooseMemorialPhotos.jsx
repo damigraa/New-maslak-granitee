@@ -17,7 +17,7 @@ const ChooseMemorialPhotos = () => {
     }, [])
 
     const handleShow = () => {
-        setShow(true)
+        setShow(true) 
     }
     const handleClose = () => {
         setShow(false)

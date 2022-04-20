@@ -8,10 +8,6 @@ import { ButtonShow } from './ButtonShow';
 
 const ContainerSiteSetting = (props) => {
 
-
-
-    console.log(props.item)
-
     const test = () => {
         if (props.limitOne) {
             if (props.item?.length > 0) {

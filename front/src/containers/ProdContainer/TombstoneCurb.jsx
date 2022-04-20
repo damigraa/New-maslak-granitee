@@ -8,11 +8,6 @@ const RenderTombstoneCurbModal = ({ SizeMemorials, setSizeMemorials }) => {
     const tombstoneCurb = useSelector((state) => state.tombstoneCurb.tombstoneCurb)
 
     const dispatch = useDispatch();
-
-    const onChange = e => {
-        setSizeMemorials(e.target.value)
-    }
-
     useEffect(() => {
         dispatch(getTombstoneCurb())
     }, [])
@@ -22,8 +17,9 @@ const RenderTombstoneCurbModal = ({ SizeMemorials, setSizeMemorials }) => {
             title="Надгробие"
             titleTwo="надгробия или цветника"
             product={tombstoneCurb}
-            onChange={onChange}
-            checked={SizeMemorials}
+            stateProduct={SizeMemorials}
+            setStateProduct={setSizeMemorials}
+
         />
     )
 }

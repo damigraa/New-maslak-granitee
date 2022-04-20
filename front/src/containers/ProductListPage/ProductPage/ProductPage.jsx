@@ -5,6 +5,7 @@ import getParams from '../../../utils/getParams';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import Card from '../../../components/UI/Card';
+import { generatePublicUrl } from '../../../urlConfig';
 
 
 const ProductPage = (props) => {
@@ -43,7 +44,7 @@ const ProductPage = (props) => {
                                 <img
                                     style={{ height: "300px", maxWidth: "1300px" }}
                                     className="productPage__a-img"
-                                    src={banner.img} alt="" />
+                                    src={generatePublicUrl(banner.img)} alt="" />
                             </a>
                         )
                     }

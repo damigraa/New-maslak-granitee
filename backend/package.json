@@ -4,8 +4,8 @@
   "description": "MERN",
   "main": "index.js",
   "scripts": {
-    "start": "node ./src/index.server.js",
-    "startOne": "nodemon server.js"
+    "startOne": "nodemon ./src/index.server.js",
+    "start": "node server.js"
 
   },
   "keywords": [

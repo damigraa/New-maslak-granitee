@@ -3,13 +3,63 @@ import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { signout } from "../../actions";
-import Example from './../Offcanvas/Offcanvas';
+import BurgerMenu from "../BurgerMenu/BurgerMenu";
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import CategoryIcon from '@mui/icons-material/Category';
+import BorderColorIcon from '@mui/icons-material/BorderColor';
+import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
+import SettingsIcon from '@mui/icons-material/Settings';
+import ImageIcon from '@mui/icons-material/Image';
+import FilterFramesIcon from '@mui/icons-material/FilterFrames';
+import CurtainsClosedIcon from '@mui/icons-material/CurtainsClosed';
 
 
 const Header = (props) => {
   const auth = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
+  const items = [
+    {
+      href: "/category",
+      text: "Категории",
+      icon: <CategoryIcon />
+    },
+    {
+      href: "/containerProductPage",
+      text: "Продукты",
+      icon: <CurtainsClosedIcon />
+    },
+    {
+      href: "/orders",
+      text: "Заказы",
+      icon: <FilterFramesIcon />
+    },
+    {
+      href: "/image",
+      text: "Галерея",
+      icon: <ImageIcon />
+    },
+    {
+      href: "/page",
+      text: "Страницы",
+      icon: <DocumentScannerIcon />
+    },
+    {
+      href: "/applications",
+      text: "Заявки",
+      icon: <BorderColorIcon />
+    },
+    {
+      href: "/user",
+      text: "Пользователи",
+      icon: <PersonOutlineIcon />
+    },
+    {
+      href: "/siteSetting",
+      text: "Настройки сайта",
+      icon: <SettingsIcon />
+    },
+  ]
   const logout = () => {
     dispatch(signout());
   };
@@ -54,10 +104,9 @@ const Header = (props) => {
       style={{ zIndex: 1 }}
     >
       <Container fluid>
-        {/* <Navbar.Brand href="#home">Admin Dashboard</Navbar.Brand> */} 
-        <Example />
+        <BurgerMenu title="Maslak-Granite" items={items} />
         <Link to="/" className="navbar-brand">
-          Admin
+          Настройки сайта
         </Link>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">

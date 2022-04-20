@@ -5,7 +5,7 @@ import Loader from '../../components/Loader';
 import { deleteStandMonument } from '../../actions';
 
 
-export const RenderStandMonument = ({ setShow, showProductDetailsModal, setCurrentId, standMonument }) => {
+export const RenderStandMonument = ({ setShow, showStandMonumentDetailsModal, setCurrentId, standMonument }) => {
 
     const fileView = useSelector(state => state.standMonument.view)
 
@@ -22,7 +22,7 @@ export const RenderStandMonument = ({ setShow, showProductDetailsModal, setCurre
                     standMonument.map((item) =>
                         <div className='file-plate' >
                             <img
-                                onClick={() => showProductDetailsModal(item)}
+                                onClick={() => showStandMonumentDetailsModal(item)}
                                 className="file__img"
                                 src={generatePublicUrl(item.img[0])}
                                 alt={item.name}
@@ -51,11 +51,11 @@ export const RenderStandMonument = ({ setShow, showProductDetailsModal, setCurre
                     standMonument.map((item) =>
                         <div className="file" key={item._id}>
                             <img className="file__img"
-                                onClick={() => showProductDetailsModal(item)}
+                                onClick={() => showStandMonumentDetailsModal(item)}
                                 src={generatePublicUrl(item.img[0].img)}
                                 alt={item.name} />
 
-                                {/* <img src={generatePublicUrl(item.img[0].img)} alt="" /> */}
+                            {/* <img src={generatePublicUrl(item.img[0].img)} alt="" /> */}
                             <div className="file__block-name">
                                 <div className="file__name"
                                     style={{ color: '#f1c40f' }}

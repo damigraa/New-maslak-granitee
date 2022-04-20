@@ -106,44 +106,48 @@ const HeaderNav = (props) => {
           login={login}
         />
       </Modall>
-      <div className="subHeader">
+      <div className="row subHeader">
         {/* Logo  */}
-        <div className="logo">
-          <a className="logoimage" href="/choice-of-monument">
-            Как Выбрать Памятник?
-          </a>
-          <a className="logoimage" href="/to-start">
-            С чего начать?
-          </a>
+        <div className="col-sm-6 col-md-6">
+          <div className="logo">
+            <a className="logoimage" href="/choice-of-monument">
+              Как Выбрать Памятник?
+            </a>
+            <a className="logoimage" href="/to-start">
+              С чего начать?
+            </a>
+          </div>
         </div>
 
-        <div className="rightMenu">
-          {auth.authenticate ? renderLoggedInMenu() : renderNonLoggedInMenu()}
-          <DropdownMenu
-            menu={
-              <a className="more">
-                <span>Информация</span>
-                <IoIosArrowDown />
+        <div className="col-sm-6 col-md-6">
+          <div className="rightMenu">
+            {auth.authenticate ? renderLoggedInMenu() : renderNonLoggedInMenu()}
+            <DropdownMenu
+              menu={
+                <a className="more">
+                  <span>Информация</span>
+                  <IoIosArrowDown />
+                </a>
+              }
+              menus={[
+                { label: "С чего начать?", href: "/to-start", icon: null },
+                { label: "Материалы", href: "/granite-catalog", icon: null },
+                { label: "Оплата и Доставка", href: "/paymentAnd-delivery", icon: null },
+                { label: "Способы оплаты", href: "/payment", icon: null },
+                { label: "Гарантии", href: "/warranty", icon: null },
+                { label: "Гравировка", href: "/engraving", icon: null },
+                { label: "О Мастерской", href: "/workshop", icon: null },
+                { label: "Как выбрать памятник", href: "/choice-of-monument", icon: null },
+                { label: "Связаться с нами", href: "/contacts", icon: null },
+                { label: "Акции", href: "/discounts", icon: null },
+              ]}
+            />
+            <div>
+              <a href={`/cart`} className="cart">
+                <Cart count={Object.keys(cart.cartItems).length} />
+                <span style={{ margin: "0 10px" }}>Корзина</span>
               </a>
-            }
-            menus={[
-              { label: "С чего начать?", href: "/to-start", icon: null },
-              { label: "Материалы", href: "/granite-catalog", icon: null },
-              { label: "Оплата и Доставка", href: "/paymentAnd-delivery", icon: null },
-              { label: "Способы оплаты", href: "/payment", icon: null },
-              { label: "Гарантии", href: "/warranty", icon: null },
-              { label: "Гравировка", href: "/engraving", icon: null },
-              { label: "О Мастерской", href: "/workshop", icon: null },
-              { label: "Как выбрать памятник", href: "/choice-of-monument", icon: null },
-              { label: "Связаться с нами", href: "/contacts", icon: null },
-              { label: "Акции", href: "/discounts", icon: null },
-            ]}
-          />
-          <div>
-            <a href={`/cart`} className="cart">
-              <Cart count={Object.keys(cart.cartItems).length} />
-              <span style={{ margin: "0 10px" }}>Корзина</span>
-            </a>
+            </div>
           </div>
         </div>
       </div>

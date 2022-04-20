@@ -4,7 +4,9 @@
   padding: 10px;
 }
 
-
+.titleName{
+  margin: 10px auto;
+}
 .thumbnail img {
   max-width: 100%;
   max-height: 100%;

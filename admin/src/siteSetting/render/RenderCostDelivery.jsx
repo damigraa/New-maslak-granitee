@@ -10,7 +10,7 @@ const RenderCostDelivery = ({ setShow, setCurrentId, costDelivery }) => {
 
     const Edit = (item) => {
         setCurrentId(item._id)
-        setShow(true)
+        setShow(true) 
     }
     return (
         <div className="row">

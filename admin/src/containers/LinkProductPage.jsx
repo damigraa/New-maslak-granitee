@@ -42,10 +42,10 @@ const ContainerProductPage = () => {
                     href="/"
                 />
             </div>
-            <div className="row">
+            <div className="row ">
                 {prodArray.map(item => (
                     <>
-                        <div className="col-3">
+                        <div className="col-12 col-sm-6 col-md-6  col-lg-4 col-xl-3">
                             <div className="containerProductPage">
                                 <NavLink to={item.href} style={{ textDecoration: "none" }}>
                                     <div className="containerProductPage__block">

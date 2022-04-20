@@ -9,10 +9,6 @@ const RenderGraniteTilesModal = ({ tiles, setTiles }) => {
 
     const dispatch = useDispatch();
 
-    const onChange = e => {
-        setTiles(e.target.value)
-    }
-
     useEffect(() => {
         dispatch(getGraniteTiles())
     }, [])
@@ -22,8 +18,8 @@ const RenderGraniteTilesModal = ({ tiles, setTiles }) => {
             title="Плитка"
             titleTwo="плитку"
             product={graniteTiles}
-            onChange={onChange}
-            checked={tiles}
+            stateProduct={tiles}
+            setStateProduct={setTiles}
         />
     )
 }

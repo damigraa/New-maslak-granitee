@@ -25,11 +25,11 @@
     display: flex;
     flex-wrap: wrap;
 }
-input[type="radio"], input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-}
+    input[type="radio"], input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        visibility: hidden;
+    }
 .containerList__form-radio-title {
     font-size: 1rem;
     font-weight: bold
@@ -51,7 +51,7 @@ input[type="radio"], input[type="checkbox"] {
     margin-right: 10px;
     margin-bottom: 10px;
 }
-.containerList__form-radio--tile .containerList__form-radio-label.checked {
+.containerList__form-radio--tile .containerList__form-radio-label.active {
     background-color: #F1F1F1;
     border-color: transparent;
 }

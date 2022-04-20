@@ -216,7 +216,7 @@ const ClothingAndAccessories = (props) => {
             value={searchName}
             onChange={(e) => searchChangeHandler(e)}
           />
-          <div className="menu__front">
+          <div className="menu__front"> 
             <div className="menu__text">
               <h4>Сезонная скидка!</h4>
             </div>

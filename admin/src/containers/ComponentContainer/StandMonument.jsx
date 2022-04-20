@@ -29,7 +29,7 @@ const StandMonument = (props) => {
 
 
 
-  const showStandMonumentModal = (standMonument) => {
+  const showStandMonumentDetailsModal = (standMonument) => {
     setStandMonumentDetails(standMonument);
     setStandMonumentDetailModal(true);
   };
@@ -41,12 +41,11 @@ const StandMonument = (props) => {
       get={getStandMonument}
       handleShow={handleShow}
     >
-     
       <Container>
         <Row>
           <Col>
             <RenderStandMonument
-              showStandMonumentModal={showStandMonumentModal}
+              showStandMonumentDetailsModal={showStandMonumentDetailsModal}
               setShow={setShow}
               setCurrentId={setCurrentId}
               standMonument={standMonument}

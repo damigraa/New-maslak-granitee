@@ -4,7 +4,7 @@ import { generatePublicUrl } from '../../urlConfig';
 import Modal from './../../components/UI/Modal/index';
 
 
-export const DetailsProduct = ({ productDetailModal, setProductDetailModal, handleCloseProductDetailsModal, productDetails }) => {
+export const DetailsProduct = ({ productDetailModal, setProductDetailModal, productDetails }) => {
     if (!productDetails) {
         return null;
     }

@@ -11,7 +11,7 @@ const AddCostDelivery = ({ show, handleClose, setCurrentId, currentId }) => {
 
     const [formCostDelivery, setFormCostDelivery] = useState({
         city: "",
-        price: "",
+        price: "", 
         deliveryTime: ""
     })
 

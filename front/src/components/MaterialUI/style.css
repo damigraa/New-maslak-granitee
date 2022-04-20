@@ -62,21 +62,19 @@
 }
 
 .materialButton {
-  
-  text-align: center; 
+  text-align: center;
   width: 200px;
   height: 40px;
   margin: 10px;
   color: #ffffff;
-  box-shadow:  0 12px 15px rgb(0 0 0 / 20%);
+  box-shadow: 0 12px 15px rgb(0 0 0 / 20%);
   border-radius: 100px;
   background-color: #1e1e1e;
   border: 1px solid #1e1e1e;
   transition: all 0.5s ease;
-
 }
 .materialButton:hover {
-  box-shadow:  0 12px 15px rgb(0 0 0 / 3%);
+  box-shadow: 0 12px 15px rgb(0 0 0 / 3%);
   transition: all 0.5s ease-in-out;
   background-color: #edf3f3;
   color: #1e1e1e;
@@ -86,6 +84,8 @@
 .headerDropdownContainer {
   position: relative;
   display: inline-block;
+  /* border: 20px solid #cecece transparent; */
+  height: 40px;
 }
 .firstmenu {
   padding: 5px 10px;
@@ -108,16 +108,13 @@
   z-index: 100;
   margin-top: 10px;
   display: none;
-  border: 1px solid #ccc transparent;
 }
-.dropdown:after {
-  /* content: ''; */
+.dropdown::after {
+  content: '';
+  height: 20px;
   display: block;
   position: absolute;
-  top: -20px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  border-top: 20px solid #ccc transparent;
   background: #7e7e7e;
   opacity: 0.3;
 }
