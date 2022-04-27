@@ -5,7 +5,7 @@
 }
 
 .titleName{
-  margin: 10px auto;
+  margin: 20px 0 20px 20px;
 }
 .thumbnail img {
   max-width: 100%;
@@ -128,3 +128,9 @@
 .images-view-wrap .images-view-list img:hover {
 opacity: 0.8;
 }
+
+/* &__info {
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 5px 0 30px;
+} */

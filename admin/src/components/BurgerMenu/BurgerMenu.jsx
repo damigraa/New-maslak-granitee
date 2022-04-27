@@ -15,8 +15,7 @@ const BurgerMenu = ({ title, items }) => {
         dispatch(signout());
         setShowConfirm(false)
     };
-    console.log(user)
-
+ 
     const rootEl = useRef(null);
 
     useEffect(() => {
@@ -37,8 +36,8 @@ const BurgerMenu = ({ title, items }) => {
                 onClick={logout}
             />
             <div className="burgerMenu" ref={rootEl}>
-                <div className="burger-btn-container">
-                    <div className="burger-btn" onClick={() => setShow(!show)} fontSize="large" color="#cecece" >
+                <div className="burger-btn-container"onClick={() => setShow(!show)} >
+                    <div className="burger-btn"  fontSize="large" color="#cecece" >
                         <span></span>
                     </div>
                 </div>

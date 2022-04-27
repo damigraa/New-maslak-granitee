@@ -43,7 +43,12 @@ const ModalPrice = ({ product, history, SizeMemorials, SizeCurb, tiles }) => {
             <div className="col-12 productCard__content-right js-product-right">
                 <div className="col-sm-12 col-md-12  miniCart js-miniCart">
 
-                    <div className="miniCart__title">Памятник {prod.name} ( {prod.size} )</div>
+                    <div className="miniCart__title">Памятник
+                        &nbsp;
+                        {prod.name}
+                        &nbsp;
+                        {prod.size ? `(${prod.size})` : null}
+                    </div>
                     <div className="miniCart__price-list">
 
                         <div className="miniCart__price-list-item">

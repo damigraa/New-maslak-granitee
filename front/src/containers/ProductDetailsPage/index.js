@@ -16,6 +16,8 @@ import ProductImgSliderModal from './ProductImgSliderModal';
 import ProductModalContainer from './ProductModalContainer';
 import { Breed } from '../../components/MaterialUI';
 import { IoIosArrowForward } from 'react-icons/io';
+import RenderMakingDetails from './../ProdContainer/RenderMakingDetails';
+import EngravingOnGranite from './../ProdContainer/EngravingOnGranite';
 
 
 const ProductDetailsPage = (props) => {
@@ -28,19 +30,8 @@ const ProductDetailsPage = (props) => {
   const [SizeCurb, setSizeCurb] = useState("")
   const [tiles, setTiles] = useState("")
 
-  const [Engraving, setEngraving] = useState("")
-  const [Ceramics, setCeramics] = useState("")
-  const [Fio, setFio] = useState("")
-  const [Gold, setGold] = useState("")
-  const [Milling, setMilling] = useState("")
-  const [isCheckedRetouch, setIsCheckedRetouch] = useState("")
-  const [isCheckedRecovery, setIsCheckedRecovery] = useState("")
-
-
-
 
   const [totalPrice, setTotalPrice] = useState(product.productDetails);
-  console.log("цена", totalPrice)
   const [checkedTwo, setCheckedTwo] = useState(true);
 
 
@@ -75,28 +66,11 @@ const ProductDetailsPage = (props) => {
   var difference = priceProduct / 100 * 5
   var tallage = priceProduct / 100 * 93;
 
-  // if (!product) {
-  //     return <div>
-  //         <h1>Загрузка...</h1>
-  //     </div>
-  // }
-
-  // const onAddMemorial = () => {
-  //     const obj = {
-  //         id: product.id,
-  //         name: product.name,
-  //         imageUrl: product.imageUrl,
-  //         price: product.price,
-  //         tallage: product.tallage,
-  //         size: product.size,
-  //         vendorCod: product.vendorCod,
-  //         setWeight: product.setWeight,
-  //         setHeight: product.setHeight,
-  //         status: product.status
-  //     }
-  //     onClickMemorial(obj);
-  // }
-
+  if (!product) {
+    return <div>
+      <h1>Загрузка...</h1>
+    </div>
+  }
 
   if (Object.keys(product.productDetails).length === 0) {
     return null;
@@ -133,7 +107,7 @@ const ProductDetailsPage = (props) => {
                 <ProductModalContainer
                   show={show}
                   handleClose={handleClose}
-                  item={product.productDetails}
+                  item={product.productDetails.productPictures}
                 />
                 <RenderProductImg
                   setShow={setShow}
@@ -156,57 +130,11 @@ const ProductDetailsPage = (props) => {
               tiles={tiles}
             />
             <h2> {product.productDetails.name}</h2>
-            {/* <div className="order-info" id="order-info-1">
-
-              <hr />
-              <div className="checkbox-item">
-                <label>
-                  <input type="checkbox" checked={checked} onChange={() => setChecked(!checked)} />
-                  <span className="checkbox-custom">
-                  </span>
-                  <span className="val">
-                    Полная оплата (5%)
-                  </span>
-                  <span className="lev">
-                    - {difference} руб
-                  </span>
-                </label>
-              </div>
-              <div className="checkbox-item">
-                <label>
-                  <input type="checkbox" checked={checkedTwo} onChange={() => setCheckedTwo(!checkedTwo)} />
-                  <span className="checkbox-custom">
-                  </span>
-                  <span className="val">
-                    Пенсионерам (2%)
-                  </span>
-                  <span className="lev">
-                    - {differencePensioners} руб.
-                  </span>
-                </label>
-              </div>
-              <hr />
-              <div className="price">
-                <div className="head">
-
-                  Цена :
-                </div>
-                <div className="old">
-                  {product.price = price}
-                  руб.
-                </div>
-                <div className="new">
-                  <b>{tallage} ₽</b>
-
-                </div>
-              </div>
-            </div> */}
             <div>
               <RenderTombstoneCurbModal
                 SizeMemorials={SizeMemorials}
                 setSizeMemorials={setSizeMemorials}
               />
-
               <div>
                 <RenderStandMonumentModal
                   SizeCurb={SizeCurb}
@@ -217,98 +145,11 @@ const ProductDetailsPage = (props) => {
                   tiles={tiles}
                   setTiles={setTiles}
                 />
-
-              </div>
-              <div className="order-info" >
-                <h4 className="text-center  section-title">Оформление</h4>
-                <hr />
-                <div>
-                  <h6>Гравировка портретов</h6>
-                  <select value={Engraving} onChange={(e) => { setEngraving(e.target.value) }}>
-                    <option value="0">Выберите количесво</option>
-                    <option value="3000">1шт. 3000 (руб.)</option>
-                    <option value="5500">2шт. 5500 (руб.)</option>
-                    <option value="8500">3шт. 8500 (руб.)</option>
-                    <option value="10000">4шт. 10 000 (руб.)</option>
-                    <option value="10000">Во весь рост 10 000 (руб.)</option>
-                  </select>
-                  <br />
-                  <h6>Фото (керамика)</h6>
-                  <select value={Ceramics} onChange={(e) => { setCeramics(e.target.value) }}>
-                    <option value="0">Выберите количесво</option>
-                    <option value="3000">1шт. 3000 (руб.)</option>
-                    <option value="5500">2шт. 5500 (руб.)</option>
-                    <option value="8500">3шт. 8500 (руб.)</option>
-                    <option value="10000">4шт. 10 000 (руб.)</option>
-                  </select>
-                  <br />
-                  <h6>Гравировка ФИО + даты</h6>
-                  <select value={Fio} onChange={(e) => { setFio(e.target.value) }}>
-                    <option value="0">Выберите количесво</option>
-                    <option value="3000">1шт. 3000 (руб.)</option>
-                    <option value="5500">2шт. 5500 (руб.)</option>
-                    <option value="8500">3шт. 8500 (руб.)</option>
-                    <option value="10000">4шт. 10 000 (руб.)</option>
-                  </select>
-                  <br />
-                  <h6>ФИО (краска золото)</h6>
-                  <select value={Gold} onChange={(e) => { setGold(e.target.value) }}>
-                    <option value="0">Выберите материал</option>
-                    <option value="3000">Краска 400символ (руб.)</option>
-                    <option value="5500">Золото 800символ (руб.)</option>
-                  </select>
-                  <br />
-
-                  <h6>ФИО (фрезировка)</h6>
-                  <select value={Milling} onChange={(e) => { setMilling(e.target.value) }}>
-                    <option value="0">Выберите количесво</option>
-                    <option value="3000">1шт. 3000 (руб.)</option>
-                    <option value="5500">2шт. 5500 (руб.)</option>
-                    <option value="8500">3шт. 8500 (руб.)</option>
-                    <option value="10000">3шт. 10 000 (руб.)</option>
-                    <option value="10000">Во весь рост 10 000 (руб.)</option>
-                  </select>
-                  <br />
-
-                </div>
-              </div>
-              <div className="order-info">
-                <h4 className="section-title">Доп. Оформление </h4>
-                <hr />
-                <label className="checkbox-item">
-                  <input
-                    type="checkbox"
-                    checked={isCheckedRetouch}
-                    onChange={e => { setIsCheckedRetouch(e.target.checked) }} />
-                  <span className="val">Ретушь фотографии</span>
-                  <span className="lev"> 1000руб</span>
-                </label>
-                <br />
-                <label className="checkbox-item">
-
-                  <input
-                    type="checkbox"
-                    checked={isCheckedRecovery}
-                    onChange={e => { setIsCheckedRecovery(e.target.checked) }} />
-
-                  <span className="val">Востановление фотографии</span>
-                  <span className="lev"> (3000руб)</span>
-                </label>
-                <br />
-                {/* <label className="checkbox-item">
-
-                  <input
-                    type="checkbox"
-                    checked={checked} />
-
-                  <span className="val">Хранение на складе</span>
-                  <span className="lev"> (бесплатно)</span>
-                </label> */}
-                <br />
               </div>
             </div>
-
           </div>
+          <EngravingOnGranite />
+          <RenderMakingDetails />
         </div>
       </form>
     </Layout>

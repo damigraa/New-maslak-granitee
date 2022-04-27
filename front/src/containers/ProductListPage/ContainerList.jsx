@@ -21,7 +21,7 @@ const ContainerList = (props) => {
                     props.product.length > 0 ?
                         props.product.map((item, index) =>
                             <label
-                            onClick={console.log(item)}
+                            // onClick={console.log(item)}
                                 key={index + 1}
                                 // className="containerList__form-radio-label"
                                 className={stateProduct == item.price ? "containerList__form-radio-label active" : "containerList__form-radio-label"}

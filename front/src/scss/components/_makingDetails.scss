@@ -1,0 +1,39 @@
+.makingDetails{
+
+
+    &__info{
+        max-width: 360px;
+        margin: 0 auto;
+        padding: 5px 0 30px;
+    }
+    &__box-icon {
+        display: flex;
+        width: 130px;
+        height: 130px;
+        position: relative;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        background: #fff;
+        box-shadow: 0 2px 35px rgb(0 0 0 / 10%);
+        margin: 0 auto 15px;
+    }
+    &__box-icon::before {
+        content: '';
+        position: absolute;
+        left: 15px;
+        top: 15px;
+        bottom: 15px;
+        right: 15px;
+        border: 1px solid #e5c8b5;
+    }
+    &__icon.icon-default, &__icon.icon-primary {
+        color: #424242;
+    }
+    &__info &__icon>i {
+        font-size: 1.9em;
+    }
+    &__text{
+        font-size: 17px;
+    }
+}

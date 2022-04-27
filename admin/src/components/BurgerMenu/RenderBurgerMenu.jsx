@@ -6,10 +6,12 @@ const RenderBurgerMenu = ({ items, user, show, setShow, title, handleShow }) => 
 
 
     return (
+        
         <div
             className={show ? "burgerMenu__dropdown active" : "burgerMenu__dropdown"}
             onClick={e => e.stopPropagation()}
         >
+      
             <div className="burgerMenu__header-container">
                 <div className="burgerMenu__close-icon-container">
                     <div className="burgerMenu__close-icon" onClick={() => { setShow(false) }}>
@@ -35,9 +37,6 @@ const RenderBurgerMenu = ({ items, user, show, setShow, title, handleShow }) => 
                 </div>
             </div>
             <div className="burgerMenu__container">
-                <div className="burgerMenu__blur" />
-                <div className="burgerMenu__body">
-                </div>
 
                 <div>
                     {items.map((item) =>

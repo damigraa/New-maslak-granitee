@@ -16,7 +16,7 @@ const ProductModalContainer = ({ show, handleClose, item }) => {
             handleClose={handleClose}>
             <div>
                 <Slider
-                    item={item.productPictures}
+                    item={item}
                     onClick
                 />
             </div>

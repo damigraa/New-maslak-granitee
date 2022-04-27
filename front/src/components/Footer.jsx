@@ -20,7 +20,7 @@ function Footer() {
                 footer.length > 0 ? footer.map((item) =>
 
                     <div className="footer-container"
-
+                        key={item._id}
                         style={{
                             backgroundImage: `url(${generatePublicUrl(item.img)})`
                         }}
